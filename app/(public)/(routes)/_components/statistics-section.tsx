@@ -12,7 +12,7 @@ const StatisticsSection = () => {
 			imageUrl: "/partners/akwel.png",
 		},
 		{
-			imageUrl: "/partners/bellavol.jpeg",
+			imageUrl: "/partners/bellavol.png",
 		},
 		{
 			imageUrl: "/partners/blini.png",
@@ -24,7 +24,7 @@ const StatisticsSection = () => {
 			imageUrl: "/partners/charal.png",
 		},
 		{
-			imageUrl: "/partners/cometi.jpeg",
+			imageUrl: "/partners/cometi.png",
 		},
 		{
 			imageUrl: "/partners/ennolys-by-lesaffre.png",
