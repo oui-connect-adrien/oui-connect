@@ -70,9 +70,9 @@ const StatisticsSection = () => {
 	return (
 		<section
 			id="hero"
-			className="relative min-h-screen bg-grid-small-black/[0.2] py-4 antialiased overflow-hidden"
+			className="[mask-image:linear-gradient(to_top,transparent,white_20%,white_90%,transparent)] [webkit-mask-image:linear-gradient(to_top,transparent,white_20%,white_80%,transparent)] relative min-h-screen bg-grid-slate-100/70 py-4 antialiased overflow-hidden"
 		>
-			<div className="z-10 relative lg:container pt-20 px-4 flex flex-col gap-8 items-center">
+			<div className="z-10 relative lg:container pt-24 pb-24 px-4 flex flex-col gap-8 items-center">
 				<div className="mb-12">
 					<h2 className="text-3xl md:text-5xl font-bold mb-8 text-center text-neutral-700 max-w-6xl mx-auto">
 						Nos garanties en quelques chiffres
