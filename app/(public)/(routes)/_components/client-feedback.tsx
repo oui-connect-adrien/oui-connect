@@ -3,7 +3,7 @@
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { motion } from "framer-motion";
 
-const ClientFeedbackSection = () => {
+const ClientFeedback = () => {
 	const variants = {
 		hidden: { opacity: 0, y: 20 },
 		visible: { opacity: 1, y: 0 },
@@ -42,4 +42,4 @@ const ClientFeedbackSection = () => {
 	);
 };
 
-export default ClientFeedbackSection;
+export default ClientFeedback;

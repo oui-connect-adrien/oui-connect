@@ -33,7 +33,7 @@ export const projects = [
 	},
 ];
 
-const ProjectsSection = () => {
+const ProjectsList = () => {
 	const variants = {
 		hidden: { opacity: 0, y: 20 },
 		visible: { opacity: 1, y: 0 },
@@ -71,4 +71,4 @@ const ProjectsSection = () => {
 	);
 };
 
-export default ProjectsSection;
+export default ProjectsList;

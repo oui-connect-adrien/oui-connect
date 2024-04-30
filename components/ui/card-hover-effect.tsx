@@ -70,7 +70,7 @@ export const Card = ({
 	return (
 		<div
 			className={cn(
-				"rounded-2xl h-full w-full p-4 overflow-hidden bg-gradient-to-r from-transparent to-primary/10 border border-transparent relative z-20",
+				"rounded-2xl h-full w-full p-4 overflow-hidden bg-gradient-to-r from-transparent to-primary/10 border border-primary relative z-20",
 				className
 			)}
 		>

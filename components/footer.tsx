@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { projects } from "../app/(public)/(routes)/_components/projects-section";
+import { projects } from "../app/(public)/(routes)/_components/projects-list";
 
 const Footer = () => {
 	return (

@@ -1,9 +1,9 @@
 "use client";
 
 import { InfiniteMovingCards } from "../../../../components/ui/infinite-moving-cards";
-import Statistic from "./statistic";
+import Statistic from "./statistic-item";
 
-const StatisticsSection = () => {
+const StatisticsList = () => {
 	const partners = [
 		{
 			imageUrl: "/partners/agromousquetaires-ranou.png",
@@ -110,4 +110,4 @@ const StatisticsSection = () => {
 	);
 };
 
-export default StatisticsSection;
+export default StatisticsList;

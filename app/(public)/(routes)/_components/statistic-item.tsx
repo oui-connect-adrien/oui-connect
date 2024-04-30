@@ -9,7 +9,7 @@ type Props = {
 	duration: number;
 };
 
-const Statistic = ({ value, label, duration }: Props) => {
+const StatisticItem = ({ value, label, duration }: Props) => {
 	const [isInView, setIsInView] = useState(false);
 
 	const handleInViewChange = (inView: boolean) => {
@@ -50,4 +50,4 @@ const Statistic = ({ value, label, duration }: Props) => {
 	);
 };
 
-export default Statistic;
+export default StatisticItem;

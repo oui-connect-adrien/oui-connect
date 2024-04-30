@@ -1,5 +1,3 @@
-import { Tabs } from "@/components/ui/tabs";
-
 const TarifsPage = () => {
 	const tabs = [
 		{
@@ -36,7 +34,7 @@ const TarifsPage = () => {
 			className="min-h-screen py-4 antialiased overflow-hidden"
 		>
 			<div className="pb-20 pt-14 px-4 flex flex-col items-center">
-				<div className="mb-14 shadow-b-2 lg:container">
+				<div className="mb-14 shadow-b-2 shadow-slate-100 lg:container">
 					<h1 className="text-3xl md:text-6xl font-bold mb-8 mt-20 relative text-center text-zinc-700 max-w-6xl mx-auto">
 						Formules d'abonnement
 					</h1>
@@ -45,14 +43,7 @@ const TarifsPage = () => {
 					</h2>
 				</div>
 				<div className="min-h-96 relative mx-auto w-full [mask-image:linear-gradient(to_top,transparent,white_20%,white_90%,transparent)] [webkit-mask-image:linear-gradient(to_top,transparent,white_20%,white_80%,transparent)] bg-grid-slate-100/70">
-					<div className="mt-14 grow flex flex-col [perspective:1000px] items-start justify-start">
-						<Tabs
-							contentClassName="bg-transparent border-4"
-							activeTabClassName="bg-gradient-to-r from-primary to-transparent"
-							tabClassName="bg-gradient-to-r from-transparent to-primary/10"
-							tabs={tabs}
-						/>
-					</div>
+					<div className="lg:container mt-14 grow flex flex-col [perspective:1000px] items-start justify-start"></div>
 				</div>
 			</div>
 		</section>

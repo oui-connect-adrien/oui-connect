@@ -3,6 +3,7 @@
 import Logo from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { useSheet } from "@/hooks/use-sheet-store";
+import { cn } from "@/lib/utils";
 import { Cookie, Home, Info, Mail, Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -61,13 +62,12 @@ const Navbar = () => {
 				<div className="hidden lg:flex items-center m-auto lg:flex-row">
 					{menu.map((item) => (
 						<Link
-							className={`block relative font-code text-2xl uppercase transition-colors hover:text-muted-foreground 
-							""
-						px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${
-							item.path === pathname
-								? "z-2 lg:text-muted-foreground"
-								: "lg:text-zinc-700"
-						} lg:leading-5 lg:hover:text-muted-foreground xl:px-12`}
+							className={cn(
+								`block relative font-code text-2xl uppercase transition-colors hover:text-muted-foreground px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold  lg:leading-5 lg:hover:text-muted-foreground xl:px-12`,
+								item.path === pathname
+									? "z-2 lg:text-muted-foreground"
+									: "lg:text-zinc-700"
+							)}
 							key={item.label}
 							href={item ? item.path : "/"}
 						>
@@ -76,7 +76,9 @@ const Navbar = () => {
 					))}
 				</div>
 				<div className="flex gap-4 items-center">
-					<Button>Se connecter</Button>
+					<Button className="text-foreground hover:text-muted-foreground bg-transparent rounded-full border hover:bg-transparent transition-all transition-duration-200">
+						Se connecter
+					</Button>
 				</div>
 			</div>
 		</nav>

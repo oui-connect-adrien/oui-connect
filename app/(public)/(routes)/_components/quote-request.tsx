@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "../../../../components/ui/button";
 
-const QuoteRequestSection = () => {
+const QuoteRequest = () => {
 	// Définir les animations d'apparition
 	const fadeInUp = {
 		hidden: { opacity: 0, y: 50 },
@@ -44,4 +44,4 @@ const QuoteRequestSection = () => {
 	);
 };
 
-export default QuoteRequestSection;
+export default QuoteRequest;

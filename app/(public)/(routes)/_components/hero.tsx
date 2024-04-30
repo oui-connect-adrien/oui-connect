@@ -2,10 +2,10 @@
 import { AuroraBackground } from "../../../../components/ui/aurora-background";
 import { HoverBorderGradient } from "../../../../components/ui/hover-border-gradient";
 
-const HeroSection = () => {
+const Hero = () => {
 	return (
 		<AuroraBackground>
-			<section
+			<div
 				id="hero"
 				className="relative min-h-screen py-4 antialiased overflow-hidden"
 			>
@@ -31,9 +31,9 @@ const HeroSection = () => {
 						</HoverBorderGradient>
 					</div>
 				</div>
-			</section>
+			</div>
 		</AuroraBackground>
 	);
 };
 
-export default HeroSection;
+export default Hero;
