@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { DirectionAwareHover } from "../../../components/ui/direction-aware-hover";
 
 export const projects = [
@@ -9,27 +10,27 @@ export const projects = [
 		imageUrl: "/oui-diag.jpg",
 		description:
 			"Faites diagnostiquer vos installations industrielles directement par nos partenaires experts. Identifiez vos anomalies et dérives de consommation.",
-		link: "/projects/oui-diag",
+		link: "/oui-diag",
 	},
 	{
 		name: "Oui-Access",
 		imageUrl: "/oui-access.jpeg",
 		description: "This is a description for project 2",
-		link: "/projects/oui-access",
+		link: "/oui-access",
 	},
 	{
 		name: "Oui-Scan",
-		imageUrl: "/oui-scan.png",
+		imageUrl: "/oui-scan.jpg",
 		description:
 			"Optimisez la gestion de vos ressources par QR code grâce à notre solution web accessible sans téléchargement ou installation.",
-		link: "/projects/oui-scan",
+		link: "/oui-scan",
 	},
 	{
 		name: "Oui-Energy",
 		imageUrl: "/oui-energy.jpeg",
 		description:
 			"Maitrisez votre consommation énergétique sur tous vos appareils grâce à notre solution de monitoring énergétique simple et rapide à installer.",
-		link: "/projects/oui-energy",
+		link: "/oui-energy",
 	},
 ];
 
@@ -50,19 +51,20 @@ const ProjectsList = () => {
 				<div className="grid lg:grid-cols-3 gap-8 w-full">
 					{projects.map((project) => (
 						<motion.div
-							key={project.name}
 							className="relative break-words"
 							variants={variants}
 							initial="hidden"
 							whileInView="visible"
 							transition={{ duration: 0.5 }}
 						>
-							<DirectionAwareHover imageUrl={project.imageUrl}>
-								<p className="font-bold text-xl">{project.name}</p>
-								<p className="font-normal text-sm break-words">
-									{project.description}
-								</p>
-							</DirectionAwareHover>
+							<Link key={project.link} href={project.link}>
+								<DirectionAwareHover imageUrl={project.imageUrl}>
+									<p className="font-bold text-xl">{project.name}</p>
+									<p className="font-normal text-sm break-words">
+										{project.description}
+									</p>
+								</DirectionAwareHover>
+							</Link>
 						</motion.div>
 					))}
 				</div>

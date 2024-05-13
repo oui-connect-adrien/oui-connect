@@ -20,7 +20,7 @@ const Page = () => {
 			description:
 				"Créez des dossiers, stockez et partagez des documents liés à votre matériel (notices, rapport d’intervention, certificat qualité…). Alimentez la vie de vos équipements en ajoutant vos rapports d’intervention, photos, descriptions, et tout autres documents liés à vos équipements. Créez et attribuez autant d’étiquettes (statuts, états, propriétés, caractéristiques, quantité en stock…) que souhaitées à chacuns de vos matériels.",
 			content: (
-				<div className="h-full w-full  flex items-center justify-center text-white">
+				<div className="h-full w-full relative">
 					<Image
 						src="/linear.webp"
 						width={300}
@@ -32,12 +32,17 @@ const Page = () => {
 			),
 		},
 		{
-			title: "Version control",
+			title: "Accélérez et automatisez la gestion de vos stocks",
 			description:
-				"Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+				"Rattachez automatiquement vos ressources matérielles à des dépôts ou chantiers spécifiques à vos activités d’un simple scan et simplifiez le suivi de vos mouvements de stocks. Synchronisez automatiquement les informations et mouvements de stocks avec votre ERP. Modulez facilement les quantités en stocks de vos lots (consommables, groupes d’articles…) depuis votre smartphone. Restez à jour en permanence dans l’inventaire et les niveaux de stocks sur tous vos sytèmes d’information",
 			content: (
-				<div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
-					Version control
+				<div className="h-full w-full relative">
+					<Image
+						src="/oui-scan-3.png"
+						fill
+						className="h-full w-full object-cover"
+						alt="linear board demo"
+					/>
 				</div>
 			),
 		},
@@ -86,6 +91,9 @@ const Page = () => {
 					</div>
 				</div>
 			</div>
+			<div className="relative h-[500px] py-4 antialiased overflow-hidden">
+				<StickyScroll content={content} />
+			</div>
 			<div className="[mask-image:linear-gradient(to_top,transparent,white_20%,white_90%,transparent)] [webkit-mask-image:linear-gradient(to_top,transparent,white_20%,white_80%,transparent)] border-4 relative min-h-screen bg-grid-slate-100/70 py-4 antialiased overflow-hidden">
 				<div className="z-10 relative lg:container pt-24 px-4 flex flex-col items-center">
 					<div className="text-center flex flex-col gap-4 shadow-sm lg:py-6 py-4">
@@ -98,9 +106,6 @@ const Page = () => {
 						</p>
 					</div>
 				</div>
-			</div>
-			<div className="relative h-screen py-4 antialiased overflow-hidden">
-				<StickyScroll content={content} />
 			</div>
 		</>
 	);
