@@ -1,4 +1,5 @@
 import MobileSidebar from "@/components/mobile-sidebar";
+import ModalProvider from "@/providers/modal-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -19,6 +20,7 @@ export default function RootLayout({
 		<html lang="fr">
 			<body className={inter.className}>
 				<MobileSidebar />
+				<ModalProvider />
 				{children}
 			</body>
 		</html>

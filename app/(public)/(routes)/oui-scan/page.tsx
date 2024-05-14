@@ -104,6 +104,7 @@ const Page = () => {
 							Parce que OuiScan est la solution la plus simple et la plus
 							efficace pour gérer vos ressources matérielles.
 						</p>
+						<div className="grid lg:grid-cols-3 gap-4 mt-10"></div>
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export type ModalType = "test" | "auth";
+export type ModalType = "test" | "login";
 
 interface ModalData {}
 

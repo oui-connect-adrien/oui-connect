@@ -2,6 +2,7 @@
 
 import Logo from "@/components/logo";
 import { Button } from "@/components/ui/button";
+import { useModal } from "@/hooks/use-modal-store";
 import { useSheet } from "@/hooks/use-sheet-store";
 import { cn } from "@/lib/utils";
 import { Cookie, Home, Info, Mail, Menu } from "lucide-react";
@@ -43,6 +44,7 @@ export const menu = [
 const Navbar = () => {
 	const pathname = usePathname();
 	const { toggleSheet } = useSheet();
+	const { onOpen } = useModal();
 
 	return (
 		<nav className="fixed z-50 top-0 h-20 backdrop-blur-md w-full bg-transparent">
@@ -76,7 +78,10 @@ const Navbar = () => {
 					))}
 				</div>
 				<div className="flex gap-4 items-center">
-					<Button className="text-foreground hover:text-muted-foreground bg-transparent rounded-full border hover:bg-transparent transition-all transition-duration-200">
+					<Button
+						onClick={() => onOpen("login")}
+						className="text-foreground hover:text-muted-foreground bg-transparent rounded-full border hover:bg-transparent transition-all transition-duration-200"
+					>
 						Se connecter
 					</Button>
 				</div>
