@@ -1,35 +1,34 @@
 "use client";
 
+import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { DirectionAwareHover } from "../../../components/ui/direction-aware-hover";
 
 export const projects = [
 	{
 		name: "Oui-Diag",
 		imageUrl: "/oui-diag.jpg",
-		description:
-			"Faites diagnostiquer vos installations industrielles directement par nos partenaires experts. Identifiez vos anomalies et dérives de consommation.",
+		description: "Faites diagnostiquer vos installations industrielles",
 		link: "/oui-diag",
 	},
 	{
 		name: "Oui-Access",
 		imageUrl: "/oui-access.jpeg",
-		description: "This is a description for project 2",
+		description: "Surveillez vos installations à distance",
 		link: "/oui-access",
 	},
 	{
 		name: "Oui-Scan",
 		imageUrl: "/oui-scan.jpg",
 		description:
-			"Optimisez la gestion de vos ressources par QR code grâce à notre solution web accessible sans téléchargement ou installation.",
+			"Optimisez la gestion de vos ressources par QR code grâce à notre solution web",
 		link: "/oui-scan",
 	},
 	{
 		name: "Oui-Energy",
 		imageUrl: "/oui-energy.jpeg",
 		description:
-			"Maitrisez votre consommation énergétique sur tous vos appareils grâce à notre solution de monitoring énergétique simple et rapide à installer.",
+			"Maitrisez votre consommation énergétique sur tous vos appareils",
 		link: "/oui-energy",
 	},
 ];

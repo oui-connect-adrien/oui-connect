@@ -26,7 +26,7 @@ const ClientFeedback = () => {
 	return (
 		<motion.section
 			variants={variants}
-			id="hero"
+			id="temoignages"
 			className="relative py-4 antialiased overflow-hidden"
 			initial="hidden"
 			whileInView="visible"

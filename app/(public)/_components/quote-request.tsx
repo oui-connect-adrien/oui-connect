@@ -1,8 +1,8 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Button } from "../../../components/ui/button";
 
 const QuoteRequest = () => {
 	// Définir les animations d'apparition
@@ -13,7 +13,7 @@ const QuoteRequest = () => {
 
 	return (
 		<motion.section
-			id="hero"
+			id="quote-request"
 			className="relative py-4 antialiased overflow-hidden"
 			initial="hidden"
 			whileInView="visible"

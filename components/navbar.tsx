@@ -25,8 +25,8 @@ export const menu = [
 	},
 
 	{
-		label: "Nos tarifs",
-		path: "/tarifs",
+		label: "Témoignages",
+		path: "/#temoignages",
 		icon: Cookie,
 	},
 	{
@@ -35,8 +35,8 @@ export const menu = [
 		icon: Info,
 	},
 	{
-		label: "Blog",
-		path: "/blog",
+		label: "Qui sommes-nous ?",
+		path: "/qui-sommes-nous",
 		icon: Mail,
 	},
 ];

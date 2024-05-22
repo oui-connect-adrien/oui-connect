@@ -1,6 +1,6 @@
 "use client";
-import { AuroraBackground } from "../../../components/ui/aurora-background";
-import { HoverBorderGradient } from "../../../components/ui/hover-border-gradient";
+import { AuroraBackground } from "@/components/ui/aurora-background";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 const Hero = () => {
 	return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { InfiniteMovingCards } from "../../../components/ui/infinite-moving-cards";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import Statistic from "./statistic-item";
 
 const StatisticsList = () => {
@@ -92,7 +92,7 @@ const StatisticsList = () => {
 						))}
 					</div>
 				</div>
-				<div>
+				<div id="partners">
 					<h2 className="text-3xl md:text-5xl font-bold mb-12 text-center text-neutral-700 max-w-6xl mx-auto">
 						Ils nous font confiance
 					</h2>

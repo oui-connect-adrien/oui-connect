@@ -1,15 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CountUp from "react-countup";
 
 type Props = {
-	value: number | string;
+	value?: number | string;
 	label: string;
-	duration: number;
+	duration?: number;
+	icon?: React.ReactNode;
 };
 
-const StatisticItem = ({ value, label, duration }: Props) => {
+const StatisticItem = ({ value, label, duration = 1, icon }: Props) => {
 	const [isInView, setIsInView] = useState(false);
 
 	const handleInViewChange = (inView: boolean) => {
@@ -22,7 +23,13 @@ const StatisticItem = ({ value, label, duration }: Props) => {
 		? parseInt(value.replace("%", ""), 10)
 		: typeof value === "number"
 		? value
-		: parseInt(value, 10);
+		: parseInt(value || "0", 10);
+
+	useEffect(() => {
+		if (icon || value === "A à Z") {
+			setIsInView(true);
+		}
+	}, [icon, value]);
 
 	return (
 		<motion.div
@@ -34,15 +41,21 @@ const StatisticItem = ({ value, label, duration }: Props) => {
 			onViewportLeave={() => handleInViewChange(false)}
 		>
 			<div className="text-4xl font-bold text-primary border-4 border-primary/10 w-[200px] h-[200px] flex items-center justify-center rounded-full">
-				{isInView ? (
-					<CountUp
-						start={0}
-						end={numberValue}
-						duration={duration}
-						suffix={isPercentage ? "%" : ""}
-					/>
+				{icon && isInView ? (
+					icon
+				) : value !== undefined && isInView ? (
+					typeof value === "string" ? (
+						<span>{value}</span>
+					) : (
+						<CountUp
+							start={0}
+							end={numberValue}
+							duration={duration}
+							suffix={isPercentage ? "%" : ""}
+						/>
+					)
 				) : (
-					<span>0{isPercentage ? "%" : ""}</span>
+					<span>{isPercentage ? "0%" : "0"}</span>
 				)}
 			</div>
 			<p className="text-neutral-500 mt-8 text-center text-2xl">{label}</p>
