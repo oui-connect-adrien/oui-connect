@@ -19,8 +19,27 @@ const ContactForm = () => {
 		},
 	});
 
-	const onSubmit = async (values: any) => {};
+	const onSubmit = async (values: any) => {
+		try {
+			const response = await fetch("/api/contact", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(values),
+			});
 
+			const data = await response.json();
+			if (response.ok) {
+				alert(data.message);
+			} else {
+				alert(data.message);
+			}
+		} catch (error) {
+			alert("Une erreur s'est produite lors de l'envoi du formulaire.");
+			console.error(error);
+		}
+	};
 	return (
 		<Form {...form}>
 			<form
