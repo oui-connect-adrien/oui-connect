@@ -29,11 +29,13 @@ const LoginModal = () => {
 						<div className="relative w-[150px] rounded-md h-[150px] lg:w-[200px] lg:h-[200px] overflow-hidden mx-auto">
 							<Image src="/oui-access-logo.jpeg" alt="Oui-Access" fill />
 						</div>
+						<p className="text-center mt-2">Oui-Access</p>
 					</Link>
 					<Link href="http://oui-scan.com">
 						<div className="relative w-[150px] rounded-md h-[150px] lg:w-[200px] lg:h-[200px] overflow-hidden mx-auto">
 							<Image src="/oui-scan-logo.jpeg" alt="Oui-Scan" fill />
 						</div>
+						<p className="text-center mt-2">Oui-Scan</p>
 					</Link>
 				</div>
 				<DialogFooter></DialogFooter>
