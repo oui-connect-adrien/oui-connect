@@ -12,7 +12,7 @@ const Page = () => {
 			description:
 				"Collectez et mesurez toutes les données et indicateurs de performance (IPE) énergétiques nécessaires à votre suivi. Stockez et historisez vos données sur des serveurs sécurisés selon vos exigences. Accédez à vos données en temps réel. Paramétrez vos propres alarmes afin d’être alerté n’importe où et n’importe quand. Détectez et surveillez les anomalies et corrigez vos surconsommations énergétiques.",
 			content: (
-				<div className="relative h-[300px] w-[300px] flex items-center justify-center text-white">
+				<div className="h-full w-full relative">
 					<Image src="/oui-energy-2.jpeg" fill alt="oui-scan-1" />
 				</div>
 			),

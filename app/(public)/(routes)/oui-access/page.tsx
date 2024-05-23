@@ -12,7 +12,7 @@ const Page = () => {
 			description:
 				"Paramétrez vos propres alarmes afin d’être alerté n’importe ou et n’importe quand par mail ou SMS pour toutes dérives ou anomalies. Gérez vos alarmes et prévenez la personne adéquate via notre gestion des astreintes",
 			content: (
-				<div className="relative h-[300px] w-[300px] flex items-center justify-center text-white">
+				<div className="h-full w-full relative">
 					<Image src="/oui-access-2.png" fill alt="oui-scan-1" />
 				</div>
 			),

@@ -14,7 +14,7 @@ const Page = () => {
 			description:
 				"Nous identifions conjointement les installations à auditer. Nous sélectionnons et préparons le matériel nécessaire à l’installation. Nous mettons en place les différents instruments de mesure nécessaires (FT, PT, TT).",
 			content: (
-				<div className="relative h-[300px] w-[300px] flex items-center justify-center text-white">
+				<div className="h-full w-full relative">
 					<Image src="/evaluation-energetique-1.png" fill alt="oui-scan-1" />
 				</div>
 			),

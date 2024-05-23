@@ -28,7 +28,7 @@ const Page = () => {
 			description:
 				"Ne perdez plus votre matériel. Géolocalisez précisément vos ressources matérielles. Historisez le parcours de chaque élément tout au long de sa vie. Identifiez instantanément votre matériel (descriptions, numéro d’identification, référence, informations du fabricant, caractéristiques…) d’un simple scan du QR Code associé. Vérifiez la disponibilité de votre parc matériel avec notre moteur de recherche. Rattachez vos ressources matérielles à des affaires et contrats clients pour optimiser votre picking.",
 			content: (
-				<div className="relative h-[300px] w-[300px] flex items-center justify-center text-white">
+				<div className="h-full w-full relative">
 					<Image src="/oui-scan-1.png" fill alt="oui-scan-1" />
 				</div>
 			),
