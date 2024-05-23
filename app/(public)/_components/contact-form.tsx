@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 const ContactForm = () => {
 	const form = useForm({
@@ -31,9 +32,10 @@ const ContactForm = () => {
 
 			const data = await response.json();
 			if (response.ok) {
-				alert(data.message);
+				toast.success(data.message);
+				form.reset();
 			} else {
-				alert(data.message);
+				toast.error(data.message);
 			}
 		} catch (error) {
 			alert("Une erreur s'est produite lors de l'envoi du formulaire.");
