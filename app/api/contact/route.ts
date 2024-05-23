@@ -20,6 +20,7 @@ export async function POST(req: Request) {
 		const mailData = {
 			from: email,
 			to: process.env.EMAIL_USER,
+			cc: "support@oui-connect.fr",
 			subject: `Message from ${firstname} ${lastname} - ${subject} - ${phoneNumber}`,
 			text: message,
 			html: `<div>${message}</div>`,
