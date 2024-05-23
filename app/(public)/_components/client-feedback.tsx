@@ -27,7 +27,7 @@ const ClientFeedback = () => {
 		<motion.section
 			variants={variants}
 			id="temoignages"
-			className="relative py-4 antialiased overflow-hidden"
+			className="relative py-8 antialiased overflow-hidden"
 			initial="hidden"
 			whileInView="visible"
 			transition={{ duration: 0.8 }}
