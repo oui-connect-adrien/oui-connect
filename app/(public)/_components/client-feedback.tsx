@@ -27,12 +27,12 @@ const ClientFeedback = () => {
 		<motion.section
 			variants={variants}
 			id="temoignages"
-			className="relative py-8 antialiased overflow-hidden"
+			className="relative py-4 antialiased overflow-hidden"
 			initial="hidden"
 			whileInView="visible"
 			transition={{ duration: 0.8 }}
 		>
-			<div className="z-10 relative lg:container pt-14 px-4 flex flex-col gap-8 items-center">
+			<div className="z-10 relative lg:container pt-20 px-4 flex flex-col gap-8 items-center">
 				<h2 className="text-3xl md:text-5xl font-bold mb-8 text-center text-neutral-700 max-w-6xl mx-auto">
 					Témoignages de nos clients
 				</h2>
