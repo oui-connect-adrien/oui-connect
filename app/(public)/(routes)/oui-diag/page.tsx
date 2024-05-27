@@ -114,7 +114,7 @@ const Page = () => {
 					</h1>
 					<div className="grid lg:grid-cols-2 gap-8 mt-14 py-4">
 						<div className="flex flex-col gap-8 text-center lg:text-left lg:items-start items-center">
-							<h2 className="relative font-regular text-base md:text-2xl tracking-wide mb-8 max-w-3xl mx-auto antialiased">
+							<h2 className="relative font-regular text-base md:text-2xl tracking-wide mb-8 max-w-[100svw] px-2 lg:px-0 mx-auto antialiased">
 								Détectez les sources de gaspillage énergétique de vos
 								installations industrielles et identifiez les actions
 								correctives à mettre en place.
