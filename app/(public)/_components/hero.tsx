@@ -21,6 +21,7 @@ const Hero = () => {
 						matérielles et gagnez du temps grâce à nos solutions web simples et
 						accessibles.
 					</h2>
+					{/*
 					<div className="flex justify-center items-center">
 						<HoverBorderGradient
 							containerClassName="rounded-full"
@@ -29,7 +30,7 @@ const Hero = () => {
 						>
 							<span>Démo gratuite</span>
 						</HoverBorderGradient>
-					</div>
+					</div>*/}
 				</div>
 			</div>
 		</AuroraBackground>
