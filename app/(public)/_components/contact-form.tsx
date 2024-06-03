@@ -70,7 +70,16 @@ const ContactForm = () => {
 						)}
 					/>
 				</div>
-
+				<FormField
+					name="email"
+					control={form.control}
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Email</FormLabel>
+							<Input {...field} />
+						</FormItem>
+					)}
+				/>
 				<FormField
 					name="phoneNumber"
 					control={form.control}
