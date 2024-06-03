@@ -61,7 +61,7 @@ const Footer = () => {
 						<p className="text-sm mt-4 mb-6 text-muted-foreground">
 							Nos valeurs :{" "}
 						</p>
-						<ul className="text-sm list-disc ml-0 mt-2 text-muted-foreground">
+						<ul className="text-sm list-disc ml-2 mt-2 text-muted-foreground">
 							<li>Passion</li>
 							<li>Inovation</li>
 							<li>Esprit d'équipe</li>
