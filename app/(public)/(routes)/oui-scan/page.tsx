@@ -94,7 +94,7 @@ const Page = () => {
 					<div className="grid lg:grid-cols-2 gap-8 mt-10 py-4">
 						<div className="relative w-1/2 mx-auto">
 							<video autoPlay loop muted>
-								<source src="/oui-scan.mp4" type="video/mp4" />
+								<source src="/oui-scan.mov" type="video/mp4" />
 							</video>
 						</div>
 
