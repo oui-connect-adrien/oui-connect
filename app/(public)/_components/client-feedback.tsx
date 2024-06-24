@@ -11,13 +11,13 @@ const ClientFeedback = () => {
 	const feedbacks = [
 		{
 			name: "Thomas",
-			role: "Responsable SAV, Cometi Services",
+
 			quote:
 				"Outil simple, intuitif et rapide à prendre en main, il est devenu l’indispensable partenaire des dépannages à distance.",
 		},
 		{
 			name: "David",
-			role: "Automaticien, Cometi Group",
+
 			quote:
 				"Outil très utile et précieux pour connaître immédiatement l’état de l’installation, son historique, et diagnostiquer les performances énergétiques des installations à distance.",
 		},

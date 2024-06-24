@@ -8,7 +8,6 @@ export const HoverEffect = ({
 }: {
 	items: {
 		name: string;
-		role: string;
 		quote: string;
 	}[];
 	className?: string;
@@ -51,7 +50,6 @@ export const HoverEffect = ({
 
 						<div className="flex flex-col gap-2">
 							<CardTitle>{item.name}</CardTitle>
-							<p className="text-muted-foreground text-sm">{item.role}</p>
 						</div>
 					</Card>
 				</div>
