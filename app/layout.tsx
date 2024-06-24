@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
 	title: "Oui-Connect",
 	description: "Maîtrisez les données de vos ressources matérielles",
+	icons: {
+		icon: "/oui-connect-logo.svg",
+	},
 };
 
 export default function RootLayout({
