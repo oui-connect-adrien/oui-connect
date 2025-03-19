@@ -21,7 +21,7 @@ export const projects = [
 		name: "Oui-Scan",
 		imageUrl: "/oui-scan.jpg",
 		description:
-			"Optimisez la gestion de vos ressources par QR code grâce à notre solution web",
+			"Optimisez la gestion de vos produits par QR code grâce à notre solution web",
 		link: "/oui-scan",
 	},
 	{

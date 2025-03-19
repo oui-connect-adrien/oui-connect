@@ -26,7 +26,7 @@ const Page = () => {
 		{
 			title: "Gérez facilement votre parc matériel",
 			description:
-				"Ne perdez plus votre matériel. Géolocalisez précisément vos ressources matérielles. Historisez le parcours de chaque élément tout au long de sa vie. Identifiez instantanément votre matériel (descriptions, numéro d’identification, référence, informations du fabricant, caractéristiques…) d’un simple scan du QR Code associé. Vérifiez la disponibilité de votre parc matériel avec notre moteur de recherche. Rattachez vos ressources matérielles à des affaires et contrats clients pour optimiser votre picking.",
+				"Ne perdez plus votre matériel. Géolocalisez précisément vos produits. Historisez le parcours de chaque élément tout au long de sa vie. Identifiez instantanément votre matériel (descriptions, numéro d’identification, référence, informations du fabricant, caractéristiques…) d’un simple scan du QR Code associé. Vérifiez la disponibilité de votre parc matériel avec notre moteur de recherche. Rattachez vos produits à des affaires et contrats clients pour optimiser votre picking.",
 			content: (
 				<div className="h-full w-full relative">
 					<Image src="/oui-scan-1.png" fill alt="oui-scan-1" />
@@ -34,10 +34,9 @@ const Page = () => {
 			),
 		},
 		{
-			title:
-				"Accédez à un espace entièrement dédié à vos ressources matérielles",
+			title: "Accédez à un espace entièrement dédié à vos produits",
 			description:
-				"Créez des dossiers, stockez et partagez des documents liés à votre matériel (notices, rapport d’intervention, certificat qualité…). Alimentez la vie de vos équipements en ajoutant vos rapports d’intervention, photos, descriptions, et tout autres documents liés à vos équipements. Créez et attribuez autant d’étiquettes (statuts, états, propriétés, caractéristiques, quantité en stock…) que souhaitées à chacuns de vos matériels.",
+				"Créez des dossiers, stockez et partagez des documents liés à vos produits. Alimentez la vie de vos équipements en ajoutant vos rapports d’intervention, photos, descriptions, et tout autres documents liés à vos équipements. Créez et attribuez autant d’étiquettes (statuts, états, propriétés, caractéristiques, quantité en stock…) que souhaitées à chacuns de vos matériels.",
 			content: (
 				<div className="h-full w-full relative">
 					<Image
@@ -53,7 +52,7 @@ const Page = () => {
 		{
 			title: "Accélérez et automatisez la gestion de vos stocks",
 			description:
-				"Rattachez automatiquement vos ressources matérielles à des dépôts ou chantiers spécifiques à vos activités d’un simple scan et simplifiez le suivi de vos mouvements de stocks. Synchronisez automatiquement les informations et mouvements de stocks avec votre ERP. Modulez facilement les quantités en stocks de vos lots (consommables, groupes d’articles…) depuis votre smartphone. Restez à jour en permanence dans l’inventaire et les niveaux de stocks sur tous vos sytèmes d’information",
+				"Rattachez automatiquement vos produits à des dépôts ou chantiers spécifiques à vos activités d’un simple scan et simplifiez le suivi de vos mouvements de stocks. Synchronisez automatiquement les informations et mouvements de stocks avec votre ERP. Modulez facilement les quantités en stocks de vos lots (consommables, groupes d’articles…) depuis votre smartphone. Restez à jour en permanence dans l’inventaire et les niveaux de stocks sur tous vos sytèmes d’information",
 			content: (
 				<div className="h-full w-full relative">
 					<Image
@@ -68,7 +67,7 @@ const Page = () => {
 		{
 			title: "Personnalisez votre gestion",
 			description:
-				"Créez des groupes et sous-groupes (entreprises, départements, services, secteur de marché…) directement dans notre application et rassemblez y vos ressources matérielles (produits, équipements, installations…) pour une meilleure gestion. Personnalisez autant que souhaités vos étiquettes à vos équipements pour définir l’état, les propriétés et tout autres caractéristiques que vous souhaitez. Paramétrez la gestion des droits et accès des utilisateurs au sein de votre groupe.",
+				"Créez des groupes et sous-groupes (entreprises, départements, services, secteur de marché…) directement dans notre application et rassemblez y vos produits pour une meilleure gestion. Personnalisez autant que souhaités vos étiquettes à vos équipements pour définir l’état, les propriétés et tout autres caractéristiques que vous souhaitez. Paramétrez la gestion des droits et accès des utilisateurs au sein de votre groupe.",
 			content: (
 				<div className="h-full w-full relative">
 					<Image
@@ -86,7 +85,7 @@ const Page = () => {
 			<div className="relative min-h-screen py-4 antialiased overflow-hidden">
 				<div className="z-10 relative lg:container lg:pt-40 pt-24 px-4 flex flex-col items-center">
 					<h1 className="text-4xl md:text-6xl font-bold mb-8 relative text-center text-zinc-700 max-w-5xl mx-auto">
-						Suivez et gérez vos ressources matérielles directement <br />
+						Suivez et gérez vos produits directement <br />
 						<span className="relative bg-clip-text text-transparent bg-gradient-to-t from-primary to-primary/[0.8] z-10">
 							depuis votre smartphone
 						</span>
@@ -100,11 +99,10 @@ const Page = () => {
 
 						<div className="flex flex-col gap-8 text-center lg:text-left lg:items-start items-center">
 							<h2 className="text-2xl font-bold text-zinc-700 leading-snug ">
-								Maitrisez la gestion de vos ressources matérielles (articles,
-								produits, équipements, consommables…) en quelques clics.
+								Maitrisez la gestion de vos produits en quelques clics.
 							</h2>
 							<p className="text-base text-zinc-500 mt-2">
-								Scannez le QR code de vos ressources pour les ajouter à votre
+								Scannez le QR code de vos produits pour les ajouter à votre
 								inventaire
 							</p>
 							<Link href="/contact">
@@ -129,7 +127,7 @@ const Page = () => {
 
 						<p className="text-center text-neutral-500 mb-12 max-w-3xl text-xl mx-auto">
 							Parce que OuiScan est la solution la plus simple et la plus
-							efficace pour gérer vos ressources matérielles.
+							efficace pour gérer vos produits.
 						</p>
 						<div className="grid lg:grid-cols-3 gap-8 w-full">
 							{advantages.map((advantage, index) => (

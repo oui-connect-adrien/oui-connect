@@ -13,13 +13,12 @@ const Hero = () => {
 					<h1 className="text-4xl md:text-6xl font-bold mb-8 mt-20 relative text-center text-zinc-700 max-w-6xl mx-auto">
 						Maîtrisez les données de vos{" "}
 						<span className="relative bg-clip-text text-transparent bg-gradient-to-t from-primary to-primary/[0.8] z-10">
-							ressources matérielles
+							produits
 						</span>
 					</h1>
 					<h2 className="relative font-regular text-base md:text-xl text-zinc-500 tracking-wide mb-8 text-center max-w-3xl mx-auto antialiased">
-						Améliorez le suivi et la gestion de vos actifs et ressources
-						matérielles et gagnez du temps grâce à nos solutions web simples et
-						accessibles.
+						Améliorez le suivi et la gestion de vos produits et gagnez du temps
+						grâce à nos solutions web simples et accessibles.
 					</h2>
 					{/*
 					<div className="flex justify-center items-center">
