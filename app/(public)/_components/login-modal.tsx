@@ -27,7 +27,7 @@ const LoginModal = () => {
 				<div className="grid lg:grid-cols-2 grid-cols-1 gap-2 py-4">
 					<Link href="https://access.oui-connect.fr" target="_blank">
 						<div className="relative w-[150px] rounded-md h-[150px] lg:w-[200px] lg:h-[200px] overflow-hidden mx-auto">
-							<Image src="/oui-access-logo.jpeg" alt="Oui-Access" fill />
+							<Image src="/logo_ouiaccess_400.png" alt="Oui-Access" fill />
 						</div>
 						<p className="text-center mt-2">Oui-Access</p>
 					</Link>
