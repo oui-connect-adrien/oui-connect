@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { projects } from "../app/(public)/_components/projects-list";
+import { GitInfo } from "./GitInfo";
 
 const Footer = () => {
 	return (
@@ -70,13 +71,16 @@ const Footer = () => {
 					</div>
 				</div>
 				<div className="mt-12 lg:mt-10 border-t pt-8 sm:pt-10 lg:pt-12 text-sm">
-					<div className="flex items-center justify-between">
-						<p>© 2024 Oui-Connect. Tous droits réservés.</p>
-						<Link href="/mentions-legales">
-							<span className="cursor-pointer text-sm text-muted-foreground">
-								Mentions légales
-							</span>
-						</Link>
+					<div className="flex flex-col space-y-4">
+						<div className="flex items-center justify-between">
+							<p>© 2024 Oui-Connect. Tous droits réservés.</p>
+							<Link href="/mentions-legales">
+								<span className="cursor-pointer text-sm text-muted-foreground">
+									Mentions légales
+								</span>
+							</Link>
+						</div>
+						<GitInfo />
 					</div>
 				</div>
 			</div>
