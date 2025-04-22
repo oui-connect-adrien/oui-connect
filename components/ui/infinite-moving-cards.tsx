@@ -89,7 +89,7 @@ export const InfiniteMovingCards = ({
 						className="w-[120px] h-[80px] max-w-full relative rounded-2xl flex-shrink-0 px-8 py-6 "
 						key={item.imageUrl}
 					>
-						<Image src={item.imageUrl} alt="card" fill className="" />
+						<Image src={item.imageUrl} alt="" fill className="" />
 					</div>
 				))}
 			</ul>

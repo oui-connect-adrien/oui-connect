@@ -7,7 +7,7 @@ const Logo = () => {
 	return (
 		<Link href="/">
 			<div className="relative w-[200px] h-[80px]">
-				<Image src="/logo.png" alt="logo" layout="fill" objectFit="contain" />
+				<Image src="/logo_Oui-Connect.png" alt="logo_oui-connect" layout="fill" objectFit="contain" />
 			</div>
 		</Link>
 	);
