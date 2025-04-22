@@ -43,9 +43,9 @@ const Footer = () => {
 									Qui sommes-nous ?
 								</span>
 							</Link>
-							<span className="text-sm text-muted-foreground">
-								Réseaux sociaux
-							</span>
+							<Link href="https://www.linkedin.com/company/ouiconnect" target="_blank" className="text-muted-foreground cursor-pointer text-sm block py-2">
+								LinkedIn
+							</Link>
 						</nav>
 					</div>
 					<div>
