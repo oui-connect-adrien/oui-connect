@@ -2,20 +2,59 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
 	try {
-		const { email, firstname, lastname, subject, phoneNumber, message } =
-			await req.json();
+		const {
+			email,
+			firstname,
+			lastname,
+			subject,
+			phoneNumber,
+			message,
+			companyName,
+		} = await req.json();
 
 		const emailSubject = `Message commercial de ${firstname} ${lastname} - ${subject} - ${phoneNumber} via le site oui-connect.fr`;
+
+		// Create a comprehensive email body with all contact information
+		const emailBody = `
+NOUVELLE DEMANDE DE CONTACT - Site oui-connect.fr
+
+═══════════════════════════════════════
+INFORMATIONS DU CONTACT
+═══════════════════════════════════════
+
+👤 Nom complet : ${firstname} ${lastname}
+🏢 Entreprise : ${companyName || "Non renseigné"}
+📧 Email : ${email}
+📱 Téléphone : ${phoneNumber || "Non renseigné"}
+
+═══════════════════════════════════════
+DÉTAILS DE LA DEMANDE
+═══════════════════════════════════════
+
+📋 Objet : ${subject}
+
+💬 Message :
+${message}
+
+═══════════════════════════════════════
+INFORMATIONS TECHNIQUES
+═══════════════════════════════════════
+
+📅 Date de réception : ${new Date().toLocaleString("fr-FR")}
+🌐 Source : Site web oui-connect.fr
+		`.trim();
+
 		const recipients = [
 			process.env.EMAIL_USER || "support@oui-connect.fr",
 			"b.warion@oui-connect.fr",
+			"g.capitaine@cometi.fr",
 		];
 
 		// Send email to both recipients
 		const emailPromises = recipients.map(async (recipient) => {
 			const formData = new FormData();
 			formData.append("subject", emailSubject);
-			formData.append("text", message);
+			formData.append("text", emailBody);
 			formData.append("email", recipient);
 
 			const response = await fetch(
