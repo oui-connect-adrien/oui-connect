@@ -31,6 +31,13 @@ export const projects = [
 			"Maitrisez votre consommation énergétique sur tous vos appareils",
 		link: "/oui-energy",
 	},
+	{
+		name: "Installation d'instrumentation",
+		imageUrl: "/electric-wiring.jpg",
+		description:
+			"Nos partenaires installent vos instruments de mesure et de contrôle",
+		link: "/installation-instrumentation",
+	},
 ];
 
 const ProjectsList = () => {
@@ -55,14 +62,20 @@ const ProjectsList = () => {
 							initial="hidden"
 							whileInView="visible"
 							transition={{ duration: 0.5 }}
+							key={project.link}
 						>
-							<Link key={project.link} href={project.link}>
-								<DirectionAwareHover imageUrl={project.imageUrl}>
-									<p className="font-bold text-xl">{project.name}</p>
-									<p className="font-normal text-sm break-words">
-										{project.description}
-									</p>
-								</DirectionAwareHover>
+							<Link href={project.link}>
+								<div className="relative">
+									<div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black/70 to-transparent z-40" />
+									<h3 className="absolute top-4 left-4 z-50 font-bold text-xl text-white drop-shadow-md">
+										{project.name}
+									</h3>
+									<DirectionAwareHover imageUrl={project.imageUrl}>
+										<p className="font-normal text-sm break-words">
+											{project.description}
+										</p>
+									</DirectionAwareHover>
+								</div>
 							</Link>
 						</motion.div>
 					))}
