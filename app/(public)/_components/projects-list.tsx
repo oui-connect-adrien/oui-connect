@@ -57,7 +57,7 @@ const ProjectsList = () => {
 				<div className="grid lg:grid-cols-3 gap-8 w-full">
 					{projects.map((project) => (
 						<motion.div
-							className="relative break-words"
+							className="relative break-words overflow-hidden rounded-lg"
 							variants={variants}
 							initial="hidden"
 							whileInView="visible"
