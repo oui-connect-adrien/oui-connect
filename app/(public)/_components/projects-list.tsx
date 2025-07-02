@@ -71,7 +71,7 @@ const ProjectsList = () => {
 										{project.name}
 									</h3>
 									<DirectionAwareHover imageUrl={project.imageUrl}>
-										<p className="font-normal text-sm break-words">
+										<p className="font-normal text break-words w-3/4">
 											{project.description}
 										</p>
 									</DirectionAwareHover>
