@@ -65,13 +65,14 @@ const ProjectsList = () => {
 							key={project.link}
 						>
 							<Link href={project.link}>
-								<div className="relative">
+								<div className="flex flex-colrelative">
 									<div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black/70 to-transparent z-40" />
+									<div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-40" />
 									<h3 className="absolute top-4 left-4 z-50 font-bold text-xl text-white drop-shadow-md">
 										{project.name}
 									</h3>
 									<DirectionAwareHover imageUrl={project.imageUrl}>
-										<p className="font-normal text break-words w-3/4">
+										<p className="font-normal text break-words ">
 											{project.description}
 										</p>
 									</DirectionAwareHover>
