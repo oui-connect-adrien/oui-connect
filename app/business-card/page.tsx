@@ -3,30 +3,73 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { Mail, Phone, Check, Copy } from "lucide-react";
+import { useState, useMemo } from "react";
+import { useToast } from "@/components/ui/use-toast";
+import { cn } from "@/lib/utils";
 
 const BusinessCard = () => {
-	// TODO: Replace with real team member data and images
+	const { toast } = useToast();
+	const [copiedText, setCopiedText] = useState<string | null>(null);
+
+	// Generate random rotation angles for each card
+	const rotationAngles = useMemo(() => {
+		return Array(3)
+			.fill(0)
+			.map(() => Math.floor(Math.random() * 20) - 10);
+	}, []);
+
+	const handleCopy = async (text: string, label: string) => {
+		await navigator.clipboard.writeText(text);
+		setCopiedText(text);
+		toast({
+			title: `${label} copié !`,
+			description: `${label} a été copié dans le presse-papier`,
+			duration: 2000,
+		});
+		setTimeout(() => setCopiedText(null), 2000);
+	};
+
 	const teamMembers = [
 		{
 			name: "Baptiste WARION",
 			role: "Directeur Technique",
-			image: "/evaluation-energetique-1.png",
-			description:
-				"Expert en solutions d'optimisation énergétique avec plus de 10 ans d'expérience dans l'industrie.",
+			company_image: "/logo-oui-connect-700x700.jpg",
+			company_name: "Oui-Connect",
+			custom_image: "/evaluation-energetique-1.png",
+			description: "Blablabla 1",
+			email: "b.warion@oui-connect.fr",
+			phone: "+33 6 37 73 72 05",
+			colors: {
+				from: "from-blue-600/90",
+				to: "to-indigo-700/70",
+			},
 		},
 		{
 			name: "Asmaa DINAR",
 			role: "Responsable Backend",
-			image: "/evaluation-energetique-2.png",
-			description:
-				"Spécialiste en développement de solutions web innovantes et en intégration de systèmes complexes.",
+			company_image: "/logo-oui-connect-700x700.jpg",
+			company_name: "Oui-Connect",
+			custom_image: "/evaluation-energetique-2.png",
+			description: "Blablabla 2",
+			email: "asmaa.dinar@oui-connect.fr",
+			colors: {
+				from: "from-emerald-600/90",
+				to: "to-lime-700/70",
+			},
 		},
 		{
 			name: "Adrien POIRIER",
 			role: "Développeur Frontend",
-			image: "/evaluation-energetique-3.png",
-			description:
-				"Passionné par la gestion de projets industriels et l'amélioration continue des processus.",
+			company_image: "/logo-oui-connect-700x700.jpg",
+			company_name: "Oui-Connect",
+			custom_image: "/evaluation-energetique-3.png",
+			description: "Blablabla 3",
+			email: "adrien.poirier@oui-connect.fr",
+			colors: {
+				from: "from-amber-600/90",
+				to: "to-orange-400/70",
+			},
 		},
 	];
 
@@ -50,55 +93,143 @@ const BusinessCard = () => {
 					Une équipe d'experts passionnés par l'innovation et l'excellence
 					technique
 				</motion.p>
-				<div className="flex flex-col gap-20 mt-8">
+				<div className="flex flex-col gap-20 mt-8 pb-32">
 					{teamMembers.map((member, index) => (
 						<motion.div
 							key={member.name + index}
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.5, delay: index * 0.1 }}
+							viewport={{ margin: "-100px", once: true }}
+							transition={{ duration: 0.7, ease: "easeOut" }}
 							className="flex items-center justify-center perspective-1000"
 						>
 							<CardContainer className="inter-var">
 								<CardBody className="relative h-[calc(54mm*2)] w-[calc(85mm*2)]">
-									<div className="relative w-full h-full rounded-xl bg-gradient-to-br from-primary/90 to-primary/70 shadow-2xl border border-white/10">
+									<div
+										className={`relative w-full h-full rounded-xl bg-gradient-to-br ${member.colors.from} ${member.colors.to} shadow-2xl border border-white/10 overflow-hidden`}
+									>
+										{/* Grid Background */}
+										<div
+											className={cn(
+												"absolute inset-0 opacity-[0.07]",
+												"[background-size:30px_30px]",
+												"[background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)]"
+											)}
+										/>
+										{/* Radial Gradient Overlay */}
+										<div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-transparent to-black/20"></div>
+
 										{/* Content wrapper */}
-										<div className="absolute inset-0 p-6">
+										<div className="absolute inset-0 p-8">
 											{/* Top section with name and image */}
 											<CardItem
 												translateZ="100"
 												className="flex justify-between items-start w-full"
 											>
 												<div className="space-y-1 flex-grow">
-													<h2 className="text-4xl font-bold text-white">
+													<button
+														onClick={() => handleCopy(member.name, "Nom")}
+														className="text-4xl font-bold text-white hover:text-white/90 transition-colors group flex items-center gap-2"
+													>
 														{member.name}
-													</h2>
-													<p className="text-xl text-white/80">{member.role}</p>
+														{copiedText === member.name ? (
+															<Check className="w-5 h-5 text-green-400" />
+														) : (
+															<Copy className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+														)}
+													</button>
+													<button
+														onClick={() => handleCopy(member.role, "Rôle")}
+														className="text-xl text-white/80 hover:text-white/90 transition-colors group flex items-center gap-2"
+													>
+														{member.role}
+														{copiedText === member.role ? (
+															<Check className="w-4 h-4 text-green-400" />
+														) : (
+															<Copy className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+														)}
+													</button>
 												</div>
+												<div className="flex flex-col items-center">
+													<div className="relative flex-shrink-0 w-20 h-20 mt-[-8] mr-[-8] rounded-full overflow-hidden border-2 border-white/20">
+														<Image
+															src={member.company_image}
+															alt={member.company_name}
+															width={96}
+															height={96}
+															className="object-cover"
+															style={{ width: "100%", height: "100%" }}
+														/>
+													</div>
+													<p className="text-white/90 text-lg leading-relaxed">
+														{member.company_name}
+													</p>
+												</div>
+											</CardItem>
 
-												<div className="relative flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden border-2 border-white/20">
+											{/* Description */}
+											<CardItem translateZ="60" className="mt-8">
+												<p className="text-white/90 text-lg leading-relaxed max-w-[80%]">
+													{member.description}
+												</p>
+											</CardItem>
+
+											{/* Contact Information */}
+											<CardItem translateZ="80" className="mt-8">
+												<div className="flex flex-col gap-2">
+													{member.email && (
+														<button
+															onClick={() => handleCopy(member.email, "Email")}
+															className="flex items-center gap-2 text-white/90 hover:text-white transition-colors group"
+														>
+															<Mail className="w-4 h-4" />
+															<span>{member.email}</span>
+															{copiedText === member.email ? (
+																<Check className="w-4 h-4 text-green-400" />
+															) : (
+																<Copy className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+															)}
+														</button>
+													)}
+													{member.phone && (
+														<a
+															href={`tel:${member.phone}`}
+															className="flex items-center gap-2 text-white/90 hover:text-white transition-colors"
+														>
+															<Phone className="w-4 h-4" />
+															<span>{member.phone}</span>
+														</a>
+													)}
+												</div>
+											</CardItem>
+
+											{/* Custom Image */}
+											<CardItem
+												translateZ="100"
+												className="absolute bottom-10 right-10 w-24 h-24"
+											>
+												<div
+													className="relative w-full h-full overflow-hidden border-2 border-white/20"
+													style={{
+														transform: `rotate(${rotationAngles[index]}deg)`,
+														transition: "transform 0.3s ease-out",
+													}}
+												>
 													<Image
-														src={member.image}
-														alt={member.name}
-														width={96}
-														height={96}
+														src={member.custom_image}
+														alt="Custom Image"
+														width={128}
+														height={128}
 														className="object-cover"
 														style={{ width: "100%", height: "100%" }}
 													/>
 												</div>
 											</CardItem>
 
-											{/* Description */}
-											<CardItem translateZ="60" className="mt-8">
-												<p className="text-white/90 text-lg leading-relaxed">
-													{member.description}
-												</p>
-											</CardItem>
-
-											{/* Bottom decoration */}
+											{/* Bottom decoration - moved up in z-index */}
 											<CardItem
 												translateZ="40"
-												className="absolute bottom-6 left-6 right-6"
+												className="absolute bottom-6 left-6 right-40"
 											>
 												<div className="h-1 w-full bg-gradient-to-r from-white/0 via-white/20 to-white/0" />
 											</CardItem>

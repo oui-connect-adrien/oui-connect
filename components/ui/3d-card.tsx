@@ -14,6 +14,7 @@ const MouseEnterContext = createContext<{
 	mouseY: number;
 	mouseXPercentage: number;
 	mouseYPercentage: number;
+	isMouseEntered: boolean;
 } | null>(null);
 
 export const CardContainer = ({
@@ -31,6 +32,7 @@ export const CardContainer = ({
 		mouseY: 0,
 		mouseXPercentage: 0,
 		mouseYPercentage: 0,
+		isMouseEntered: false,
 	});
 
 	const updateMousePosition = (ev: React.MouseEvent<HTMLDivElement>) => {
@@ -41,7 +43,23 @@ export const CardContainer = ({
 		const mouseY = ev.clientY - rect.top;
 		const mouseXPercentage = mouseX / rect.width;
 		const mouseYPercentage = mouseY / rect.height;
-		setMousePosition({ mouseX, mouseY, mouseXPercentage, mouseYPercentage });
+		setMousePosition({
+			mouseX,
+			mouseY,
+			mouseXPercentage,
+			mouseYPercentage,
+			isMouseEntered: true,
+		});
+	};
+
+	const resetMousePosition = () => {
+		setMousePosition({
+			mouseX: 0,
+			mouseY: 0,
+			mouseXPercentage: 0.5,
+			mouseYPercentage: 0.5,
+			isMouseEntered: false,
+		});
 	};
 
 	return (
@@ -49,6 +67,7 @@ export const CardContainer = ({
 			className={cn("relative group/card", containerClassName)}
 			ref={containerRef}
 			onMouseMove={updateMousePosition}
+			onMouseLeave={resetMousePosition}
 		>
 			<MouseEnterContext.Provider value={mousePosition}>
 				<div className={cn("", className)}>{children}</div>
@@ -69,7 +88,14 @@ export const CardBody = ({
 
 	useEffect(() => {
 		if (!containerRef.current || !mousePosition) return;
-		const { mouseXPercentage, mouseYPercentage } = mousePosition;
+		const { mouseXPercentage, mouseYPercentage, isMouseEntered } =
+			mousePosition;
+
+		if (!isMouseEntered) {
+			containerRef.current.style.transform = `rotateX(0deg) rotateY(0deg)`;
+			return;
+		}
+
 		const rotateY = (mouseXPercentage - 0.5) * 20;
 		const rotateX = (mouseYPercentage - 0.5) * -20;
 
@@ -110,7 +136,14 @@ export const CardItem = ({
 
 	useEffect(() => {
 		if (!containerRef.current || !mousePosition) return;
-		const { mouseXPercentage, mouseYPercentage } = mousePosition;
+		const { mouseXPercentage, mouseYPercentage, isMouseEntered } =
+			mousePosition;
+
+		if (!isMouseEntered) {
+			containerRef.current.style.transform = `translate3d(0px, 0px, ${translateZ}px)`;
+			return;
+		}
+
 		const translateX = (mouseXPercentage - 0.5) * 30;
 		const translateY = (mouseYPercentage - 0.5) * 30;
 
