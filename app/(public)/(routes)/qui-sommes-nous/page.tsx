@@ -186,10 +186,10 @@ const Page = () => {
 						transition={{ duration: 0.5, delay: 0.4 }}
 					>
 						<Link
-							href="/business-card"
+							href="/notre-equipe"
 							className="inline-flex items-center justify-center px-8 py-4 bg-zinc-700 text-white rounded-lg hover:bg-zinc-800 transition-colors duration-200"
 						>
-							Voir l'équipe
+							Notre équipe
 						</Link>
 					</motion.div>
 				</div>
