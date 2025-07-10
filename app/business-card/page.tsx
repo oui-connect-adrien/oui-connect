@@ -36,7 +36,7 @@ const BusinessCard = () => {
 			role: "Directeur Technique",
 			company_image: "/logo-oui-connect-700x700.jpg",
 			company_name: "Oui-Connect",
-			custom_image: "/evaluation-energetique-1.png",
+			custom_image: "/business-card/voilier.png",
 			description: "Blablabla 1",
 			email: "b.warion@oui-connect.fr",
 			phone: "+33 6 37 73 72 05",
@@ -50,7 +50,7 @@ const BusinessCard = () => {
 			role: "Responsable Backend",
 			company_image: "/logo-oui-connect-700x700.jpg",
 			company_name: "Oui-Connect",
-			custom_image: "/evaluation-energetique-2.png",
+			custom_image: "/business-card/chat.png",
 			description: "Blablabla 2",
 			email: "asmaa.dinar@oui-connect.fr",
 			colors: {
@@ -63,7 +63,7 @@ const BusinessCard = () => {
 			role: "Développeur Frontend",
 			company_image: "/logo-oui-connect-700x700.jpg",
 			company_name: "Oui-Connect",
-			custom_image: "/evaluation-energetique-3.png",
+			custom_image: "/business-card/ping-pong.png",
 			description: "Blablabla 3",
 			email: "adrien.poirier@oui-connect.fr",
 			colors: {
@@ -93,7 +93,7 @@ const BusinessCard = () => {
 					Une équipe d'experts passionnés par l'innovation et l'excellence
 					technique
 				</motion.p>
-				<div className="flex flex-col gap-20 mt-8 pb-32">
+				<div className="flex flex-col gap-20 mt-[calc(4mm*1)] md:mt-[calc(4mm*2)] pb-32">
 					{teamMembers.map((member, index) => (
 						<motion.div
 							key={member.name + index}
@@ -104,9 +104,9 @@ const BusinessCard = () => {
 							className="flex items-center justify-center perspective-1000"
 						>
 							<CardContainer className="inter-var">
-								<CardBody className="relative h-[calc(54mm*2)] w-[calc(85mm*2)]">
+								<CardBody className="relative h-[calc(54mm)] w-[calc(85mm)] md:h-[calc(54mm*2)] md:w-[calc(85mm*2)]  ">
 									<div
-										className={`relative w-full h-full rounded-xl bg-gradient-to-br ${member.colors.from} ${member.colors.to} shadow-2xl border border-white/10 overflow-hidden`}
+										className={`relative w-full h-full rounded-[calc(4mm*1)] md:rounded-[calc(4mm*2)] bg-gradient-to-br ${member.colors.from} ${member.colors.to} shadow-2xl border border-white/10 overflow-hidden`}
 									>
 										{/* Grid Background */}
 										<div
@@ -120,7 +120,7 @@ const BusinessCard = () => {
 										<div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-transparent to-black/20"></div>
 
 										{/* Content wrapper */}
-										<div className="absolute inset-0 p-8">
+										<div className="absolute inset-0 p-[calc(4mm*1)] md:p-[calc(4mm*2)]">
 											{/* Top section with name and image */}
 											<CardItem
 												translateZ="100"
@@ -129,7 +129,7 @@ const BusinessCard = () => {
 												<div className="space-y-1 flex-grow">
 													<button
 														onClick={() => handleCopy(member.name, "Nom")}
-														className="text-4xl font-bold text-white hover:text-white/90 transition-colors group flex items-center gap-2"
+														className="text-left text-[calc(5mm*1)] md:text-[calc(5mm*2)] font-bold text-white hover:text-white/90 transition-colors group flex items-center gap-2"
 													>
 														{member.name}
 														{copiedText === member.name ? (
@@ -140,7 +140,7 @@ const BusinessCard = () => {
 													</button>
 													<button
 														onClick={() => handleCopy(member.role, "Rôle")}
-														className="text-xl text-white/80 hover:text-white/90 transition-colors group flex items-center gap-2"
+														className="text-left text-[calc(3mm*1)] md:text-[calc(3mm*2)] text-white/80 hover:text-white/90 transition-colors group flex items-center gap-2"
 													>
 														{member.role}
 														{copiedText === member.role ? (
@@ -151,7 +151,7 @@ const BusinessCard = () => {
 													</button>
 												</div>
 												<div className="flex flex-col items-center">
-													<div className="relative flex-shrink-0 w-20 h-20 mt-[-8] mr-[-8] rounded-full overflow-hidden border-2 border-white/20">
+													<div className="relative flex-shrink-0 w-[calc(10mm*1)] h-[calc(10mm*1)] md:w-[calc(10mm*2)] md:h-[calc(10mm*2)] rounded-full overflow-hidden border-2 border-white/20">
 														<Image
 															src={member.company_image}
 															alt={member.company_name}
@@ -161,15 +161,18 @@ const BusinessCard = () => {
 															style={{ width: "100%", height: "100%" }}
 														/>
 													</div>
-													<p className="text-white/90 text-lg leading-relaxed">
+													<p className="text-white/90 text-[calc(3mm*1)] md:text-[calc(3mm*2)] leading-relaxed">
 														{member.company_name}
 													</p>
 												</div>
 											</CardItem>
 
 											{/* Description */}
-											<CardItem translateZ="60" className="mt-8">
-												<p className="text-white/90 text-lg leading-relaxed max-w-[80%]">
+											<CardItem
+												translateZ="60"
+												className="mt-[calc(4mm*1)] md:mt-[calc(4mm*2)]"
+											>
+												<p className="text-white/90 text-[calc(3mm*1)] md:text-[calc(3mm*2)] leading-relaxed max-w-[80%]">
 													{member.description}
 												</p>
 											</CardItem>
@@ -180,7 +183,7 @@ const BusinessCard = () => {
 													{member.email && (
 														<button
 															onClick={() => handleCopy(member.email, "Email")}
-															className="flex items-center gap-2 text-white/90 hover:text-white transition-colors group"
+															className="flex items-center gap-2 text-white/90 hover:text-white transition-colors group text-[calc(3mm*1)] md:text-[calc(3mm*2)]"
 														>
 															<Mail className="w-4 h-4" />
 															<span>{member.email}</span>
@@ -194,7 +197,7 @@ const BusinessCard = () => {
 													{member.phone && (
 														<a
 															href={`tel:${member.phone}`}
-															className="flex items-center gap-2 text-white/90 hover:text-white transition-colors"
+															className="flex items-center gap-2 text-white/90 hover:text-white transition-colors text-[calc(3mm*1)] md:text-[calc(3mm*2)]"
 														>
 															<Phone className="w-4 h-4" />
 															<span>{member.phone}</span>
@@ -206,10 +209,10 @@ const BusinessCard = () => {
 											{/* Custom Image */}
 											<CardItem
 												translateZ="100"
-												className="absolute bottom-10 right-10 w-24 h-24"
+												className="absolute bottom-[calc(7mm*1)] right-[calc(7mm*1)] w-[calc(12mm*1)] h-[calc(12mm*1)] md:bottom-[calc(7mm*2)] md:right-[calc(7mm*2)] md:w-[calc(12mm*2)] md:h-[calc(12mm*2)]"
 											>
 												<div
-													className="relative w-full h-full overflow-hidden border-2 border-white/20"
+													className="relative w-full h-full"
 													style={{
 														transform: `rotate(${rotationAngles[index]}deg)`,
 														transition: "transform 0.3s ease-out",
@@ -220,8 +223,13 @@ const BusinessCard = () => {
 														alt="Custom Image"
 														width={128}
 														height={128}
-														className="object-cover"
-														style={{ width: "100%", height: "100%" }}
+														className="object-cover relative"
+														style={{
+															width: "100%",
+															height: "100%",
+															filter:
+																"drop-shadow(3px 0 0 white) drop-shadow(-3px 0 0 white) drop-shadow(0 3px 0 white) drop-shadow(0 -3px 0 white)",
+														}}
 													/>
 												</div>
 											</CardItem>
@@ -229,7 +237,7 @@ const BusinessCard = () => {
 											{/* Bottom decoration - moved up in z-index */}
 											<CardItem
 												translateZ="40"
-												className="absolute bottom-6 left-6 right-40"
+												className="absolute bottom-[calc(3mm*1)] md:bottom-[calc(3mm*2)] left-6 right-40"
 											>
 												<div className="h-1 w-full bg-gradient-to-r from-white/0 via-white/20 to-white/0" />
 											</CardItem>
