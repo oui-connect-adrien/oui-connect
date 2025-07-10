@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Heart, Lightbulb, Rocket, Users } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Page = () => {
 	const values = [
@@ -158,6 +159,39 @@ const Page = () => {
 							</motion.div>
 						))}
 					</div>
+				</div>
+			</div>
+			<div className="bg-zinc-100 py-24">
+				<div className="z-10 relative lg:container px-4 flex flex-col items-center">
+					<motion.h3
+						className="text-3xl font-bold mb-8 text-center text-neutral-700 max-w-6xl mx-auto"
+						initial={{ opacity: 0, y: -50 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.5 }}
+					>
+						Rencontrez notre équipe
+					</motion.h3>
+					<motion.p
+						className="text-base text-zinc-500 text-center max-w-2xl mb-12"
+						initial={{ opacity: 0, y: -20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.5, delay: 0.2 }}
+					>
+						Découvrez les experts passionnés qui font de Oui-Connect une
+						entreprise innovante et dynamique.
+					</motion.p>
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.5, delay: 0.4 }}
+					>
+						<Link
+							href="/business-card"
+							className="inline-flex items-center justify-center px-8 py-4 bg-zinc-700 text-white rounded-lg hover:bg-zinc-800 transition-colors duration-200"
+						>
+							Voir l'équipe
+						</Link>
+					</motion.div>
 				</div>
 			</div>
 		</div>
