@@ -1,4 +1,4 @@
-import { QrCode, UserPlus, X } from "lucide-react";
+import { Download, QrCode, UserPlus, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CardItem } from "./3d-card";
 import { QRCodeSVG } from "qrcode.react";
@@ -50,35 +50,37 @@ export const CardActions = ({ vCardData, name }: CardActionsProps) => {
 			{/* QR Code Modal */}
 			{showQR && (
 				<div
-					className="absolute inset-0 flex items-center justify-center bg-black/50 z-50"
+					className="absolute top-0 left-0 w-full h-full md:rounded-2xl rounded-xl flex items-center justify-center bg-black/50 z-50 cursor-pointer"
 					onClick={closeQR}
 				>
 					<div
-						className="bg-white p-6 rounded-lg shadow-xl"
+						className="flex flex-col gap-2 items-center bg-background/80 border border-secondary backdrop-blur-sm  py-2 w-64 rounded-lg shadow-2xl cursor-default"
 						onClick={(e) => e.stopPropagation()}
 					>
-						<div className="flex flex-col items-center">
-							<QRCodeSVG value={vCardData} size={120} level="L" />
-							<div className="mt-4 flex gap-2">
-								<Button
-									onClick={downloadVCard}
-									variant="outline"
-									size="sm"
-									className="rounded-xl"
-								>
-									<UserPlus className="w-4 h-4 mr-2" />
-									Enregistrer
-								</Button>
-								<Button
-									onClick={closeQR}
-									variant="outline"
-									size="sm"
-									className="rounded-xl"
-								>
-									<X className="w-4 h-4" />
-								</Button>
-							</div>
+						<div className="flex  w-full">
+							<p className="text-sm text-foreground font-semibold ml-4 mt-2">
+								Enregistrer le contact
+							</p>
+							<Button
+								onClick={closeQR}
+								variant="ghost"
+								size="sm"
+								className="rounded-xl ml-auto mr-2"
+							>
+								<X className="w-4 h-4" />
+							</Button>
 						</div>
+						<div className="bg-white p-2 rounded-lg">
+							<QRCodeSVG value={vCardData} size={120} level="L" />
+						</div>
+						<Button
+							onClick={downloadVCard}
+							variant="outline"
+							size="sm"
+							className="rounded-xl  gap-2"
+						>
+							<Download className="w-4 h-4" />
+						</Button>
 					</div>
 				</div>
 			)}

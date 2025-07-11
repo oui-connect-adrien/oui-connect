@@ -103,17 +103,17 @@ export const BusinessCard = ({
 				className="inter-var px-24 py-12 hover:scale-105 group transition-all duration-300"
 				onLongPress={handleLongPress}
 			>
-				<CardBody className="relative group-hover:shadow-2xl rounded-[calc(4mm*1)] md:rounded-[calc(4mm*1.5)] h-[calc(54mm)] w-[calc(83mm)] md:h-[calc(54mm*1.5)] md:w-[calc(85mm*1.5)]">
+				<CardBody className="group-hover:shadow-2xl rounded-xl md:rounded-2xl h-[calc(54mm)] w-[calc(83mm)] md:h-[calc(54mm*1.5)] md:w-[calc(85mm*1.5)] ">
 					<div
-						className={`relative w-full h-full rounded-[calc(4mm*1)] md:rounded-[calc(4mm*1.5)] bg-gradient-to-br ${member.colors.from} ${member.colors.to} shadow-2xl border border-white/10 overflow-hidden`}
+						className={`w-full h-full rounded-xl md:rounded-2xl bg-gradient-to-br ${member.colors.from} ${member.colors.to} shadow-2xl  border border-white/10 overflow-hidden`}
 					>
 						{/* Grid Background */}
 						<div className="absolute inset-0 opacity-[0.07] [background-size:30px_30px] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)]" />
 						{/* Radial Gradient Overlay */}
-						<div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-transparent to-black/20" />
+						<div className="pointer-events-none inset-0 bg-gradient-to-br from-transparent to-black/20" />
 
 						{/* Content wrapper */}
-						<div className="absolute inset-0 p-[calc(4mm*1)] md:p-[calc(4mm*1.5)]">
+						<div className=" inset-0 p-[calc(4mm*1)] md:p-[calc(4mm*1.5)]">
 							<CardHeader
 								name={member.name}
 								role={member.role}

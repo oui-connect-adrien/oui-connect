@@ -77,16 +77,16 @@ const Page = () => {
 
 	return (
 		<div className="relative py-4 antialiased overflow-hidden">
-			<div className="z-10 relative lg:container pt-12 px-4 flex flex-col items-center">
+			<div className="z-10 relative lg:container md:pt-20 pt-12 px-4">
 				<Link
 					href="/notre-equipe"
-					className="absolute left-4 top-20 flex items-center gap-2 text-zinc-700 hover:text-zinc-900 transition-colors"
+					className="flex items-center gap-2 text-zinc-700 hover:text-zinc-900 transition-colors mt-10 text-lg font-medium"
 				>
 					<ArrowLeft className="w-5 h-5" />
 					<span>Retour à l'équipe</span>
 				</Link>
 				<motion.h1
-					className="text-4xl md:text-6xl font-bold mb-8 mt-20 relative text-center text-zinc-700 max-w-6xl mx-auto"
+					className="text-4xl md:text-6xl font-bold mb-2 mt-12 relative text-center text-zinc-700 max-w-6xl mx-auto"
 					initial={{ opacity: 0, y: -50 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5 }}
