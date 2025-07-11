@@ -37,6 +37,7 @@ export const BusinessCard = ({
 	copiedText,
 }: BusinessCardProps) => {
 	const router = useRouter();
+
 	const fallbackCopyToClipboard = (text: string) => {
 		const textArea = document.createElement("textarea");
 		textArea.value = text;
@@ -86,6 +87,10 @@ export const BusinessCard = ({
 		return vCard;
 	};
 
+	const handleLongPress = () => {
+		router.push(`/notre-equipe/${member.name}`);
+	};
+
 	return (
 		<motion.div
 			initial={{ opacity: 0, y: 20 }}
@@ -95,10 +100,8 @@ export const BusinessCard = ({
 			className="flex items-center justify-center perspective-1000 w-full"
 		>
 			<CardContainer
-				className="inter-var px-24 py-12 hover:scale-105 group transition-all duration-300 "
-				onClick={() => {
-					router.push(`/notre-equipe/${member.name}`);
-				}}
+				className="inter-var px-24 py-12 hover:scale-105 group transition-all duration-300"
+				onLongPress={handleLongPress}
 			>
 				<CardBody className="relative group-hover:shadow-2xl rounded-[calc(4mm*1)] md:rounded-[calc(4mm*1.5)] h-[calc(54mm)] w-[calc(83mm)] md:h-[calc(54mm*1.5)] md:w-[calc(85mm*1.5)]">
 					<div
@@ -130,7 +133,7 @@ export const BusinessCard = ({
 								handleCopy={handleCopy}
 							/>
 
-							<CardActions vCardData={generateVCardData()} />
+							<CardActions vCardData={generateVCardData()} name={member.name} />
 
 							<CardCustomImage
 								custom_image={member.custom_image}

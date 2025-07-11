@@ -34,12 +34,12 @@ export const CardContainer = ({
 	children,
 	className,
 	containerClassName,
-	onClick,
+	onLongPress,
 }: {
 	children: React.ReactNode;
 	className?: string;
 	containerClassName?: string;
-	onClick?: () => void;
+	onLongPress?: (e: React.MouseEvent | React.TouchEvent) => void;
 }) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const [isMobile, setIsMobile] = useState(false);
@@ -51,6 +51,10 @@ export const CardContainer = ({
 		isMouseEntered: false,
 		isMobile: false,
 	});
+
+	// Long press handling
+	const longPressTimerRef = useRef<NodeJS.Timeout | null>(null);
+	const isLongPressRef = useRef(false);
 
 	useEffect(() => {
 		const mobile = isMobileDevice();
@@ -66,6 +70,31 @@ export const CardContainer = ({
 		window.addEventListener("resize", handleResize);
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);
+
+	const startLongPress = (e: React.MouseEvent | React.TouchEvent) => {
+		isLongPressRef.current = false;
+
+		longPressTimerRef.current = setTimeout(() => {
+			isLongPressRef.current = true;
+			onLongPress?.(e);
+		}, 500); // 500ms for long press
+	};
+
+	const cancelLongPress = (e: React.MouseEvent | React.TouchEvent) => {
+		if (longPressTimerRef.current) {
+			clearTimeout(longPressTimerRef.current);
+			longPressTimerRef.current = null;
+		}
+	};
+
+	const handleClick = (e: React.MouseEvent) => {
+		// Prevent click if it was a long press
+		if (isLongPressRef.current) {
+			e.preventDefault();
+			e.stopPropagation();
+			isLongPressRef.current = false;
+		}
+	};
 
 	const updateMousePosition = (ev: React.MouseEvent<HTMLDivElement>) => {
 		if (!containerRef.current || isMobile) return;
@@ -96,13 +125,23 @@ export const CardContainer = ({
 		});
 	};
 
+	const handleMouseLeave = (e: React.MouseEvent) => {
+		resetMousePosition();
+		cancelLongPress(e);
+	};
+
 	return (
 		<div
 			className={cn("relative group/card", containerClassName)}
 			ref={containerRef}
 			onMouseMove={updateMousePosition}
-			onMouseLeave={resetMousePosition}
-			onClick={onClick}
+			onMouseLeave={handleMouseLeave}
+			onMouseDown={startLongPress}
+			onMouseUp={cancelLongPress}
+			onTouchStart={startLongPress}
+			onTouchEnd={cancelLongPress}
+			onTouchCancel={cancelLongPress}
+			onClick={handleClick}
 		>
 			<MouseEnterContext.Provider value={mousePosition}>
 				<div className={cn("", className)}>{children}</div>
