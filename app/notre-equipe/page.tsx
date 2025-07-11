@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 import { useState, useMemo } from "react";
 import { useToast } from "@/components/ui/use-toast";
-import { BusinessCardComponent } from "./components/business-card-component";
+import { BusinessCard } from "./components/business-card";
 import { teamMembers } from "./data/team-members";
 
-const BusinessCard = () => {
+const Page = () => {
 	const { toast } = useToast();
 	const [copiedText, setCopiedText] = useState<string | null>(null);
 
@@ -30,9 +30,9 @@ const BusinessCard = () => {
 
 	return (
 		<div className="relative py-4 antialiased overflow-hidden">
-			<div className="z-10 relative lg:container pt-24 px-4 flex flex-col items-center">
+			<div className="z-10 relative lg:container md:pt-20 pt-12 px-4 flex flex-col items-center">
 				<motion.h1
-					className="text-4xl md:text-6xl font-bold mb-8 mt-20 relative text-center text-zinc-700 max-w-6xl mx-auto"
+					className="text-4xl md:text-6xl font-bold mb-8 mt-10 relative text-center text-zinc-700 max-w-6xl mx-auto"
 					initial={{ opacity: 0, y: -50 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5 }}
@@ -50,7 +50,7 @@ const BusinessCard = () => {
 				</motion.p>
 				<div className="flex flex-col gap-20 mt-[calc(4mm*1)] md:mt-[calc(4mm*2)] pb-32">
 					{teamMembers.map((member, index) => (
-						<BusinessCardComponent
+						<BusinessCard
 							key={member.name + index}
 							member={member}
 							index={index}
@@ -65,4 +65,4 @@ const BusinessCard = () => {
 	);
 };
 
-export default BusinessCard;
+export default Page;

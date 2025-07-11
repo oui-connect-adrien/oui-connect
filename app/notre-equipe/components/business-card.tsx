@@ -29,7 +29,7 @@ interface BusinessCardProps {
 	copiedText: string | null;
 }
 
-export const BusinessCardComponent = ({
+export const BusinessCard = ({
 	member,
 	index,
 	rotationAngle,

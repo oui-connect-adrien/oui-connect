@@ -13,7 +13,7 @@ export const CardCustomImage = ({
 	return (
 		<CardItem
 			translateZ="100"
-			className="absolute bottom-[calc(7mm*1)] right-[calc(7mm*1)] w-[calc(12mm*1)] h-[calc(12mm*1)] md:bottom-[calc(7mm*1.5)] md:right-[calc(7mm*1.5)] md:w-[calc(12mm*1.5)] md:h-[calc(12mm*1.5)]"
+			className="absolute bottom-[calc(6mm*1)] right-[calc(6mm*1)] md:bottom-[calc(6mm*1.5)] md:right-[calc(6mm*1.5)] w-[calc(14mm*1)] h-[calc(14mm*1)] md:w-[calc(14mm*1.5)] md:h-[calc(14mm*1.5)]"
 		>
 			<div
 				className="relative w-full h-full"

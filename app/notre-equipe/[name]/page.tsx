@@ -6,10 +6,10 @@ import { ArrowLeft } from "lucide-react";
 import { useState, useMemo } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { useParams } from "next/navigation";
-import { BusinessCardComponent } from "../components/business-card-component";
+import { BusinessCard } from "../components/business-card";
 import { teamMembers } from "../data/team-members";
 
-const IndividualBusinessCard = () => {
+const Page = () => {
 	const { toast } = useToast();
 	const [copiedText, setCopiedText] = useState<string | null>(null);
 	const params = useParams();
@@ -42,10 +42,10 @@ const IndividualBusinessCard = () => {
 	if (!member) {
 		return (
 			<div className="relative py-4 antialiased overflow-hidden">
-				<div className="z-10 relative lg:container pt-24 px-4 flex flex-col items-center">
+				<div className="z-10 relative lg:container pt-12 px-4 flex flex-col items-center">
 					<Link
 						href="/notre-equipe"
-						className="absolute left-4 top-28 flex items-center gap-2 text-zinc-700 hover:text-zinc-900 transition-colors"
+						className="absolute left-4 mt-16 flex items-center gap-2 text-zinc-700 hover:text-zinc-900 transition-colors"
 					>
 						<ArrowLeft className="w-5 h-5" />
 						<span>Retour à l'équipe</span>
@@ -77,7 +77,7 @@ const IndividualBusinessCard = () => {
 
 	return (
 		<div className="relative py-4 antialiased overflow-hidden">
-			<div className="z-10 relative lg:container pt-24 px-4 flex flex-col items-center">
+			<div className="z-10 relative lg:container pt-12 px-4 flex flex-col items-center">
 				<Link
 					href="/notre-equipe"
 					className="absolute left-4 top-28 flex items-center gap-2 text-zinc-700 hover:text-zinc-900 transition-colors"
@@ -94,7 +94,7 @@ const IndividualBusinessCard = () => {
 					Carte de visite
 				</motion.h1>
 				<div className="flex flex-col gap-20 mt-[calc(4mm*1)] md:mt-[calc(4mm*2)] pb-32">
-					<BusinessCardComponent
+					<BusinessCard
 						key={member.name}
 						member={member}
 						index={0}
@@ -108,4 +108,4 @@ const IndividualBusinessCard = () => {
 	);
 };
 
-export default IndividualBusinessCard;
+export default Page;

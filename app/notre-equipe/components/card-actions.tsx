@@ -1,4 +1,4 @@
-import { QrCode, X } from "lucide-react";
+import { QrCode, UserPlus, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CardItem } from "./3d-card";
 import { QRCodeSVG } from "qrcode.react";
@@ -15,7 +15,7 @@ export const CardActions = ({ vCardData }: CardActionsProps) => {
 		<>
 			<CardItem
 				translateZ="100"
-				className="absolute top-[calc(20mm*1)] right-[calc(7mm*1)] md:top-[calc(20mm*1.5)] md:right-[calc(7mm*1.5)] w-[calc(10.5mm*1)] md:w-[calc(10.5mm*1.5)]"
+				className="absolute top-[calc(22mm*1)] right-[calc(8.5mm*1)] md:top-[calc(22mm*1.5)] md:right-[calc(8.5mm*1.5)] w-[calc(10.5mm*1)] md:w-[calc(10.5mm*1.5)]"
 			>
 				{/* Mobile: Add Contact Button */}
 				<div className="md:hidden">
@@ -33,23 +33,7 @@ export const CardActions = ({ vCardData }: CardActionsProps) => {
 						}}
 						className="bg-transparent hover:bg-white/20 transition-colors rounded-full"
 					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							strokeWidth="2"
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							className="w-[calc(4mm*1)] h-[calc(4mm*1)] text-white"
-						>
-							<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-							<circle cx="9" cy="7" r="4" />
-							<line x1="19" y1="8" x2="19" y2="14" />
-							<line x1="22" y1="11" x2="16" y2="11" />
-						</svg>
+						<UserPlus className="w-[calc(5mm*1)] h-[calc(5mm*1)] text-white" />
 					</Button>
 				</div>
 				{/* Desktop: QR Code Button */}
@@ -58,7 +42,7 @@ export const CardActions = ({ vCardData }: CardActionsProps) => {
 						onClick={() => setShowQR(!showQR)}
 						className="bg-transparent hover:bg-white/20 transition-colors rounded-full"
 					>
-						<QrCode className="w-[calc(4mm*1.5)] h-[calc(4mm*1.5)] text-white" />
+						<QrCode className="w-[calc(6mm*1.5)] h-[calc(6mm*1.5)] text-white" />
 					</Button>
 				</div>
 			</CardItem>
