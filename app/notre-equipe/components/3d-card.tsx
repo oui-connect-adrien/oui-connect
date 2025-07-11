@@ -15,28 +15,60 @@ const MouseEnterContext = createContext<{
 	mouseXPercentage: number;
 	mouseYPercentage: number;
 	isMouseEntered: boolean;
+	isMobile: boolean;
 } | null>(null);
+
+// Helper function to detect mobile devices
+const isMobileDevice = () => {
+	if (typeof window === "undefined") return false;
+
+	// Check for touch capability and screen width
+	const hasTouchScreen =
+		"ontouchstart" in window || navigator.maxTouchPoints > 0;
+	const isSmallScreen = window.innerWidth <= 768;
+
+	return hasTouchScreen && isSmallScreen;
+};
 
 export const CardContainer = ({
 	children,
 	className,
 	containerClassName,
+	onClick,
 }: {
 	children: React.ReactNode;
 	className?: string;
 	containerClassName?: string;
+	onClick?: () => void;
 }) => {
 	const containerRef = useRef<HTMLDivElement>(null);
+	const [isMobile, setIsMobile] = useState(false);
 	const [mousePosition, setMousePosition] = useState({
 		mouseX: 0,
 		mouseY: 0,
 		mouseXPercentage: 0,
 		mouseYPercentage: 0,
 		isMouseEntered: false,
+		isMobile: false,
 	});
 
+	useEffect(() => {
+		const mobile = isMobileDevice();
+		setIsMobile(mobile);
+		setMousePosition((prev) => ({ ...prev, isMobile: mobile }));
+
+		const handleResize = () => {
+			const mobile = isMobileDevice();
+			setIsMobile(mobile);
+			setMousePosition((prev) => ({ ...prev, isMobile: mobile }));
+		};
+
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
 	const updateMousePosition = (ev: React.MouseEvent<HTMLDivElement>) => {
-		if (!containerRef.current) return;
+		if (!containerRef.current || isMobile) return;
 
 		const rect = containerRef.current.getBoundingClientRect();
 		const mouseX = ev.clientX - rect.left;
@@ -49,6 +81,7 @@ export const CardContainer = ({
 			mouseXPercentage,
 			mouseYPercentage,
 			isMouseEntered: true,
+			isMobile,
 		});
 	};
 
@@ -59,6 +92,7 @@ export const CardContainer = ({
 			mouseXPercentage: 0.5,
 			mouseYPercentage: 0.5,
 			isMouseEntered: false,
+			isMobile,
 		});
 	};
 
@@ -68,6 +102,7 @@ export const CardContainer = ({
 			ref={containerRef}
 			onMouseMove={updateMousePosition}
 			onMouseLeave={resetMousePosition}
+			onClick={onClick}
 		>
 			<MouseEnterContext.Provider value={mousePosition}>
 				<div className={cn("", className)}>{children}</div>
@@ -88,8 +123,14 @@ export const CardBody = ({
 
 	useEffect(() => {
 		if (!containerRef.current || !mousePosition) return;
-		const { mouseXPercentage, mouseYPercentage, isMouseEntered } =
+		const { mouseXPercentage, mouseYPercentage, isMouseEntered, isMobile } =
 			mousePosition;
+
+		// Don't apply 3D transforms on mobile
+		if (isMobile) {
+			containerRef.current.style.transform = `rotateX(0deg) rotateY(0deg)`;
+			return;
+		}
 
 		if (!isMouseEntered) {
 			containerRef.current.style.transform = `rotateX(0deg) rotateY(0deg)`;
@@ -136,16 +177,22 @@ export const CardItem = ({
 
 	useEffect(() => {
 		if (!containerRef.current || !mousePosition) return;
-		const { mouseXPercentage, mouseYPercentage, isMouseEntered } =
+		const { mouseXPercentage, mouseYPercentage, isMouseEntered, isMobile } =
 			mousePosition;
+
+		// Don't apply 3D transforms on mobile
+		if (isMobile) {
+			containerRef.current.style.transform = `translate3d(0px, 0px, ${translateZ}px)`;
+			return;
+		}
 
 		if (!isMouseEntered) {
 			containerRef.current.style.transform = `translate3d(0px, 0px, ${translateZ}px)`;
 			return;
 		}
 
-		const translateX = (mouseXPercentage - 0.5) * 30;
-		const translateY = (mouseYPercentage - 0.5) * 30;
+		const translateX = (mouseXPercentage - 0.5) * 20;
+		const translateY = (mouseYPercentage - 0.5) * 20;
 
 		containerRef.current.style.transform = `translate3d(${translateX}px, ${translateY}px, ${translateZ}px)`;
 	}, [mousePosition, translateZ]);

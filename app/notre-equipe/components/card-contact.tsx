@@ -18,7 +18,7 @@ export const CardContact = ({
 	handleCopy,
 }: CardContactProps) => {
 	return (
-		<CardItem translateZ="80" className="">
+		<CardItem translateZ="0" className="">
 			<div className="flex flex-col gap-2">
 				{email && (
 					<div className="space-y-1 flex-grow">

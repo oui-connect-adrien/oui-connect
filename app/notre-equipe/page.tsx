@@ -48,7 +48,7 @@ const Page = () => {
 					Une équipe d'experts passionnés par l'innovation et l'excellence
 					technique
 				</motion.p>
-				<div className="flex flex-col gap-20 mt-[calc(4mm*1)] md:mt-[calc(4mm*2)] pb-32">
+				<div className="flex flex-col pb-32 w-full">
 					{teamMembers.map((member, index) => (
 						<BusinessCard
 							key={member.name + index}

@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { CardBody, CardContainer } from "./3d-card";
+import { CardBody, CardContainer, CardItem } from "./3d-card";
 import { CardHeader } from "./card-header";
 import { CardDescription } from "./card-description";
 import { CardContact } from "./card-contact";
 import { CardActions } from "./card-actions";
 import { CardCustomImage } from "./card-custom-image";
-import { CardItem } from "./3d-card";
+import { useRouter } from "next/navigation";
 
 interface BusinessCardProps {
 	member: {
@@ -36,6 +36,7 @@ export const BusinessCard = ({
 	onCopy,
 	copiedText,
 }: BusinessCardProps) => {
+	const router = useRouter();
 	const fallbackCopyToClipboard = (text: string) => {
 		const textArea = document.createElement("textarea");
 		textArea.value = text;
@@ -91,10 +92,15 @@ export const BusinessCard = ({
 			whileInView={{ opacity: 1, y: 0 }}
 			viewport={{ margin: "-100px", once: true }}
 			transition={{ duration: 0.7, ease: "easeOut" }}
-			className="flex items-center justify-center perspective-1000"
+			className="flex items-center justify-center perspective-1000 w-full"
 		>
-			<CardContainer className="inter-var">
-				<CardBody className="relative h-[calc(54mm)] w-[calc(83mm)] md:h-[calc(54mm*1.5)] md:w-[calc(85mm*1.5)]">
+			<CardContainer
+				className="inter-var px-24 py-12 hover:scale-105 group transition-all duration-300 "
+				onClick={() => {
+					router.push(`/notre-equipe/${member.name}`);
+				}}
+			>
+				<CardBody className="relative group-hover:shadow-2xl rounded-[calc(4mm*1)] md:rounded-[calc(4mm*1.5)] h-[calc(54mm)] w-[calc(83mm)] md:h-[calc(54mm*1.5)] md:w-[calc(85mm*1.5)]">
 					<div
 						className={`relative w-full h-full rounded-[calc(4mm*1)] md:rounded-[calc(4mm*1.5)] bg-gradient-to-br ${member.colors.from} ${member.colors.to} shadow-2xl border border-white/10 overflow-hidden`}
 					>
@@ -133,7 +139,7 @@ export const BusinessCard = ({
 
 							{/* Bottom decoration */}
 							<CardItem
-								translateZ="40"
+								translateZ="0"
 								className="absolute bottom-[calc(3mm*1)] md:bottom-[calc(3mm*1.5)] left-6 right-40"
 							>
 								<div className="h-1 w-full bg-gradient-to-r from-white/0 via-white/20 to-white/0" />

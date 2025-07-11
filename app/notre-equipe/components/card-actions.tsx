@@ -29,7 +29,7 @@ export const CardActions = ({ vCardData }: CardActionsProps) => {
 	return (
 		<>
 			<CardItem
-				translateZ="100"
+				translateZ="0"
 				className="absolute top-[calc(20mm*1)] right-[calc(9.5mm*1)] md:top-[calc(20mm*1.5)] md:right-[calc(9.5mm*1.5)] w-[calc(10.5mm*1)] md:w-[calc(10.5mm*1.5)]"
 			>
 				{/* Mobile: Add Contact Button */}

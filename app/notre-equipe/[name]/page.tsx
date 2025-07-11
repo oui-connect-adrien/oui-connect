@@ -80,7 +80,7 @@ const Page = () => {
 			<div className="z-10 relative lg:container pt-12 px-4 flex flex-col items-center">
 				<Link
 					href="/notre-equipe"
-					className="absolute left-4 top-28 flex items-center gap-2 text-zinc-700 hover:text-zinc-900 transition-colors"
+					className="absolute left-4 top-20 flex items-center gap-2 text-zinc-700 hover:text-zinc-900 transition-colors"
 				>
 					<ArrowLeft className="w-5 h-5" />
 					<span>Retour à l'équipe</span>

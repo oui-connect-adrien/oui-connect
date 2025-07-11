@@ -22,7 +22,7 @@ export const CardHeader = ({
 }: CardHeaderProps) => {
 	return (
 		<CardItem
-			translateZ="100"
+			translateZ="0"
 			className="flex justify-between items-start w-full"
 		>
 			<div className="space-y-1 flex-grow">

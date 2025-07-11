@@ -12,7 +12,7 @@ export const CardCustomImage = ({
 }: CardCustomImageProps) => {
 	return (
 		<CardItem
-			translateZ="100"
+			translateZ="0"
 			className="absolute bottom-[calc(6mm*1)] right-[calc(6mm*1)] md:bottom-[calc(6mm*1.5)] md:right-[calc(6mm*1.5)] w-[calc(14mm*1)] h-[calc(14mm*1)] md:w-[calc(14mm*1.5)] md:h-[calc(14mm*1.5)]"
 		>
 			<div
