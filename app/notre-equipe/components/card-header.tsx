@@ -29,7 +29,7 @@ export const CardHeader = ({
 				<Button
 					onClick={() => onCopy(name, "Nom")}
 					variant="ghost"
-					className="text-left text-[calc(5mm*1)] md:text-[calc(5mm*1.5)] font-bold text-white hover:text-white/90 transition-colors group flex gap-2 hover:bg-white/10"
+					className="px-1 text-left text-[calc(5mm*1)] md:text-[calc(5mm*1.5)] font-bold text-white hover:text-white/90 transition-colors group flex gap-2 hover:bg-white/10"
 				>
 					{name}
 					{copiedText === name ? (
@@ -38,11 +38,11 @@ export const CardHeader = ({
 						<Copy className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
 					)}
 				</Button>
-				<p className="text-left text-[calc(3mm*1)] md:text-[calc(3mm*1.5)] text-white/80 transition-colors group flex items-center gap-2 ml-4">
+				<p className="text-left text-[calc(3mm*1)] md:text-[calc(3mm*1.5)] text-white/80 transition-colors group flex items-center gap-2 px-1">
 					{role}
 				</p>
 			</div>
-			<div className="flex flex-col items-center">
+			<div className="flex flex-col items-center w-[calc(20mm*1)] md:w-[calc(20mm*1.5)]">
 				<div className="relative flex-shrink-0 w-[calc(10mm*1)] h-[calc(10mm*1)] md:w-[calc(10mm*1.5)] md:h-[calc(10mm*1.5)] rounded-full overflow-hidden border-2 border-white/20">
 					<Image
 						src={company_image}

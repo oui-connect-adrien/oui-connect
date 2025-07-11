@@ -94,7 +94,7 @@ export const BusinessCard = ({
 			className="flex items-center justify-center perspective-1000"
 		>
 			<CardContainer className="inter-var">
-				<CardBody className="relative h-[calc(54mm)] w-[calc(85mm)] md:h-[calc(54mm*1.5)] md:w-[calc(85mm*1.5)]">
+				<CardBody className="relative h-[calc(54mm)] w-[calc(83mm)] md:h-[calc(54mm*1.5)] md:w-[calc(85mm*1.5)]">
 					<div
 						className={`relative w-full h-full rounded-[calc(4mm*1)] md:rounded-[calc(4mm*1.5)] bg-gradient-to-br ${member.colors.from} ${member.colors.to} shadow-2xl border border-white/10 overflow-hidden`}
 					>

@@ -10,12 +10,27 @@ interface CardActionsProps {
 
 export const CardActions = ({ vCardData }: CardActionsProps) => {
 	const [showQR, setShowQR] = useState<boolean>(false);
+	const [longPressTimer, setLongPressTimer] = useState<NodeJS.Timeout | null>(
+		null
+	);
+
+	const handlePressStart = () => {
+		const timer = setTimeout(() => setShowQR(!showQR), 500);
+		setLongPressTimer(timer);
+	};
+
+	const handlePressEnd = () => {
+		if (longPressTimer) {
+			clearTimeout(longPressTimer);
+			setLongPressTimer(null);
+		}
+	};
 
 	return (
 		<>
 			<CardItem
 				translateZ="100"
-				className="absolute top-[calc(22mm*1)] right-[calc(8.5mm*1)] md:top-[calc(22mm*1.5)] md:right-[calc(8.5mm*1.5)] w-[calc(10.5mm*1)] md:w-[calc(10.5mm*1.5)]"
+				className="absolute top-[calc(20mm*1)] right-[calc(9.5mm*1)] md:top-[calc(20mm*1.5)] md:right-[calc(9.5mm*1.5)] w-[calc(10.5mm*1)] md:w-[calc(10.5mm*1.5)]"
 			>
 				{/* Mobile: Add Contact Button */}
 				<div className="md:hidden">
@@ -31,6 +46,11 @@ export const CardActions = ({ vCardData }: CardActionsProps) => {
 							document.body.removeChild(link);
 							window.URL.revokeObjectURL(url);
 						}}
+						onMouseDown={handlePressStart}
+						onMouseUp={handlePressEnd}
+						onMouseLeave={handlePressEnd}
+						onTouchStart={handlePressStart}
+						onTouchEnd={handlePressEnd}
 						className="bg-transparent hover:bg-white/20 transition-colors rounded-full"
 					>
 						<UserPlus className="w-[calc(5mm*1)] h-[calc(5mm*1)] text-white" />
@@ -42,7 +62,7 @@ export const CardActions = ({ vCardData }: CardActionsProps) => {
 						onClick={() => setShowQR(!showQR)}
 						className="bg-transparent hover:bg-white/20 transition-colors rounded-full"
 					>
-						<QrCode className="w-[calc(6mm*1.5)] h-[calc(6mm*1.5)] text-white" />
+						<QrCode className="w-[calc(5mm*1.5)] h-[calc(5mm*1.5)] text-white" />
 					</Button>
 				</div>
 			</CardItem>

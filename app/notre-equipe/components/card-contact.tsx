@@ -18,16 +18,14 @@ export const CardContact = ({
 	handleCopy,
 }: CardContactProps) => {
 	return (
-		<CardItem translateZ="80" className="mt-8">
+		<CardItem translateZ="80" className="">
 			<div className="flex flex-col gap-2">
 				{email && (
 					<div className="space-y-1 flex-grow">
 						<Button
 							onClick={() => onCopy(email, "Email")}
 							variant="ghost"
-							className="flex items-center gap-2 text-white/90 hover:text-white 
-                hover:bg-white/10 
-                transition-colors group text-[calc(3mm*1)] md:text-[calc(3mm*1.5)]"
+							className="px-1 flex items-center gap-2 text-white/90 hover:text-white hover:bg-white/10 transition-colors group text-[calc(3mm*1)] md:text-[calc(3mm*1.5)]"
 						>
 							<Mail className="w-4 h-4" />
 							<span>{email}</span>
@@ -45,9 +43,7 @@ export const CardContact = ({
 						<div className="md:hidden">
 							<Button
 								variant="ghost"
-								className="flex items-center gap-2 text-white/90 hover:text-white 
-                  hover:bg-white/10 
-                  transition-colors group text-[calc(3mm*1)]"
+								className="px-1 flex items-center gap-2 text-white/90 hover:text-white hover:bg-white/10 transition-colors group text-[calc(3mm*1)]"
 							>
 								<a
 									href={`tel:${phone}`}
