@@ -119,7 +119,7 @@ export default function PrivacyPage() {
 	return (
 		<div className="relative py-4 antialiased overflow-hidden">
 			{/* Hero Section */}
-			<div className="z-10 relative lg:container pt-24 px-4 flex flex-col items-center">
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 flex flex-col items-center">
 				<motion.div
 					className="text-center max-w-4xl mx-auto"
 					initial={{ opacity: 0, y: -50 }}
@@ -141,7 +141,7 @@ export default function PrivacyPage() {
 
 			{/* Principles Section */}
 			<div className="bg-zinc-100 mt-24 py-14">
-				<div className="px-4 z-10 relative lg:container">
+				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<motion.h2
 						className="text-3xl font-bold mb-12 text-center text-neutral-700"
 						initial={{ opacity: 0, y: -30 }}
@@ -173,7 +173,7 @@ export default function PrivacyPage() {
 			</div>
 
 			{/* Data Collection Section */}
-			<div className="z-10 relative lg:container mt-16 lg:mt-24 px-4">
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 lg:mt-24">
 				<motion.h2
 					className="text-3xl font-bold mb-12 text-center text-neutral-700"
 					initial={{ opacity: 0, y: -30 }}
@@ -227,7 +227,7 @@ export default function PrivacyPage() {
 
 			{/* Rights Section */}
 			<div className="bg-zinc-100 mt-24 py-14">
-				<div className="px-4 z-10 relative lg:container">
+				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<motion.h2
 						className="text-3xl font-bold mb-12 text-center text-neutral-700"
 						initial={{ opacity: 0, y: -30 }}
@@ -261,7 +261,7 @@ export default function PrivacyPage() {
 			</div>
 
 			{/* Additional Information */}
-			<div className="z-10 relative lg:container mt-16 lg:mt-24 px-4">
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 lg:mt-24">
 				<div className="max-w-4xl mx-auto space-y-12">
 					<motion.div
 						className="border-l-4 border-blue-600 pl-6"
@@ -390,7 +390,7 @@ export default function PrivacyPage() {
 
 			{/* Contact Section */}
 			<div className="bg-zinc-100 mt-24 py-24">
-				<div className="z-10 relative lg:container px-4 flex flex-col items-center text-center">
+				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
 					<motion.h3
 						className="text-3xl font-bold mb-8 text-neutral-700"
 						initial={{ opacity: 0, y: -30 }}
