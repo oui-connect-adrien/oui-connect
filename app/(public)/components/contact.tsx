@@ -85,11 +85,11 @@ export function Contact() {
 													className="text-sm text-muted-foreground hover:text-primary transition-colors block truncate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
 													aria-label="Envoyer un email à Oui-Connect"
 												>
-													contact@oui-connect.fr
+													info@oui-connect.fr
 												</Link>
 											</TooltipTrigger>
 											<TooltipContent role="tooltip">
-												<p>contact@oui-connect.fr</p>
+												<p>info@oui-connect.fr</p>
 											</TooltipContent>
 										</Tooltip>
 									</div>
