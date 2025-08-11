@@ -113,7 +113,7 @@ export function Contact() {
 											className="text-sm text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
 											aria-label="Appeler Oui-Connect"
 										>
-											+33 (0)1 23 45 67 89
+											+33 (0)6 37 73 72 05
 										</Link>
 									</div>
 								</div>
