@@ -198,6 +198,7 @@ export function Navbar() {
 												</li>
 											);
 										})}
+										<LoginModal />
 									</ul>
 								</nav>
 
