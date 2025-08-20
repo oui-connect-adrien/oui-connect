@@ -103,9 +103,10 @@ export function About() {
 										Mission
 									</h4>
 									<p className="leading-relaxed text-muted-foreground">
-										Nous avons à cœur de créer et éditer des services logiciels
-										basés sur les dernières technologies du web de manière
-										simple et accessible partout et pour tous.
+										Nous croyons en un monde où chacun peut garder le contrôle
+										de ses données, simplement. C’est pourquoi nous créons des
+										solutions logicielles web, accessibles, intuitives et
+										pensées pour une adoption rapide, partout et par tous.
 									</p>
 								</div>
 							</div>

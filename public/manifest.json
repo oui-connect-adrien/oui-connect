@@ -1,0 +1,33 @@
+{
+	"name": "Oui Connect - Solutions de monitoring industriel",
+	"short_name": "Oui Connect",
+	"description": "Solutions de monitoring industriel, maintenance prédictive et digitalisation pour l'industrie 4.0",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#000000",
+	"orientation": "portrait-primary",
+	"icons": [
+		{
+			"src": "/icon-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "maskable"
+		},
+		{
+			"src": "/icon-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		},
+		{
+			"src": "/logo_oui-connect.png",
+			"sizes": "any",
+			"type": "image/png"
+		}
+	],
+	"categories": ["business", "productivity", "utilities"],
+	"lang": "fr",
+	"scope": "/",
+	"id": "ouiconnect-app"
+}

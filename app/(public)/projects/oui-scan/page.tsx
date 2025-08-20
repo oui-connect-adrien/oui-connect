@@ -11,13 +11,55 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Oui-Scan - Traçabilité et identification par QR Code",
+	description:
+		"Oui-Scan : solution de traçabilité industrielle par QR Code. Identifiez, suivez et gérez vos équipements, produits et inventaires avec notre système de scan intelligent.",
+	keywords: [
+		"Oui-Scan",
+		"traçabilité industrielle",
+		"QR Code industriel",
+		"identification équipements",
+		"gestion inventaire",
+		"scan mobile",
+		"traçabilité produits",
+		"système de scan",
+	],
+	openGraph: {
+		title: "Oui-Scan - Traçabilité et identification par QR Code",
+		description:
+			"Solution de traçabilité industrielle par QR Code. Identifiez et suivez vos équipements avec notre système de scan intelligent.",
+		url: `${process.env.WEBSITE_URL}/projects/oui-scan`,
+		type: "website",
+		images: [
+			{
+				url: `${process.env.WEBSITE_URL}/oui-scan-1.png`,
+				width: 1200,
+				height: 630,
+				alt: "Oui-Scan - Traçabilité par QR Code",
+			},
+		],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Oui-Scan - Traçabilité QR Code",
+		description:
+			"Solution de traçabilité industrielle par QR Code pour identifier et suivre vos équipements.",
+		images: [`${process.env.WEBSITE_URL}/oui-scan-1.png`],
+	},
+	alternates: {
+		canonical: `${process.env.WEBSITE_URL}/projects/oui-scan`,
+	},
+};
 
 function OuiScanPage() {
 	const features = [
 		{
-			title: "Gérez facilement votre parc matériel",
+			title: "Gérez vos équipements en un scan depuis votre smartphone",
 			description:
-				"Ne perdez plus votre matériel. Géolocalisez précisément vos produits. Historisez le parcours de chaque élément tout au long de sa vie. Identifiez instantanément votre matériel d'un simple scan du QR Code associé.",
+				"Un inventaire immédiat, une traçabilité complète et une gestion mobile, accessible à tous, en quelques clics.",
 			image: "/oui-scan-1.png",
 		},
 		{
@@ -35,7 +77,7 @@ function OuiScanPage() {
 		{
 			title: "Personnalisez votre gestion",
 			description:
-				"Créez des groupes et sous-groupes directement dans notre application. Personnalisez vos étiquettes à vos équipements pour définir l'état, les propriétés et tout autres caractéristiques que vous souhaitez.",
+				"Créez des objets directement dans notre application. Personnalisez vos étiquettes à vos équipements pour définir l'état, les propriétés et tout autres caractéristiques que vous souhaitez.",
 			image: "/oui-scan-4.png",
 		},
 	];
@@ -94,7 +136,7 @@ function OuiScanPage() {
 							</SlideIn>
 							<SlideIn direction="up" delay={0.3} duration={0.4}>
 								<Button asChild size="lg">
-									<Link href="/#contact">Choisir un abonnement</Link>
+									<Link href="/#contact">Demander une démo</Link>
 								</Button>
 							</SlideIn>
 						</div>
@@ -219,7 +261,7 @@ function OuiScanPage() {
 					<div className="text-center mt-12">
 						<Reveal threshold={0.3} delay={0} duration={0.5}>
 							<Button asChild size="lg">
-								<Link href="/#contact">Choisir un abonnement</Link>
+								<Link href="/#contact">Demander une démo</Link>
 							</Button>
 						</Reveal>
 					</div>

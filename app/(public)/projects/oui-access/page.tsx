@@ -4,6 +4,48 @@ import { Card, CardContent } from "@/shared/components/ui/card";
 import { Bell, Clock, Monitor, Settings, Shield } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Oui-Access - Supervision 24/7",
+	description:
+		"Oui-Access : solution de supervision industrielle 24/7 avec maintenance prédictive. Surveillez vos équipements en temps réel, anticipez les incidents et pilotez vos KPI.",
+	keywords: [
+		"Oui-Access",
+		"supervision industrielle",
+		"maintenance prédictive",
+		"monitoring 24/7",
+		"surveillance équipements",
+		"IoT industriel",
+		"alertes temps réel",
+		"tableaux de bord industriels",
+	],
+	openGraph: {
+		title: "Oui-Access - Supervision 24/7 et maintenance prédictive",
+		description:
+			"Solution de supervision industrielle 24/7 avec maintenance prédictive. Surveillez vos équipements en temps réel et anticipez les incidents.",
+		url: `${process.env.WEBSITE_URL}/projects/oui-access`,
+		type: "website",
+		images: [
+			{
+				url: `${process.env.WEBSITE_URL}/oui-access-1.png`,
+				width: 1200,
+				height: 630,
+				alt: "Interface Oui-Access - Supervision industrielle 24/7",
+			},
+		],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Oui-Access - Supervision 24/7",
+		description:
+			"Solution de supervision industrielle avec maintenance prédictive pour vos équipements.",
+		images: [`${process.env.WEBSITE_URL}/oui-access-1.png`],
+	},
+	alternates: {
+		canonical: `${process.env.WEBSITE_URL}/projects/oui-access`,
+	},
+};
 
 function OuiAccessPage() {
 	const features = [
@@ -30,33 +72,28 @@ function OuiAccessPage() {
 	const benefits = [
 		{
 			icon: Bell,
-			title: "Alertes en temps réel",
-			description:
-				"Soyez alertés en temps réel et depuis n'importe où de toutes anomalies, pannes ou dérives de vos équipements ou installations.",
+			title: "Alertes instantanées",
+			description: "Surveillez les anomalies et réagissez sans délai.",
 		},
 		{
 			icon: Monitor,
-			title: "Centralisation",
-			description:
-				"Facilitez votre suivi énergétique en accédant à vos indicateurs de performance énergétique pour l'ensemble de vos installations en un seul endroit.",
+			title: "Tableaux de bord unifiés",
+			description: "Mesurez performances, efficacité & sécurité.",
 		},
 		{
 			icon: Shield,
-			title: "Sécurisé",
-			description:
-				"Nous mettons tout en œuvre pour sécuriser vos données à tout moment et éliminer tout risque de fuite.",
+			title: "Multi-appareils & sécurité",
+			description: "Accès web, mobile, avec authentification.",
 		},
 		{
 			icon: Clock,
-			title: "Installation rapide",
-			description:
-				"La mise en place de notre solution ne prend en général qu'une demi-journée par équipement industriel.",
+			title: "Installation express",
+			description: "Déploiement en moins d’une demi-journée.",
 		},
 		{
 			icon: Settings,
-			title: "Personnalisable",
-			description:
-				"Personnalisez l'interface de votre solution ainsi que de nombreux paramètres (alarmes, graphiques…) à votre goût.",
+			title: "Personnalisation avancée",
+			description: "Alarmes, rapports, accès par profils",
 		},
 	];
 
@@ -98,20 +135,18 @@ function OuiAccessPage() {
 							</SlideIn>
 							<SlideIn direction="up" delay={0.1} duration={0.4}>
 								<h2 className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-									Surveillez vos installations à distance grâce à notre système
-									de supervision industrielle
+									Supervision 24/7 : maintenance prédictive pour vos machines
 								</h2>
 							</SlideIn>
 							<SlideIn direction="up" delay={0.2} duration={0.4}>
 								<p className="text-lg text-muted-foreground leading-relaxed">
-									Réduisez considérablement vos délais d'intervention de
-									maintenance en cas d'anomalies sur vos équipements avec notre
-									solution de supervision industrielle.
+									Suivez en temps réel vos équipements, anticipez les incidents
+									et pilotez vos KPI depuis n’importe où.
 								</p>
 							</SlideIn>
 							<SlideIn direction="up" delay={0.3} duration={0.4}>
 								<Button asChild size="lg">
-									<Link href="/#contact">Choisir un abonnement</Link>
+									<Link href="/#contact">Nous contacter</Link>
 								</Button>
 							</SlideIn>
 						</div>
@@ -238,9 +273,9 @@ function OuiAccessPage() {
 						</SlideIn>
 						<SlideIn direction="up" delay={0.1} duration={0.4}>
 							<p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-								Le processus d'installation est à la fois simple, rapide et
-								sécurisé de manière à ce que vous puissiez en profiter très
-								rapidement.
+								Le processus d'installation du boitier de monitoring industriel
+								est à la fois simple, rapide et sécurisé de manière à ce que
+								vous puissiez en profiter très rapidement.
 							</p>
 						</SlideIn>
 					</div>
@@ -273,7 +308,7 @@ function OuiAccessPage() {
 					<div className="text-center mt-12">
 						<Reveal threshold={0.3} delay={0} duration={0.5}>
 							<Button asChild size="lg">
-								<Link href="/#contact">Choisir un abonnement</Link>
+								<Link href="/#contact">Nous contacter</Link>
 							</Button>
 						</Reveal>
 					</div>

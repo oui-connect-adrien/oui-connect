@@ -94,10 +94,8 @@ const Page = () => {
 								et ainsi optimiser leurs dépenses, leurs délais et la qualité de
 								leurs services ou produits.
 								<br /> <br />
-								Fondée en 2018, Oui-Connect est donc la concrétisation d’un
-								projet innovant dont l’objectif consiste à rassembler les
-								technologies du web afin d’améliorer la performance de vos
-								équipements industriels.
+								Depuis 2018, Oui‑Connect digitalise l’industrie pour la rendre
+								plus agile, réactive et durable.
 							</p>
 						</motion.div>
 					</div>

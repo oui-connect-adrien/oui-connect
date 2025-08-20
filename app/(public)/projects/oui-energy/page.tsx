@@ -13,6 +13,48 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Oui-Energy - Optimisation énergétique industrielle",
+	description:
+		"Oui-Energy : solution d'optimisation énergétique pour l'industrie. Réduisez votre consommation, analysez vos données énergétiques et améliorez votre efficacité énergétique.",
+	keywords: [
+		"Oui-Energy",
+		"optimisation énergétique",
+		"efficacité énergétique industrielle",
+		"réduction consommation énergie",
+		"monitoring énergétique",
+		"analyse données énergétiques",
+		"économies d'énergie",
+		"bilan énergétique industriel",
+	],
+	openGraph: {
+		title: "Oui-Energy - Optimisation énergétique industrielle",
+		description:
+			"Solution d'optimisation énergétique pour l'industrie. Réduisez votre consommation et améliorez votre efficacité énergétique.",
+		url: `${process.env.WEBSITE_URL}/projects/oui-energy`,
+		type: "website",
+		images: [
+			{
+				url: `${process.env.WEBSITE_URL}/oui-energy-1.png`,
+				width: 1200,
+				height: 630,
+				alt: "Oui-Energy - Optimisation énergétique industrielle",
+			},
+		],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Oui-Energy - Optimisation énergétique",
+		description:
+			"Solution d'optimisation énergétique pour réduire la consommation industrielle.",
+		images: [`${process.env.WEBSITE_URL}/oui-energy-1.png`],
+	},
+	alternates: {
+		canonical: `${process.env.WEBSITE_URL}/projects/oui-energy`,
+	},
+};
 
 function OuiEnergyPage() {
 	const features = [
@@ -65,7 +107,7 @@ function OuiEnergyPage() {
 			icon: Clock,
 			title: "Installation rapide",
 			description:
-				"La mise en place de notre solution ne prend en général qu'une demi-journée par équipement industriel.",
+				"La mise en place du boitier de monitoring énergétique ne prend en général qu'une demi-journée par équipement industriel.",
 		},
 		{
 			icon: Headphones,
@@ -133,7 +175,7 @@ function OuiEnergyPage() {
 							</SlideIn>
 							<SlideIn direction="up" delay={0.3} duration={0.4}>
 								<Button asChild size="lg">
-									<Link href="/#contact">Choisir un abonnement</Link>
+									<Link href="/#contact">Nous contacter</Link>
 								</Button>
 							</SlideIn>
 						</div>
@@ -303,7 +345,7 @@ function OuiEnergyPage() {
 						</p>
 						<Reveal threshold={0.3} delay={0} duration={0.5}>
 							<Button asChild size="lg">
-								<Link href="/#contact">Choisir un abonnement</Link>
+								<Link href="/#contact">Nous contacter</Link>
 							</Button>
 						</Reveal>
 					</div>

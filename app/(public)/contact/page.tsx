@@ -1,4 +1,43 @@
 import { ContactForm } from "@/app/(public)/components/contact-form";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Contact",
+	description:
+		"Contactez Oui-Connect pour vos projets de monitoring industriel, IoT et digitalisation. Devis gratuit et conseil personnalisé pour vos équipements industriels.",
+	keywords: [
+		"contact oui-connect",
+		"devis monitoring industriel",
+		"conseil IoT",
+		"digitalisation industrie",
+		"maintenance prédictive",
+		"supervision équipements",
+	],
+	openGraph: {
+		title: "Contact - Oui Connect",
+		description:
+			"Contactez-nous pour vos projets de monitoring industriel et digitalisation. Devis gratuit et conseil personnalisé.",
+		url: `${process.env.WEBSITE_URL}/contact`,
+		type: "website",
+		images: [
+			{
+				url: `${process.env.WEBSITE_URL}/logo-oui-connect-700x700.jpg`,
+				width: 700,
+				height: 700,
+				alt: "Contactez Oui Connect pour vos projets industriels",
+			},
+		],
+	},
+	twitter: {
+		card: "summary",
+		title: "Contact - Oui Connect",
+		description:
+			"Contactez-nous pour vos projets de monitoring industriel et digitalisation.",
+	},
+	alternates: {
+		canonical: `${process.env.WEBSITE_URL}/contact`,
+	},
+};
 
 export default function ContactPage() {
 	return (

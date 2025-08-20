@@ -3,30 +3,28 @@ export const projects = [
 		id: "oui-diag",
 		name: "Oui-Diag",
 		imageUrl: "/oui-diag.jpg",
-		description: "Faites diagnostiquer vos installations industrielles",
+		description: "Diagnostics machines rapides",
 		link: "/projects/oui-diag",
 	},
 	{
 		id: "oui-access",
 		name: "Oui-Access",
 		imageUrl: "/oui-access.jpeg",
-		description: "Surveillez vos installations à distance",
+		description: "Supervision 24/7 de vos installations",
 		link: "/projects/oui-access",
 	},
 	{
 		id: "oui-scan",
 		name: "Oui-Scan",
 		imageUrl: "/oui-scan.jpg",
-		description:
-			"Optimisez la gestion de vos produits par QR code grâce à notre solution web",
+		description: "Identifiez, localisez et gérez vos équipements en un scan",
 		link: "/projects/oui-scan",
 	},
 	{
 		id: "oui-energy",
 		name: "Oui-Energy",
 		imageUrl: "/oui-energy.jpeg",
-		description:
-			"Maitrisez votre consommation énergétique sur tous vos appareils",
+		description: "Suivi et optimisation de vos consommations énergétiques",
 		link: "/projects/oui-energy",
 	},
 	{
@@ -34,7 +32,7 @@ export const projects = [
 		name: "Installation d'instrumentation",
 		imageUrl: "/electric-wiring.jpg",
 		description:
-			"Nos partenaires installent vos instruments de mesure et de contrôle",
+			"Nos partenaires installent vos instruments de mesure et boitier de monitoring",
 		link: "/installation-instrumentation",
 	},
 ];

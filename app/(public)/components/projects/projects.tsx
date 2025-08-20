@@ -42,7 +42,7 @@ export function Projects() {
 									className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-4"
 								>
 									Des solutions innovantes pour optimiser vos équipements et
-									installations industrielles.
+									installations.
 								</p>
 							</SlideIn>
 						</div>

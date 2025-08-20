@@ -27,20 +27,14 @@ export function Hero() {
 							id="hero-title"
 							className="text-center text-4xl md:text-6xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight mb-8 mt-8 md:mt-12"
 						>
-							Maîtrisez les données de vos{" "}
-							<span
-								className="relative bg-clip-text text-transparent bg-gradient-to-t from-primary to-primary/80 z-10"
-								itemProp="applicationCategory"
-							>
-								produits
-							</span>
+							Digitalisez vos équipements industriels avec Oui-Connect
 						</h1>
 					</SlideIn>
 
 					{/* Description optimisée - Sans animation */}
 					<h2 className="max-w-3xl mx-auto text-lg md:text-xl text-zinc-500 text-center relative z-20 tracking-wide antialiased">
 						<span itemProp="description">
-							Améliorez le suivi et la gestion de vos produits et gagnez du
+							Améliorez le suivi et la gestion de votre matériel et gagnez du
 							temps grâce à nos solutions web simples et accessibles.
 						</span>
 					</h2>

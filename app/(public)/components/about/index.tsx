@@ -15,7 +15,7 @@ export const VALUES = [
 		icon: Lightbulb,
 		title: "Innovation",
 		description:
-			"Oui-Connect est une entreprise qui a pour vocation de toujours innover pour proposer des solutions toujours plus performantes et efficaces à ses clients. Pour cela, nous avons à cœur de rester à la pointe des dernières technologies du web, pour proposer des services toujours plus innovants et adaptés aux besoins de nos clients.",
+			"Oui‑Connect est une entreprise guidée par l’innovation, avec une mission claire : proposer à ses clients des solutions toujours plus performantes, simples et efficaces. Pour y parvenir, nous restons en veille constante sur les dernières technologies web, afin de concevoir des services innovants, utiles et adaptés aux besoins concrets du terrain.",
 	},
 	{
 		id: "team",
@@ -29,6 +29,6 @@ export const VALUES = [
 		icon: Zap,
 		title: "Co-création",
 		description:
-			"Notre état d'esprit nous amène à nous remettre en question en permanence et à écouter les remarques de chacun, qu'ils soient internes à la société, mais également de toutes les parties prenantes de la société (clients, utilisateurs, partenaires, fournisseurs…) afin de proposer le meilleur service à nos clients. Nous écoutons donc les remarques et co-créons nos améliorations à partir de ces dernières.",
+			"Notre état d’esprit est fondé sur l’écoute, l’ouverture et l’amélioration continue. Nous nous remettons constamment en question, en intégrant les retours de toutes nos parties prenantes : collaborateurs, clients, utilisateurs, partenaires ou fournisseurs pour faire évoluer nos services.",
 	},
 ];
