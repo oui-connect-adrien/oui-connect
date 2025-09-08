@@ -6,7 +6,13 @@ import {
 import { cn } from "@/shared/utils";
 import { ArrowUp, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
-import { collaborationLinks, companyLinks, legalLinks, VALUES } from ".";
+import {
+	collaborationLinks,
+	companyLinks,
+	legalLinks,
+	platformLinks,
+	VALUES,
+} from ".";
 import { projects } from "../projects";
 
 export function Footer() {
@@ -65,17 +71,30 @@ export function Footer() {
 						</ul>
 					</nav>
 
-					{/* Collaborations */}
-					<nav aria-labelledby="footer-collaboration-title">
+					{/* Plateformes */}
+					<nav aria-labelledby="footer-platforms-title">
 						<h3
-							id="footer-collaboration-title"
+							id="footer-platforms-title"
 							className="font-semibold text-foreground mb-4 text-base"
 						>
-							Collaborations
+							Nos plateformes
 						</h3>
 						<ul className="space-y-3" role="list">
-							{collaborationLinks.map((link, index) => (
+							{platformLinks.map((link, index) => (
 								<li key={index} role="listitem">
+									<Link
+										href={link.href}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+										title={link.description}
+									>
+										{link.label} ↗
+									</Link>
+								</li>
+							))}
+							{collaborationLinks.map((link, index) => (
+								<li key={`collab-${index}`} role="listitem">
 									<Link
 										href={link.href}
 										className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"

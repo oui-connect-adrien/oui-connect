@@ -18,6 +18,10 @@ Allow: /qui-sommes-nous
 Allow: /contact
 Allow: /plan-du-site
 
+# Plateformes externes liées (pour sitelinks)
+# Oui-Access : monitoring industriel - https://access.oui-connect.fr
+# Oui-Scan : traçabilité pour les entreprises - https://oui-scan.com
+
 # Disallow certain paths
 Disallow: /api/
 Disallow: /_next/

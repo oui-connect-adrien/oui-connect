@@ -31,10 +31,11 @@ export const metadata: Metadata = {
 		"solutions web industrielles",
 		"monitoring 24/7",
 		"gestion données industrielles",
-		"Oui-Access",
+		"Oui-Access monitoring industriel",
 		"Oui-Energy",
-		"Oui-Scan",
+		"Oui-Scan traçabilité entreprises",
 		"Oui-Diag",
+		"traçabilité pour les entreprises",
 	],
 	authors: [{ name: "Oui Connect" }],
 	creator: "Oui Connect",
@@ -92,6 +93,8 @@ export const metadata: Metadata = {
 		"geo.placename": "Saint-Herblain",
 		"geo.position": "47.2104;-1.6496",
 		ICBM: "47.2104, -1.6496",
+		// Plateformes liées pour sitelinks Google
+		"related-platforms": "https://access.oui-connect.fr,https://oui-scan.com",
 	},
 };
 
