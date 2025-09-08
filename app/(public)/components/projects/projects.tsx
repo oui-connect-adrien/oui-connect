@@ -42,7 +42,14 @@ export function Projects() {
 									className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-4"
 								>
 									Des solutions innovantes pour optimiser vos équipements et
-									installations.
+									installations. Complétées par nos{" "}
+									<Link
+										href="/installation-instrumentation"
+										className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium"
+									>
+										services d'instrumentation
+									</Link>
+									, nous vous accompagnons de A à Z.
 								</p>
 							</SlideIn>
 						</div>
@@ -98,10 +105,20 @@ export function Projects() {
 							<h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
 								Besoin d'une solution personnalisée ?
 							</h3>
-							<p className="text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+							<p className="text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
 								Nos équipes peuvent adapter nos solutions à vos besoins
 								spécifiques ou développer des solutions sur mesure pour votre
 								entreprise.
+							</p>
+							<p className="text-sm text-muted-foreground mb-8 max-w-2xl mx-auto">
+								Besoin d'une expertise technique ? Découvrez nos{" "}
+								<Link
+									href="/installation-instrumentation"
+									className="text-primary hover:text-primary/80 underline underline-offset-2"
+								>
+									services d'installation d'instrumentation
+								</Link>{" "}
+								pour vos équipements industriels.
 							</p>
 							<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
 								<Link
@@ -111,7 +128,7 @@ export function Projects() {
 									Discuter de votre projet
 								</Link>
 								<Link
-									href="/#quote-request"
+									href="/contact"
 									className="inline-flex items-center px-6 py-3 text-sm font-medium text-primary bg-background border border-primary rounded-lg hover:bg-primary/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
 								>
 									Demander un devis

@@ -224,8 +224,14 @@ export function Footer() {
 							</p>
 							<nav
 								className="flex items-center gap-4"
-								aria-label="Liens légaux"
+								aria-label="Liens légaux et navigation"
 							>
+								<Link
+									href="/plan-du-site"
+									className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+								>
+									Plan du site
+								</Link>
 								{legalLinks.map((link, index) => (
 									<Link
 										key={index}

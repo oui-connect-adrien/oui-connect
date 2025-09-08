@@ -4,6 +4,49 @@ import { Card, CardContent } from "@/shared/components/ui/card";
 import { Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Oui-Diag - Évaluation énergétique industrielle",
+	description:
+		"Oui-Diag : service d'évaluation énergétique industrielle. Audit complet, analyse des performances, identification des gaspillages énergétiques et recommandations d'optimisation.",
+	keywords: [
+		"Oui-Diag",
+		"évaluation énergétique industrielle",
+		"audit énergétique",
+		"diagnostic énergétique",
+		"analyse performance énergétique",
+		"gaspillage énergétique",
+		"optimisation énergétique",
+		"efficacité énergétique industrielle",
+		"CEE Certificats Économies Énergie",
+	],
+	openGraph: {
+		title: "Oui-Diag - Évaluation énergétique industrielle",
+		description:
+			"Service d'évaluation énergétique pour l'industrie. Audit complet et recommandations pour optimiser vos performances énergétiques.",
+		url: `${process.env.WEBSITE_URL}/projects/oui-diag`,
+		type: "website",
+		images: [
+			{
+				url: `${process.env.WEBSITE_URL}/evaluation-energetique.png`,
+				width: 1200,
+				height: 630,
+				alt: "Oui-Diag - Évaluation énergétique industrielle",
+			},
+		],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Oui-Diag - Évaluation énergétique",
+		description:
+			"Service d'évaluation énergétique industrielle pour optimiser vos performances.",
+		images: [`${process.env.WEBSITE_URL}/evaluation-energetique.png`],
+	},
+	alternates: {
+		canonical: `${process.env.WEBSITE_URL}/projects/oui-diag`,
+	},
+};
 
 export default function OuiDiagPage() {
 	const processSteps = [

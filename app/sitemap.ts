@@ -7,8 +7,46 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		{
 			url: baseUrl,
 			lastModified: new Date(),
-			changeFrequency: "monthly",
+			changeFrequency: "weekly",
 			priority: 1,
+		},
+		// Pages projets - PRIORITÉ MAXIMALE pour l'indexation
+		{
+			url: `${baseUrl}/projects/oui-access`,
+			lastModified: new Date(),
+			changeFrequency: "weekly",
+			priority: 0.95,
+		},
+		{
+			url: `${baseUrl}/projects/oui-energy`,
+			lastModified: new Date(),
+			changeFrequency: "weekly",
+			priority: 0.95,
+		},
+		{
+			url: `${baseUrl}/projects/oui-scan`,
+			lastModified: new Date(),
+			changeFrequency: "weekly",
+			priority: 0.95,
+		},
+		{
+			url: `${baseUrl}/projects/oui-diag`,
+			lastModified: new Date(),
+			changeFrequency: "weekly",
+			priority: 0.95,
+		},
+		// Services et pages importantes
+		{
+			url: `${baseUrl}/installation-instrumentation`,
+			lastModified: new Date(),
+			changeFrequency: "monthly",
+			priority: 0.85,
+		},
+		{
+			url: `${baseUrl}/notre-equipe`,
+			lastModified: new Date(),
+			changeFrequency: "monthly",
+			priority: 0.8,
 		},
 		{
 			url: `${baseUrl}/qui-sommes-nous`,
@@ -17,47 +55,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			priority: 0.8,
 		},
 		{
-			url: `${baseUrl}/notre-equipe`,
-			lastModified: new Date(),
-			changeFrequency: "monthly",
-			priority: 0.7,
-		},
-		{
 			url: `${baseUrl}/contact`,
 			lastModified: new Date(),
 			changeFrequency: "monthly",
 			priority: 0.8,
 		},
+		// Plan du site pour faciliter l'indexation
 		{
-			url: `${baseUrl}/projects/oui-access`,
+			url: `${baseUrl}/plan-du-site`,
 			lastModified: new Date(),
 			changeFrequency: "monthly",
-			priority: 0.9,
+			priority: 0.7,
 		},
-		{
-			url: `${baseUrl}/projects/oui-energy`,
-			lastModified: new Date(),
-			changeFrequency: "monthly",
-			priority: 0.9,
-		},
-		{
-			url: `${baseUrl}/projects/oui-scan`,
-			lastModified: new Date(),
-			changeFrequency: "monthly",
-			priority: 0.9,
-		},
-		{
-			url: `${baseUrl}/projects/oui-diag`,
-			lastModified: new Date(),
-			changeFrequency: "monthly",
-			priority: 0.9,
-		},
-		{
-			url: `${baseUrl}/installation-instrumentation`,
-			lastModified: new Date(),
-			changeFrequency: "monthly",
-			priority: 0.6,
-		},
+		// Pages légales
 		{
 			url: `${baseUrl}/legal`,
 			lastModified: new Date(),

@@ -104,6 +104,7 @@ export default function RootLayout({
 		<html lang="fr">
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+				suppressHydrationWarning={true}
 			>
 				<Navbar />
 				<Toaster position="top-right" richColors />
