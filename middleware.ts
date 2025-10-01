@@ -3,6 +3,7 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
 	if (request.nextUrl.pathname === "/access/pages/home") {
+		//allow this old url to redirect to oui-access
 		// Redirect to the main page (root)
 		return NextResponse.redirect(new URL("https://access.oui-connect.fr/"));
 	}
