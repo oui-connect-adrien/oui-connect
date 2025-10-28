@@ -75,6 +75,7 @@ export const contact: ServerAction<
 		);
 		if (!isRecaptchaValid) {
 			return createErrorResponse(
+				ActionStatus.ERROR,
 				"Échec de la vérification CAPTCHA. Veuillez réessayer.",
 				rawData
 			);
