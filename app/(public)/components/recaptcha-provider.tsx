@@ -11,8 +11,7 @@ export function RecaptchaProvider({ children }: RecaptchaProviderProps) {
 	const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 	if (!siteKey) {
-		console.error("NEXT_PUBLIC_RECAPTCHA_SITE_KEY is not configured");
-		return <>{children}</>;
+		throw new Error("NEXT_PUBLIC_RECAPTCHA_SITE_KEY is required but not configured in environment variables");
 	}
 
 	return (

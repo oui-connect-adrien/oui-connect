@@ -43,7 +43,7 @@ export function ContactForm() {
 			e.preventDefault();
 
 			if (!executeRecaptcha) {
-				toast.error("reCAPTCHA n'est pas encore chargé");
+				toast.error("reCAPTCHA n'est pas encore chargé. Veuillez patienter.");
 				return;
 			}
 
@@ -60,7 +60,9 @@ export function ContactForm() {
 				}, 100);
 			} catch (error) {
 				console.error("reCAPTCHA error:", error);
-				toast.error("Erreur lors de la vérification CAPTCHA");
+				toast.error(
+					"Erreur lors de la vérification CAPTCHA. Veuillez réessayer."
+				);
 			}
 		},
 		[executeRecaptcha, form]
