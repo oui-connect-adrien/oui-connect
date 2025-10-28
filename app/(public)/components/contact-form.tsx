@@ -9,10 +9,11 @@ import { cn } from "@/shared/utils";
 import { mergeForm, useForm, useTransform } from "@tanstack/react-form";
 import { toast } from "sonner";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { useCallback } from "react";
+import { useCallback, useTransition } from "react";
 
 export function ContactForm() {
 	const { executeRecaptcha } = useGoogleReCaptcha();
+	const [isPendingTransition, startTransition] = useTransition();
 
 	const { state, dispatch, isPending } = useContactForm({
 		onSuccess: (message) => {
@@ -49,17 +50,30 @@ export function ContactForm() {
 
 			try {
 				// Execute reCAPTCHA
+				console.log("Executing reCAPTCHA...");
 				const token = await executeRecaptcha("contact_form");
+				console.log("reCAPTCHA token received:", token ? "✓" : "✗");
 
 				// Update form with token
+				console.log("Setting reCAPTCHA token in form...");
 				form.setFieldValue("recaptchaToken", token);
 
 				// Submit form after a short delay to ensure token is set
+				console.log("Submitting form in 100ms...");
 				setTimeout(() => {
-					form.handleSubmit(e);
+					console.log("Triggering form submission...");
+					// Create a new form submission event
+					const formElement = e.target as HTMLFormElement;
+					const formData = new FormData(formElement);
+					formData.set("recaptchaToken", token);
+
+					// Use startTransition to properly handle the async action
+					startTransition(() => {
+						dispatch(formData);
+					});
 				}, 100);
 			} catch (error) {
-				console.error("reCAPTCHA error:", error);
+				console.error("reCAPTCHA error details:", error);
 				toast.error(
 					"Erreur lors de la vérification CAPTCHA. Veuillez réessayer."
 				);
@@ -579,17 +593,20 @@ export function ContactForm() {
 				<form.Subscribe
 					selector={(state) => [state.canSubmit, state.isSubmitting]}
 				>
-					{([canSubmit]) => (
-						<Button
-							type="submit"
-							disabled={!canSubmit || isPending}
-							aria-disabled={!canSubmit || isPending}
-							aria-describedby={!canSubmit ? "submit-help" : undefined}
-							className="w-full md:w-auto"
-						>
-							{isPending ? "Envoi en cours..." : "Envoyer"}
-						</Button>
-					)}
+					{([canSubmit]) => {
+						const isFormPending = isPending || isPendingTransition;
+						return (
+							<Button
+								type="submit"
+								disabled={!canSubmit || isFormPending}
+								aria-disabled={!canSubmit || isFormPending}
+								aria-describedby={!canSubmit ? "submit-help" : undefined}
+								className="w-full md:w-auto"
+							>
+								{isFormPending ? "Envoi en cours..." : "Envoyer"}
+							</Button>
+						);
+					}}
 				</form.Subscribe>
 
 				{!form.state.canSubmit &&
