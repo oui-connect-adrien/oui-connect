@@ -8,8 +8,12 @@ import { useContactForm } from "@/shared/hooks/use-contact-form";
 import { cn } from "@/shared/utils";
 import { mergeForm, useForm, useTransform } from "@tanstack/react-form";
 import { toast } from "sonner";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { useCallback } from "react";
 
 export function ContactForm() {
+	const { executeRecaptcha } = useGoogleReCaptcha();
+
 	const { state, dispatch, isPending } = useContactForm({
 		onSuccess: (message) => {
 			toast.success(message);
@@ -26,6 +30,7 @@ export function ContactForm() {
 			companyName: "",
 			subject: "",
 			message: "",
+			recaptchaToken: "",
 		},
 		transform: useTransform(
 			(baseForm) => mergeForm(baseForm, (state as unknown) ?? {}),
@@ -33,10 +38,38 @@ export function ContactForm() {
 		),
 	});
 
+	const handleSubmit = useCallback(
+		async (e: React.FormEvent) => {
+			e.preventDefault();
+
+			if (!executeRecaptcha) {
+				toast.error("reCAPTCHA n'est pas encore chargé");
+				return;
+			}
+
+			try {
+				// Execute reCAPTCHA
+				const token = await executeRecaptcha("contact_form");
+
+				// Update form with token
+				form.setFieldValue("recaptchaToken", token);
+
+				// Submit form after a short delay to ensure token is set
+				setTimeout(() => {
+					form.handleSubmit(e);
+				}, 100);
+			} catch (error) {
+				console.error("reCAPTCHA error:", error);
+				toast.error("Erreur lors de la vérification CAPTCHA");
+			}
+		},
+		[executeRecaptcha, form]
+	);
+
 	return (
 		<form
 			action={dispatch}
-			onSubmit={form.handleSubmit}
+			onSubmit={handleSubmit}
 			className="text-left space-y-6 w-full shadow-md p-6 rounded-lg bg-white"
 			aria-labelledby="contact-form-title"
 			noValidate
@@ -484,6 +517,13 @@ export function ContactForm() {
 				)}
 			</form.Field>
 
+			{/* Hidden field for reCAPTCHA token */}
+			<form.Field name="recaptchaToken">
+				{(field) => (
+					<input type="hidden" name={field.name} value={field.state.value} />
+				)}
+			</form.Field>
+
 			{/* Section des erreurs et bouton */}
 			<div className="space-y-4 border-t pt-6">
 				<div className="text-sm text-muted-foreground">
@@ -492,6 +532,27 @@ export function ContactForm() {
 							*
 						</span>
 						<span className="ml-1">Champs obligatoires</span>
+					</p>
+					<p className="mt-1 text-xs">
+						Ce site est protégé par reCAPTCHA et les{" "}
+						<a
+							href="https://policies.google.com/privacy"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-primary hover:underline"
+						>
+							Règles de confidentialité
+						</a>{" "}
+						et{" "}
+						<a
+							href="https://policies.google.com/terms"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-primary hover:underline"
+						>
+							Conditions d'utilisation
+						</a>{" "}
+						de Google s'appliquent.
 					</p>
 				</div>
 

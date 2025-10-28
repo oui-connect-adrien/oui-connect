@@ -10,6 +10,37 @@ import {
 	createValidationErrorResponse,
 } from "../types/server-action";
 
+// Function to verify reCAPTCHA token
+async function verifyRecaptcha(token: string): Promise<boolean> {
+	const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+
+	if (!secretKey) {
+		console.error("RECAPTCHA_SECRET_KEY not configured");
+		return false;
+	}
+
+	try {
+		const response = await fetch(
+			"https://www.google.com/recaptcha/api/siteverify",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded",
+				},
+				body: `secret=${secretKey}&response=${token}`,
+			}
+		);
+
+		const data = await response.json();
+
+		// For reCAPTCHA v3, check both success and score
+		return data.success && data.score > 0.5; // Adjust score threshold as needed
+	} catch (error) {
+		console.error("reCAPTCHA verification error:", error);
+		return false;
+	}
+}
+
 export const contact: ServerAction<
 	z.infer<typeof contactSchema>,
 	typeof contactSchema
@@ -23,6 +54,7 @@ export const contact: ServerAction<
 			companyName: formData.get("companyName") as string,
 			subject: formData.get("subject") as string,
 			message: formData.get("message") as string,
+			recaptchaToken: formData.get("recaptchaToken") as string,
 		};
 
 		// Validation des données avec Zod
@@ -36,6 +68,17 @@ export const contact: ServerAction<
 		}
 
 		const validatedData = validation.data;
+
+		// Verify reCAPTCHA
+		const isRecaptchaValid = await verifyRecaptcha(
+			validatedData.recaptchaToken
+		);
+		if (!isRecaptchaValid) {
+			return createErrorResponse(
+				"Échec de la vérification CAPTCHA. Veuillez réessayer.",
+				rawData
+			);
+		}
 
 		// Création du sujet et du corps de l'email
 		const emailSubject = `Message commercial de ${validatedData.firstname} ${validatedData.lastname} - ${validatedData.subject} - ${validatedData.phoneNumber || "Non renseigné"} via le site oui-connect.fr`;
