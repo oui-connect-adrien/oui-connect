@@ -21,11 +21,43 @@ import { useActiveNavbarItem } from "@/shared/hooks/use-active-navbar-item";
 import { useIsScrolled } from "@/shared/hooks/use-is-scrolled";
 import { useIsMobile } from "@/shared/hooks/use-mobile";
 import { cn } from "@/shared/utils";
-import { Home, Menu } from "lucide-react";
+import { Home, Info, Mail, Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { navbarItems } from ".";
-import LoginModal from "../login-modal";
+import LoginModal from "./login-modal";
+
+export const navbarItems = [
+	//home
+	{
+		label: "Accueil",
+		href: "/",
+		icon: Home,
+	},
+	//solutions
+	{
+		label: "Nos solutions",
+		href: "/#solutions",
+		icon: Home,
+		submenu: [
+			{ label: "Bilan Energétique", href: "/solutions/bilan-energetique" },
+			{
+				label: "Monitoring Energétique",
+				href: "/solutions/monitoring-energetique",
+			},
+			{ label: "Oui-Scan", href: "/solutions/oui-scan" },
+		],
+	},
+	{
+		label: "Qui sommes-nous ?",
+		href: "/#qui-sommes-nous",
+		icon: Mail,
+	},
+	{
+		label: "Nous Contacter",
+		href: "/#contact",
+		icon: Info,
+	},
+];
 
 export function Navbar() {
 	const isMobile = useIsMobile();
@@ -85,12 +117,12 @@ export function Navbar() {
 					Navigation principale du site. Accédez aux solutions, témoignages et
 					informations de contact.
 				</div>
-				<div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+				<div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
 					<div className="flex h-16 items-center justify-between">
 						{/* Logo */}
 						<div className="flex items-center gap-2">
 							<Link href="/">
-								<div className="relative w-[200px] h-[80px]">
+								<div className="relative w-[200px] h-20">
 									<Image
 										src="/logo_oui-connect.png"
 										alt="logo_oui-connect"
@@ -153,7 +185,7 @@ export function Navbar() {
 									<div className="flex items-center justify-between">
 										<div className="flex items-center space-x-3">
 											<Link href="/">
-												<div className="relative w-[200px] h-[80px]">
+												<div className="relative w-[200px] h-20">
 													<Image
 														src="/logo_oui-connect.png"
 														alt="logo_oui-connect"

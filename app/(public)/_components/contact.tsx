@@ -28,7 +28,7 @@ export function Contact() {
 				techniques. Nous vous répondons rapidement.
 			</p>
 
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 				{/* En-tête */}
 				<div className="text-left mb-12 md:mb-16">
 					<div className="flex flex-col sm:flex-row sm:items-start sm:gap-6 mb-8">

@@ -2,9 +2,90 @@ import { Reveal, SlideIn } from "@/shared/components/animations";
 import { Card, CardContent } from "@/shared/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-import { projects } from ".";
 
-export function Projects() {
+export const projects = [
+	{
+		id: "oui-diag",
+		name: "Oui-Diag",
+		imageUrl: "/oui-diag.jpg",
+		description: "Diagnostics machines rapides",
+		link: "/projects/oui-diag",
+	},
+	{
+		id: "oui-access",
+		name: "Oui-Access",
+		imageUrl: "/oui-access.jpeg",
+		description: "Supervision 24/7 de vos installations",
+		link: "/projects/oui-access",
+	},
+	{
+		id: "oui-scan",
+		name: "Oui-Scan",
+		imageUrl: "/oui-scan.jpg",
+		description: "Identifiez, localisez et gérez vos équipements en un scan",
+		link: "/projects/oui-scan",
+	},
+	{
+		id: "oui-energy",
+		name: "Oui-Energy",
+		imageUrl: "/oui-energy.jpeg",
+		description: "Suivi et optimisation de vos consommations énergétiques",
+		link: "/projects/oui-energy",
+	},
+	{
+		id: "installation-instrumentation",
+		name: "Installation d'instrumentation",
+		imageUrl: "/electric-wiring.jpg",
+		description:
+			"Nos partenaires installent vos instruments de mesure et boitier de monitoring",
+		link: "/installation-instrumentation",
+	},
+];
+
+export interface Project {
+	id: string;
+	name: string;
+	imageUrl: string;
+	description: string;
+	link: string;
+}
+
+export interface ProjectsProps {
+	projects?: Project[];
+	showCTA?: boolean;
+	title?: string;
+	description?: React.ReactNode;
+}
+
+export function Projects({
+	projects: customProjects,
+	showCTA = true,
+	title = "Nos solutions",
+	description,
+}: ProjectsProps = {}) {
+	const displayProjects = customProjects || projects;
+	// Gestion du cas où il n'y a aucun projet
+	if (!displayProjects || displayProjects.length === 0) {
+		return (
+			<section
+				id="solutions"
+				className="py-12 md:py-16 lg:py-24 bg-background"
+				aria-label="Solutions technologiques Oui-Connect"
+			>
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+					<div className="text-center">
+						<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+							{title}
+						</h2>
+						<p className="text-muted-foreground">
+							Aucune solution disponible pour le moment.
+						</p>
+					</div>
+				</div>
+			</section>
+		);
+	}
+
 	return (
 		<section
 			id="solutions"
@@ -23,7 +104,7 @@ export function Projects() {
 				d'installation.
 			</p>
 
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 				{/* En-tête */}
 				<div className="text-left mb-12 md:mb-16">
 					<div className="flex flex-col sm:flex-row sm:items-start sm:gap-6 mb-8">
@@ -33,7 +114,7 @@ export function Projects() {
 									id="solutions-title"
 									className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6"
 								>
-									Nos solutions
+									{title}
 								</h2>
 							</Reveal>
 							<SlideIn direction="up" delay={0.1} duration={0.4}>
@@ -58,7 +139,7 @@ export function Projects() {
 
 				{/* Grille des projets */}
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-					{projects.map((project, index) => (
+					{displayProjects.map((project, index) => (
 						<Reveal
 							key={project.id}
 							threshold={0.2}
@@ -67,18 +148,21 @@ export function Projects() {
 						>
 							<Link
 								href={project.link}
-								className="block"
+								className="block group cursor-pointer tap-highlight-transparent active:scale-[0.98] transition-transform"
 								aria-label={`Découvrir ${project.name} - ${project.description}`}
 							>
-								<Card className="h-full hover:shadow-md transition-shadow pt-0">
-									<div className="relative w-full aspect-[4/3] overflow-hidden rounded-t-xl">
+								<Card className="h-full hover:shadow-lg hover:-translate-y-1 focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 transition-all duration-300 pt-0">
+									<div className="relative w-full aspect-4/3 overflow-hidden rounded-t-xl">
 										<Image
 											src={project.imageUrl}
-											alt={project.name}
+											alt={`${project.name} - ${project.description}`}
 											fill
 											className="object-cover"
 											sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 											priority={index < 3}
+										onError={(e) => {
+											e.currentTarget.src = '/placeholder-project.jpg';
+										}}
 										/>
 									</div>
 									<CardContent className="p-6">
@@ -144,7 +228,7 @@ export function Projects() {
 					<span itemProp="itemListOrder">
 						https://schema.org/ItemListOrderAscending
 					</span>
-					{projects.map((project) => (
+					{displayProjects.map((project) => (
 						<span
 							key={project.id}
 							itemProp="itemListElement"

@@ -9,7 +9,7 @@ export function Hero() {
 			aria-labelledby="hero-title"
 			data-voice-queries="gestion données produits,suivi produits,solutions web"
 			data-business-intent="product-management-software"
-			className="relative min-h-screen py-4 antialiased overflow-hidden flex items-center justify-center w-full flex-col px-4"
+			className="relative min-h-[100dvh] py-4 antialiased overflow-hidden flex items-center justify-center w-full flex-col px-4"
 			itemScope
 			itemType="https://schema.org/SoftwareApplication"
 		>

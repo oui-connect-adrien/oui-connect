@@ -2,9 +2,9 @@ import { Reveal, SlideIn } from "@/shared/components/animations";
 import { Button } from "@/shared/components/ui/button";
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { Star } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: "Oui-Diag - Évaluation énergétique industrielle",
@@ -91,7 +91,7 @@ export default function OuiDiagPage() {
 				className="relative min-h-screen py-4 antialiased overflow-hidden flex items-center"
 				aria-labelledby="oui-diag-title"
 			>
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="grid lg:grid-cols-2 gap-12 items-center">
 						<div className="space-y-8">
 							<SlideIn direction="up" delay={0} duration={0.4}>
@@ -122,7 +122,7 @@ export default function OuiDiagPage() {
 							</SlideIn>
 						</div>
 						<Reveal threshold={0.2} delay={0.2} duration={0.5}>
-							<div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+							<div className="relative aspect-4/3 rounded-2xl overflow-hidden">
 								<Image
 									src="/evaluation-energetique.png"
 									alt="Évaluation énergétique Oui-Diag"
@@ -138,7 +138,7 @@ export default function OuiDiagPage() {
 
 			{/* Section Processus */}
 			<section className="py-16 md:py-24 bg-muted/30">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
 						<SlideIn direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -163,10 +163,14 @@ export default function OuiDiagPage() {
 							>
 								<Card className="overflow-hidden">
 									<div
-										className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? "md:grid-flow-dense" : ""}`}
+										className={`grid md:grid-cols-2 gap-8 items-center ${
+											index % 2 === 1 ? "md:grid-flow-dense" : ""
+										}`}
 									>
 										<div
-											className={`relative aspect-[4/3] ${index % 2 === 1 ? "md:col-start-2" : ""}`}
+											className={`relative aspect-4/3 ${
+												index % 2 === 1 ? "md:col-start-2" : ""
+											}`}
 										>
 											<Image
 												src={step.image}
@@ -198,7 +202,7 @@ export default function OuiDiagPage() {
 
 			{/* Section Bénéfices */}
 			<section className="py-16 md:py-24">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
 						<SlideIn direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -245,7 +249,7 @@ export default function OuiDiagPage() {
 
 			{/* Section Garantie */}
 			<aside className="py-16 md:py-24 bg-primary/5">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<Reveal threshold={0.2} delay={0} duration={0.5}>
 						<div className="text-center">
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">

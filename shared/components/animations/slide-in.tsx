@@ -21,7 +21,7 @@ export const SlideIn = ({
 	duration = 0.6,
 	distance = 50,
 	threshold = 0.1,
-	once = false, // Permettre la réactivation par défaut
+	once = true, // Animation joue une seule fois par défaut (convention standard)
 	className = "",
 }: SlideInProps) => {
 	const getInitialPosition = () => {

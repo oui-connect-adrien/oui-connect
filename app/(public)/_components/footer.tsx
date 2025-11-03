@@ -6,19 +6,49 @@ import {
 import { cn } from "@/shared/utils";
 import { ArrowUp, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
-import {
-	collaborationLinks,
-	companyLinks,
-	legalLinks,
-	platformLinks,
-	VALUES,
-} from ".";
-import { projects } from "../projects";
+
+import { Heart, Lightbulb, Users, Zap } from "lucide-react";
+import projects from "./projects";
+
+export const legalLinks = [
+	{ label: "Mentions légales", href: "/legal" },
+	{ label: "Confidentialité", href: "/privacy" },
+];
+
+export const collaborationLinks = [
+	{ label: "Demander un devis", href: "/#quote-request" },
+];
+
+export const platformLinks = [
+	{
+		label: "Oui-Access : monitoring industriel",
+		href: "https://access.oui-connect.fr",
+		description: "Plateforme de supervision 24/7 et maintenance prédictive",
+	},
+	{
+		label: "Oui-Scan : traçabilité pour les entreprises",
+		href: "https://oui-scan.com",
+		description: "Application mobile de gestion par QR codes",
+	},
+];
+
+export const companyLinks = [
+	{ label: "Qui sommes-nous ?", href: "/qui-sommes-nous" },
+	{ label: "Notre équipe", href: "/notre-equipe" },
+	{ label: "Contact", href: "/#contact" },
+];
+
+export const VALUES = [
+	{ icon: Heart, label: "Passion" },
+	{ icon: Lightbulb, label: "Innovation" },
+	{ icon: Users, label: "Esprit d'équipe" },
+	{ icon: Zap, label: "Co-création" },
+];
 
 export function Footer() {
 	return (
 		<footer
-			className="relative bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+			className="relative bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60"
 			role="contentinfo"
 			data-voice-queries="solutions oui-connect,contact entreprise,technologies web industrielles"
 			data-content-type="footer-business"
@@ -40,11 +70,11 @@ export function Footer() {
 
 			{/* Dégradé radial pour effet de focus */}
 			<div
-				className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
+				className="pointer-events-none absolute inset-0 mask-[radial-gradient(ellipse_at_center,transparent_20%,black)]"
 				aria-hidden="true"
 			/>
 
-			<div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+			<div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
 				{/* Navigation principale */}
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-16 mb-12 lg:mb-16">
 					{/* Solutions */}

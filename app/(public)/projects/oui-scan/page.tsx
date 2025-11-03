@@ -9,9 +9,9 @@ import {
 	Users,
 	Zap,
 } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: "Oui-Scan - Traçabilité et identification par QR Code",
@@ -110,7 +110,7 @@ function OuiScanPage() {
 				className="relative min-h-screen py-4 antialiased overflow-hidden flex items-center"
 				aria-labelledby="oui-scan-title"
 			>
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="grid lg:grid-cols-2 gap-12 items-center">
 						<div className="space-y-8">
 							<SlideIn direction="up" delay={0} duration={0.4}>
@@ -165,7 +165,7 @@ function OuiScanPage() {
 
 			{/* Section Fonctionnalités */}
 			<section className="py-16 md:py-24 bg-muted/30">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
 						<SlideIn direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -190,10 +190,14 @@ function OuiScanPage() {
 							>
 								<Card className="overflow-hidden">
 									<div
-										className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? "md:grid-flow-dense" : ""}`}
+										className={`grid md:grid-cols-2 gap-8 items-center ${
+											index % 2 === 1 ? "md:grid-flow-dense" : ""
+										}`}
 									>
 										<div
-											className={`relative aspect-[4/3] ${index % 2 === 1 ? "md:col-start-2" : ""}`}
+											className={`relative aspect-4/3 ${
+												index % 2 === 1 ? "md:col-start-2" : ""
+											}`}
 										>
 											<Image
 												src={feature.image}
@@ -220,7 +224,7 @@ function OuiScanPage() {
 
 			{/* Section Avantages */}
 			<section className="py-16 md:py-24">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
 						<SlideIn direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -270,7 +274,7 @@ function OuiScanPage() {
 
 			{/* Section Technologies */}
 			<section className="py-16 md:py-24 bg-primary/5">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<Reveal threshold={0.2} delay={0} duration={0.5}>
 						<div className="text-center">
 							<div className="flex justify-center items-center gap-8 mb-8">

@@ -17,7 +17,7 @@ export const Reveal = ({
 	delay = 0,
 	duration = 0.6,
 	threshold = 0.1,
-	once = false, // Changé pour permettre la réactivation par défaut
+	once = true, // Animation joue une seule fois par défaut (convention standard)
 	className = "",
 }: RevealProps) => {
 	return (

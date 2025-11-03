@@ -1,8 +1,8 @@
-import { About } from "./components/about/about";
-import { Contact } from "./components/contact";
-import { Hero } from "./components/hero";
-import { Projects } from "./components/projects/projects";
 import { StructuredData } from "../components/seo/structured-data";
+import { About } from "./_components/about";
+import { Contact } from "./_components/contact";
+import { Hero } from "./_components/hero";
+import { Projects } from "./_components/projects";
 
 export default function Home() {
 	// Définir les sitelinks que vous voulez voir apparaître dans Google

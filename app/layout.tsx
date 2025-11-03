@@ -1,9 +1,10 @@
-import { Navbar } from "@/app/(public)/components/navbar/navbar";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Footer } from "react-day-picker";
 import { Toaster } from "sonner";
-import { Footer } from "./(public)/components/footer/footer";
-import { RecaptchaProvider } from "./(public)/components/recaptcha-provider";
+import { Navbar } from "./(public)/_components/navbar";
+import { RecaptchaProvider } from "./(public)/_components/recaptcha-provider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -116,6 +117,7 @@ export default function RootLayout({
 					{children}
 					<Footer />
 				</RecaptchaProvider>
+				<Analytics />
 			</body>
 		</html>
 	);

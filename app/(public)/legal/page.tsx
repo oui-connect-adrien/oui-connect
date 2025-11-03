@@ -201,7 +201,7 @@ export default function LegalPage() {
 	return (
 		<div className="relative py-4 antialiased overflow-hidden">
 			{/* Hero Section */}
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 flex flex-col items-center">
+			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 flex flex-col items-center">
 				<motion.div
 					className="text-center max-w-4xl mx-auto"
 					initial={{ opacity: 0, y: -50 }}
@@ -219,7 +219,7 @@ export default function LegalPage() {
 
 			{/* Company Information Section */}
 			<div className="bg-zinc-100 mt-24 py-14">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<motion.h2
 						className="text-3xl font-bold mb-12 text-center text-neutral-700"
 						initial={{ opacity: 0, y: -30 }}
@@ -251,7 +251,7 @@ export default function LegalPage() {
 			</div>
 
 			{/* Legal Content Section */}
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 lg:mt-24">
+			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 lg:mt-24">
 				<motion.h2
 					className="text-3xl font-bold mb-12 text-center text-neutral-700"
 					initial={{ opacity: 0, y: -30 }}
@@ -280,7 +280,7 @@ export default function LegalPage() {
 
 			{/* Contact CTA Section */}
 			<div className="bg-zinc-100 mt-24 py-24">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
 					<motion.h3
 						className="text-3xl font-bold mb-8 text-neutral-700"
 						initial={{ opacity: 0, y: -30 }}

@@ -134,7 +134,7 @@ export default function PlanDuSitePage() {
 
 	return (
 		<div className="min-h-screen py-16 md:py-24">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 				{/* En-tête */}
 				<div className="text-center mb-16">
 					<SlideIn direction="up" delay={0} duration={0.4}>

@@ -9,9 +9,9 @@ import {
 	Users,
 	Wrench,
 } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: "Installation d'instrumentation industrielle - Oui Connect",
@@ -118,7 +118,7 @@ function InstallationInstrumentationPage() {
 				className="relative min-h-screen py-4 antialiased overflow-hidden flex items-center"
 				aria-labelledby="installation-title"
 			>
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="grid lg:grid-cols-2 gap-12 items-center">
 						<div className="space-y-8">
 							<SlideIn direction="up" delay={0} duration={0.4}>
@@ -154,7 +154,7 @@ function InstallationInstrumentationPage() {
 							</SlideIn>
 						</div>
 						<Reveal threshold={0.2} delay={0.2} duration={0.5}>
-							<div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+							<div className="relative aspect-4/3 rounded-2xl overflow-hidden">
 								<Image
 									src="/electric-wiring.jpg"
 									alt="Installation d'instrumentation industrielle"
@@ -170,7 +170,7 @@ function InstallationInstrumentationPage() {
 
 			{/* Section Avantages */}
 			<section className="py-16 md:py-24 bg-muted/30">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
 						<SlideIn direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -212,7 +212,7 @@ function InstallationInstrumentationPage() {
 
 			{/* Section Services */}
 			<section className="py-16 md:py-24">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
 						<SlideIn direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -276,7 +276,7 @@ function InstallationInstrumentationPage() {
 
 			{/* Section Expertise et technologies */}
 			<section className="py-16 md:py-24 bg-muted/30">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
 						<SlideIn direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -377,7 +377,7 @@ function InstallationInstrumentationPage() {
 
 			{/* Section ROI et bénéfices */}
 			<section className="py-16 md:py-24">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
 						<SlideIn direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">

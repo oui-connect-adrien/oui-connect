@@ -1,4 +1,4 @@
-import { ContactFormWrapper } from "@/app/(public)/components/contact-form-wrapper";
+import { ContactFormWrapper } from "@/app/(public)/_components/contact-form-wrapper";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
