@@ -1,19 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { BusinessCard } from "./components/business-card";
 import { teamMembers } from "./data/team-members";
 
 const Page = () => {
 	const [copiedText, setCopiedText] = useState<string | null>(null);
+	const [rotationAngles, setRotationAngles] = useState<number[]>([0, 0, 0]);
 
-	// Generate random rotation angles for each card
-	const rotationAngles = useMemo(() => {
-		return Array(3)
-			.fill(0)
-			.map(() => Math.floor(Math.random() * 20) - 10);
+	// Generate random rotation angles for each card (client-side only)
+	useEffect(() => {
+		setRotationAngles(
+			Array(3)
+				.fill(0)
+				.map(() => Math.floor(Math.random() * 20) - 10)
+		);
 	}, []);
 
 	const handleCopy = async (text: string, label: string) => {

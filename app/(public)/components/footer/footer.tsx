@@ -35,7 +35,7 @@ export function Footer() {
 
 			{/* Grille de fond subtile */}
 			<div className={cn("absolute inset-0 opacity-30")} aria-hidden="true">
-				<div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-background" />
+				<div className="absolute inset-0 bg-linear-to-br from-primary/5 to-background" />
 			</div>
 
 			{/* Dégradé radial pour effet de focus */}
@@ -165,7 +165,7 @@ export function Footer() {
 									{VALUES.map((value, index) => (
 										<div key={index} className="flex items-center gap-2">
 											<value.icon
-												className="h-3 w-3 text-primary flex-shrink-0"
+												className="h-3 w-3 text-primary shrink-0"
 												aria-hidden="true"
 											/>
 											<span className="text-xs text-muted-foreground">
@@ -193,7 +193,7 @@ export function Footer() {
 						>
 							<div className="flex items-center gap-3">
 								<Mail
-									className="h-4 w-4 text-primary flex-shrink-0"
+									className="h-4 w-4 text-primary shrink-0"
 									aria-hidden="true"
 								/>
 								<div className="min-w-0 flex-1">
@@ -222,7 +222,7 @@ export function Footer() {
 								className="flex items-center gap-3"
 							>
 								<MapPin
-									className="h-4 w-4 text-primary flex-shrink-0"
+									className="h-4 w-4 text-primary shrink-0"
 									aria-hidden="true"
 								/>
 								<span className="text-sm text-muted-foreground">

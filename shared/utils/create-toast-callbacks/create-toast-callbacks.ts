@@ -1,88 +1,75 @@
 import { ActionState } from "@/shared/types/server-action";
 import { toast } from "sonner";
-import { z } from "zod";
 
-// Type simplifiée pour les options
-export type ToastCallbacksOptions<
-	TData = unknown,
-	TSchema extends z.ZodType = z.ZodType,
-> = {
-	// Message affiché pendant le chargement
+type CreateToastCallbacksOptions<T = ActionState> = {
 	loadingMessage?: string;
-
-	// Callbacks personnalisables
-	onSuccess?: (result: ActionState<TData, TSchema>) => void;
-	onError?: (result: ActionState<TData, TSchema>) => void;
-
-	// Action pour les toasts (bouton dans le toast)
-	action?: {
-		label: string;
-		onClick: (data?: TData) => void;
-	};
+	showSuccessToast?: boolean;
+	showErrorToast?: boolean;
+	onSuccess?: (result: T) => void;
+	onError?: (result: T) => void;
 };
 
 /**
- * Crée des callbacks pour les toasts d'actions serveur
+ * Type guard to check if a value is an ActionState with a message
+ */
+const hasMessage = (
+	value: unknown
+): value is { message: string; [key: string]: unknown } => {
+	return (
+		value !== null &&
+		typeof value === "object" &&
+		"message" in value &&
+		typeof (value as { message: unknown }).message === "string" &&
+		Boolean((value as { message: string }).message)
+	);
+};
+
+/**
+ * Creates callbacks for handling toast notifications in server actions
+ * @param options Configuration options for the toast callbacks
+ * @returns An object with onStart, onEnd, onSuccess, and onError callbacks
  */
 export const createToastCallbacks = <
-	TData = unknown,
-	TSchema extends z.ZodType = z.ZodType,
+	T extends ActionState | unknown = ActionState
 >(
-	options: ToastCallbacksOptions<TData, TSchema>
+	options: CreateToastCallbacksOptions<T> = {}
 ) => {
+	const {
+		loadingMessage,
+		showSuccessToast = true,
+		showErrorToast = true,
+		onSuccess: customOnSuccess,
+		onError: customOnError,
+	} = options;
+
 	return {
-		// Affiche le toast de chargement
 		onStart: () => {
-			// On garde le toast de chargement sans fermer les autres
-			//return toast.loading(options.loadingMessage || "Chargement...");
-		},
-
-		// Ferme le toast de chargement
-		onEnd: (reference: string | number) => {
-			toast.dismiss(reference);
-		},
-
-		// Gère le succès
-		onSuccess: (result: ActionState<TData, TSchema>) => {
-			// Si l'utilisateur a défini son propre comportement
-			if (options.onSuccess) {
-				// Fermer tous les toasts existants (sauf celui de chargement)
-				toast.dismiss();
-
-				options.onSuccess(result);
-			} else if (result?.message) {
-				// Comportement par défaut
-				// Fermer tous les toasts existants (sauf celui de chargement)
-				toast.dismiss();
-
-				let action;
-
-				if (options.action && result.data) {
-					action = {
-						label: options.action.label,
-						onClick: () => options.action?.onClick(result.data as TData),
-					};
-				}
-
-				toast.success(result.message, { action });
+			if (loadingMessage) {
+				return toast.loading(loadingMessage);
 			}
-
-			// Réinitialiser le formulaire si la fonction est fournie
+			return undefined;
 		},
-
-		// Gère l'erreur
-		onError: (result: ActionState<TData, TSchema>) => {
-			if (result?.message) {
-				//toast.error(result.message);
+		onEnd: (reference: string | number | undefined) => {
+			if (reference !== undefined) {
+				toast.dismiss(reference);
 			}
+		},
+		onSuccess: (result: T) => {
+			// Call custom success callback if provided
+			customOnSuccess?.(result);
 
-			// Si l'utilisateur a défini son propre comportement
-			if (options.onError) {
-				// Fermer tous les toasts existants (sauf celui de chargement)
-				toast.dismiss();
+			// Default toast behavior
+			if (showSuccessToast && hasMessage(result)) {
+				toast.success(result.message);
+			}
+		},
+		onError: (result: T) => {
+			// Call custom error callback if provided
+			customOnError?.(result);
 
-				options.onError(result);
-				return;
+			// Default toast behavior
+			if (showErrorToast && hasMessage(result)) {
+				toast.error(result.message);
 			}
 		},
 	};

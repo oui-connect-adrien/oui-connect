@@ -1,14 +1,7 @@
 "use server";
 
-import z from "zod";
 import { contactSchema } from "../schemas/contact-schema";
-import {
-	ActionStatus,
-	ServerAction,
-	createErrorResponse,
-	createSuccessResponse,
-	createValidationErrorResponse,
-} from "../types/server-action";
+import { ActionState, ActionStatus } from "../types/server-action";
 
 // Function to verify reCAPTCHA token
 async function verifyRecaptcha(token: string): Promise<boolean> {
@@ -41,10 +34,10 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
 	}
 }
 
-export const contact: ServerAction<
-	z.infer<typeof contactSchema>,
-	typeof contactSchema
-> = async (_, formData) => {
+export const contact = async (
+	_: ActionState | undefined,
+	formData: FormData
+): Promise<ActionState> => {
 	try {
 		const rawData = {
 			firstname: formData.get("firstname") as string,
@@ -60,11 +53,10 @@ export const contact: ServerAction<
 		// Validation des données avec Zod
 		const validation = contactSchema.safeParse(rawData);
 		if (!validation.success) {
-			return createValidationErrorResponse(
-				validation.error.flatten().fieldErrors,
-				"Validation échouée. Veuillez vérifier votre saisie.",
-				rawData
-			);
+			return {
+				status: ActionStatus.VALIDATION_ERROR,
+				message: validation.error.issues[0]?.message || "Validation échouée. Veuillez vérifier votre saisie.",
+			};
 		}
 
 		const validatedData = validation.data;
@@ -74,11 +66,10 @@ export const contact: ServerAction<
 			validatedData.recaptchaToken
 		);
 		if (!isRecaptchaValid) {
-			return createErrorResponse(
-				ActionStatus.ERROR,
-				"Échec de la vérification CAPTCHA. Veuillez réessayer.",
-				rawData
-			);
+			return {
+				status: ActionStatus.ERROR,
+				message: "Échec de la vérification CAPTCHA. Veuillez réessayer.",
+			};
 		}
 
 		// Création du sujet et du corps de l'email
@@ -190,10 +181,11 @@ INFORMATIONS TECHNIQUES
 			const emailResults = await Promise.all(emailPromises);
 			console.log("All emails sent successfully:", emailResults);
 
-			return createSuccessResponse(
-				validatedData,
-				"Votre message a été envoyé avec succès ! Nous vous recontacterons dans les plus brefs délais."
-			);
+			return {
+				status: ActionStatus.SUCCESS,
+				message: "Votre message a été envoyé avec succès ! Nous vous recontacterons dans les plus brefs délais.",
+				data: validatedData,
+			};
 		} catch (emailError) {
 			console.error("Erreur lors de l'envoi de l'email:", emailError);
 
@@ -206,31 +198,31 @@ INFORMATIONS TECHNIQUES
 					errorMessage.includes("fetch") ||
 					errorMessage.includes("network")
 				) {
-					return createErrorResponse(
-						ActionStatus.ERROR,
-						"Problème de connexion réseau. Veuillez réessayer plus tard."
-					);
+					return {
+						status: ActionStatus.ERROR,
+						message: "Problème de connexion réseau. Veuillez réessayer plus tard.",
+					};
 				}
 
 				// Erreurs API (status 4xx, 5xx)
 				if (errorMessage.includes("API responded with status")) {
-					return createErrorResponse(
-						ActionStatus.ERROR,
-						"Erreur du service d'envoi d'email. Veuillez réessayer plus tard."
-					);
+					return {
+						status: ActionStatus.ERROR,
+						message: "Erreur du service d'envoi d'email. Veuillez réessayer plus tard.",
+					};
 				}
 			}
 
-			return createErrorResponse(
-				ActionStatus.ERROR,
-				"Erreur lors de l'envoi de votre message. Veuillez réessayer plus tard."
-			);
+			return {
+				status: ActionStatus.ERROR,
+				message: "Erreur lors de l'envoi de votre message. Veuillez réessayer plus tard.",
+			};
 		}
 	} catch (error) {
 		console.error("[SUBMIT_CONTACT_FORM]", error);
-		return createErrorResponse(
-			ActionStatus.ERROR,
-			"Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer."
-		);
+		return {
+			status: ActionStatus.ERROR,
+			message: "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer.",
+		};
 	}
 };

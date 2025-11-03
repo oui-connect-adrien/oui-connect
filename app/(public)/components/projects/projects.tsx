@@ -101,7 +101,7 @@ export function Projects() {
 				{/* Section complémentaire */}
 				<div className="mt-16 md:mt-20">
 					<Reveal threshold={0.3} delay={0} duration={0.5}>
-						<div className="text-center bg-gradient-to-r from-primary/10 to-primary/5 p-8 md:p-12 rounded-2xl border border-primary/20">
+						<div className="text-center bg-linear-to-r from-primary/10 to-primary/5 p-8 md:p-12 rounded-2xl border border-primary/20">
 							<h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
 								Besoin d'une solution personnalisée ?
 							</h3>

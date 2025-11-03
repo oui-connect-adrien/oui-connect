@@ -7,7 +7,7 @@ export function About() {
 	return (
 		<section
 			id="qui-sommes-nous"
-			className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-background to-background/50"
+			className="py-12 md:py-16 lg:py-24 bg-linear-to-br from-background to-background/50"
 			aria-label="À propos de Oui-Connect, solutions web pour équipements industriels"
 			role="region"
 			data-voice-queries="qui est oui-connect,entreprise technologies web,solutions industrielles"
@@ -137,7 +137,7 @@ export function About() {
 							>
 								<div className="group bg-background/80 p-6 md:p-8 rounded-xl border border-border/50 hover:border-primary/20 transition-all duration-300 hover:shadow-lg h-full">
 									<div className="flex items-start gap-4">
-										<div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+										<div className="shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
 											<value.icon className="w-6 h-6 text-primary" />
 										</div>
 										<div className="flex-1">
@@ -157,7 +157,7 @@ export function About() {
 
 				{/* Appel à l'action */}
 				<Reveal threshold={0.3} delay={0} duration={0.5}>
-					<div className="text-center bg-gradient-to-r from-primary/10 to-primary/5 p-8 md:p-12 rounded-2xl border border-primary/20">
+					<div className="text-center bg-linear-to-r from-primary/10 to-primary/5 p-8 md:p-12 rounded-2xl border border-primary/20">
 						<h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
 							Prêt à découvrir nos solutions ?
 						</h3>

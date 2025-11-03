@@ -1,8 +1,5 @@
 import { ActionState, ActionStatus } from "@/shared/types/server-action";
-import { z } from "zod";
 import { Callbacks } from "./types";
-
-// Type pour les callbacks utilisés dans withCallbacks
 
 /**
  * Fonction d'ordre supérieur qui enveloppe une action serveur et ajoute des callbacks
@@ -13,37 +10,64 @@ import { Callbacks } from "./types";
  * @returns Une nouvelle fonction qui exécute l'action serveur avec les callbacks
  */
 export const withCallbacks = <
-	Args extends unknown[],
-	TData = unknown,
-	TSchema extends z.ZodType = z.ZodType,
-	T extends ActionState<TData, TSchema> = ActionState<TData, TSchema>,
+	T extends ActionState | unknown = ActionState,
 	R = unknown
 >(
-	fn: (...args: Args) => Promise<T>,
+	fn: (prev: T | undefined, formData: FormData) => Promise<T>,
 	callbacks: Callbacks<T, R>
-): ((...args: Args) => Promise<T>) => {
-	return async (...args: Args) => {
-		const promise = fn(...args);
-
+): ((prev: T | undefined, formData: FormData) => Promise<T>) => {
+	return async (prev: T | undefined, formData: FormData) => {
 		// Appel du callback de démarrage et récupération de la référence (pour les toasts par exemple)
 		const reference = callbacks.onStart?.();
 
-		const result = await promise;
+		try {
+			const result = await fn(prev, formData);
 
-		// Appel du callback de fin si une référence est disponible
-		if (reference) {
-			callbacks.onEnd?.(reference);
-		}
+			// Appel du callback de fin si une référence est disponible
+			if (reference) {
+				callbacks.onEnd?.(reference);
+			}
 
-		// Appel du callback de succès si l'action a réussi
-		if (result?.status === ActionStatus.SUCCESS) {
-			callbacks.onSuccess?.(result);
-		}
-		// Appel du callback d'erreur pour tous les statuts d'erreur
-		else {
-			callbacks.onError?.(result);
-		}
+			// Appel du callback de succès si l'action a réussi
+			if (
+				result &&
+				typeof result === "object" &&
+				"status" in result &&
+				result.status === ActionStatus.SUCCESS
+			) {
+				callbacks.onSuccess?.(result);
+			}
+			// Appel du callback d'erreur pour tous les autres cas
+			else if (
+				result &&
+				typeof result === "object" &&
+				"status" in result &&
+				result.status !== ActionStatus.SUCCESS
+			) {
+				callbacks.onError?.(result);
+			}
 
-		return result; // Retourne le résultat résolu, pas la promesse initiale
+			return result;
+		} catch (error) {
+			// Garantir que le callback de fin est appelé même en cas d'exception
+			// (important pour dismisser les toasts loading)
+			if (reference) {
+				callbacks.onEnd?.(reference);
+			}
+
+			// Créer un ActionState d'erreur pour les exceptions non catchées
+			const errorResult = {
+				status: ActionStatus.ERROR,
+				message:
+					error instanceof Error
+						? error.message
+						: "Une erreur inattendue est survenue",
+			} as T;
+
+			// Appeler le callback d'erreur
+			callbacks.onError?.(errorResult);
+
+			return errorResult;
+		}
 	};
 };

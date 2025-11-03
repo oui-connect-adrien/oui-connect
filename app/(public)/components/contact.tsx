@@ -7,13 +7,13 @@ import {
 } from "@/shared/components/ui/tooltip";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
-import { ContactForm } from "./contact-form";
+import { ContactFormWrapper } from "./contact-form-wrapper";
 
 export function Contact() {
 	return (
 		<section
 			id="contact"
-			className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-background to-background/50"
+			className="py-12 md:py-16 lg:py-24 bg-linear-to-br from-background to-background/50"
 			aria-label="Contact Oui-Connect, solutions web pour équipements industriels"
 			role="region"
 			data-voice-queries="contacter oui-connect,contact entreprise,devis solutions web"
@@ -70,7 +70,7 @@ export function Contact() {
 							>
 								{/* Email */}
 								<div className="flex items-center gap-4">
-									<div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+									<div className="shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
 										<Mail className="w-6 h-6 text-primary" aria-hidden="true" />
 									</div>
 									<div className="min-w-0 flex-1">
@@ -97,7 +97,7 @@ export function Contact() {
 
 								{/* Téléphone */}
 								<div className="flex items-center gap-4">
-									<div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+									<div className="shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
 										<Phone
 											className="w-6 h-6 text-primary"
 											aria-hidden="true"
@@ -120,7 +120,7 @@ export function Contact() {
 
 								{/* Zone d'intervention */}
 								<div className="flex items-center gap-4">
-									<div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+									<div className="shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
 										<MapPin
 											className="w-6 h-6 text-primary"
 											aria-hidden="true"
@@ -159,14 +159,14 @@ export function Contact() {
 							<h3 className="text-2xl font-semibold text-foreground mb-6">
 								Envoyez-nous un message
 							</h3>
-							<ContactForm />
+							<ContactFormWrapper />
 						</div>
 					</Reveal>
 				</div>
 
 				{/* Appel à l'action */}
 				<Reveal threshold={0.3} delay={0} duration={0.5}>
-					<div className="text-center bg-gradient-to-r from-primary/10 to-primary/5 p-8 md:p-12 rounded-2xl border border-primary/20">
+					<div className="text-center bg-linear-to-r from-primary/10 to-primary/5 p-8 md:p-12 rounded-2xl border border-primary/20">
 						<h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
 							Prêt à démarrer votre projet ?
 						</h3>

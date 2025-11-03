@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
 	if (request.nextUrl.pathname === "/access/pages/home") {
 		//allow this old url to redirect to oui-access
 		// Redirect to the main page (root)
@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
 	return NextResponse.next();
 }
 
-// Configure which paths the middleware should run on
+// Configure which paths the proxy should run on
 export const config = {
 	matcher: [
 		// Match /access exactly

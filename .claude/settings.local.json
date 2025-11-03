@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm outdated:*)",
+      "Bash(npx npm-check-updates:*)",
+      "Bash(npm install)",
+      "Bash(npm audit fix:*)",
+      "Bash(timeout 15 npm run dev:*)",
+      "Bash(pnpm --version:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm approve-builds:*)",
+      "Bash(pnpm prisma generate:*)",
+      "Bash(timeout 15 pnpm dev:*)",
+      "Bash(pnpm build:*)",
+      "Bash(pnpm add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -1,5 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+	// Cache Components is disabled for now due to compatibility issues with dynamic routes
+	// cacheComponents: true,
+
 	// Amélioration SEO - génération automatique du robots.txt
 	async rewrites() {
 		return [

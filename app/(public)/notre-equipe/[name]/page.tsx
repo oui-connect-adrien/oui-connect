@@ -4,21 +4,24 @@ import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { BusinessCard } from "../components/business-card";
 import { teamMembers } from "../data/team-members";
 
 const Page = () => {
 	const [copiedText, setCopiedText] = useState<string | null>(null);
+	const [rotationAngles, setRotationAngles] = useState<number[]>([0]);
 	const params = useParams();
 	const name = params.name as string;
 
-	// Generate random rotation angles for each card
-	const rotationAngles = useMemo(() => {
-		return Array(1)
-			.fill(0)
-			.map(() => Math.floor(Math.random() * 20) - 10);
+	// Generate random rotation angles for each card (client-side only)
+	useEffect(() => {
+		setRotationAngles(
+			Array(1)
+				.fill(0)
+				.map(() => Math.floor(Math.random() * 20) - 10)
+		);
 	}, []);
 
 	const handleCopy = async (text: string, label: string) => {
