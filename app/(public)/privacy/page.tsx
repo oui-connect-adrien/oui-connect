@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import {
 	Database,
 	Eye,
@@ -120,11 +117,8 @@ export default function PrivacyPage() {
 		<div className="relative py-4 antialiased overflow-hidden">
 			{/* Hero Section */}
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 flex flex-col items-center">
-				<motion.div
+				<div
 					className="text-center max-w-4xl mx-auto"
-					initial={{ opacity: 0, y: -50 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6 }}
 				>
 					<h1 className="text-4xl md:text-6xl font-bold mb-8 mt-20 text-zinc-700">
 						Politique de confidentialité
@@ -136,28 +130,22 @@ export default function PrivacyPage() {
 					<p className="text-sm text-zinc-400">
 						Dernière mise à jour : {new Date().toLocaleDateString("fr-FR")}
 					</p>
-				</motion.div>
+				</div>
 			</div>
 
 			{/* Principles Section */}
 			<div className="bg-zinc-100 mt-24 py-14">
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-					<motion.h2
+					<h2
 						className="text-3xl font-bold mb-12 text-center text-neutral-700"
-						initial={{ opacity: 0, y: -30 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5 }}
 					>
 						Nos principes de protection des données
-					</motion.h2>
+					</h2>
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 						{principles.map((principle, index) => (
-							<motion.div
+							<div
 								key={index}
 								className="bg-white p-6 rounded-lg shadow-md text-center"
-								initial={{ opacity: 0, y: 30 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.5, delay: index * 0.1 }}
 							>
 								<div className="text-blue-600 mb-4 flex justify-center">
 									{principle.icon}
@@ -166,7 +154,7 @@ export default function PrivacyPage() {
 									{principle.title}
 								</h3>
 								<p className="text-zinc-600 text-sm">{principle.description}</p>
-							</motion.div>
+							</div>
 						))}
 					</div>
 				</div>
@@ -174,22 +162,19 @@ export default function PrivacyPage() {
 
 			{/* Data Collection Section */}
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 lg:mt-24">
-				<motion.h2
+				<h2
 					className="text-3xl font-bold mb-12 text-center text-neutral-700"
 					initial={{ opacity: 0, y: -30 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5 }}
 				>
 					Quelles données collectons-nous ?
-				</motion.h2>
+				</h2>
 				<div className="max-w-5xl mx-auto space-y-8">
 					{dataTypes.map((dataType, index) => (
-						<motion.div
+						<div
 							key={index}
 							className="bg-white p-8 rounded-lg shadow-md border-l-4 border-blue-600"
-							initial={{ opacity: 0, x: -30 }}
-							whileInView={{ opacity: 1, x: 0 }}
-							transition={{ duration: 0.5, delay: index * 0.1 }}
 						>
 							<h3 className="text-2xl font-semibold mb-4 text-zinc-700">
 								{dataType.title}
@@ -220,7 +205,7 @@ export default function PrivacyPage() {
 									<p className="text-zinc-600 text-sm">{dataType.retention}</p>
 								</div>
 							</div>
-						</motion.div>
+						</div>
 					))}
 				</div>
 			</div>
@@ -228,22 +213,16 @@ export default function PrivacyPage() {
 			{/* Rights Section */}
 			<div className="bg-zinc-100 mt-24 py-14">
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-					<motion.h2
+					<h2
 						className="text-3xl font-bold mb-12 text-center text-neutral-700"
-						initial={{ opacity: 0, y: -30 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5 }}
 					>
 						Vos droits sur vos données
-					</motion.h2>
+					</h2>
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
 						{rights.map((right, index) => (
-							<motion.div
+							<div
 								key={index}
 								className="bg-white p-6 rounded-lg shadow-md"
-								initial={{ opacity: 0, y: 30 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.5, delay: index * 0.1 }}
 							>
 								<div className="flex items-start gap-3 mb-4">
 									<div className="text-blue-600 mt-1">{right.icon}</div>
@@ -254,7 +233,7 @@ export default function PrivacyPage() {
 										<p className="text-zinc-600 text-sm">{right.description}</p>
 									</div>
 								</div>
-							</motion.div>
+							</div>
 						))}
 					</div>
 				</div>
@@ -263,11 +242,8 @@ export default function PrivacyPage() {
 			{/* Additional Information */}
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 lg:mt-24">
 				<div className="max-w-4xl mx-auto space-y-12">
-					<motion.div
+					<div
 						className="border-l-4 border-blue-600 pl-6"
-						initial={{ opacity: 0, x: -30 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.5 }}
 					>
 						<h3 className="text-2xl font-semibold mb-4 text-zinc-700">
 							Base légale du traitement
@@ -293,13 +269,10 @@ export default function PrivacyPage() {
 								</li>
 							</ul>
 						</div>
-					</motion.div>
+					</div>
 
-					<motion.div
+					<div
 						className="border-l-4 border-blue-600 pl-6"
-						initial={{ opacity: 0, x: -30 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.5, delay: 0.1 }}
 					>
 						<h3 className="text-2xl font-semibold mb-4 text-zinc-700">
 							Partage des données
@@ -320,13 +293,10 @@ export default function PrivacyPage() {
 								<li>En cas de fusion, acquisition ou cession d'actifs</li>
 							</ul>
 						</div>
-					</motion.div>
+					</div>
 
-					<motion.div
+					<div
 						className="border-l-4 border-blue-600 pl-6"
-						initial={{ opacity: 0, x: -30 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.5, delay: 0.2 }}
 					>
 						<h3 className="text-2xl font-semibold mb-4 text-zinc-700">
 							Sécurité des données
@@ -348,13 +318,10 @@ export default function PrivacyPage() {
 								</li>
 							</ul>
 						</div>
-					</motion.div>
+					</div>
 
-					<motion.div
+					<div
 						className="border-l-4 border-blue-600 pl-6"
-						initial={{ opacity: 0, x: -30 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.5, delay: 0.3 }}
 					>
 						<h3 className="text-2xl font-semibold mb-4 text-zinc-700">
 							Cookies et technologies similaires
@@ -384,36 +351,68 @@ export default function PrivacyPage() {
 								</ul>
 							</div>
 						</div>
-					</motion.div>
+					</div>
+
+					<div
+						className="border-l-4 border-blue-600 pl-6"
+					>
+						<h3 className="text-2xl font-semibold mb-4 text-zinc-700">
+							Transferts de données hors Union Européenne
+						</h3>
+						<div className="space-y-4 text-zinc-600">
+							<p>
+								Certaines de vos données peuvent être transférées et hébergées en
+								dehors de l'Union Européenne, notamment aux États-Unis, via nos
+								prestataires techniques (hébergement, analytics).
+							</p>
+							<p>
+								Ces transferts sont encadrés par des garanties appropriées conformément
+								à l'article 46 du RGPD :
+							</p>
+							<ul className="list-disc list-inside space-y-2 ml-4">
+								<li>
+									<strong>Vercel (hébergement) :</strong> Certifié au Data Privacy
+									Framework (DPF), qui assure un niveau de protection adéquat reconnu
+									par la Commission européenne.
+								</li>
+								<li>
+									<strong>Clauses contractuelles types :</strong> Nous utilisons les
+									clauses contractuelles types de la Commission européenne avec nos
+									sous-traitants.
+								</li>
+							</ul>
+							<p>
+								Pour plus d'informations sur les transferts de données, contactez-nous
+								à{" "}
+								<a
+									href="mailto:dpo@oui-connect.fr"
+									className="text-blue-600 hover:text-blue-800"
+								>
+									dpo@oui-connect.fr
+								</a>
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
 
 			{/* Contact Section */}
 			<div className="bg-zinc-100 mt-24 py-24">
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-					<motion.h3
+					<h3
 						className="text-3xl font-bold mb-8 text-neutral-700"
-						initial={{ opacity: 0, y: -30 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5 }}
 					>
 						Exercer vos droits
-					</motion.h3>
-					<motion.p
+					</h3>
+					<p
 						className="text-base text-zinc-500 max-w-2xl mb-12"
-						initial={{ opacity: 0, y: -20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5, delay: 0.2 }}
 					>
 						Pour exercer vos droits ou pour toute question concernant cette
 						politique de confidentialité, contactez-nous. Nous nous engageons à
 						répondre dans les meilleurs délais.
-					</motion.p>
-					<motion.div
+					</p>
+					<div
 						className="flex flex-col sm:flex-row gap-4"
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5, delay: 0.4 }}
 					>
 						<Link
 							href="/#contact"
@@ -427,13 +426,10 @@ export default function PrivacyPage() {
 						>
 							Mentions légales
 						</Link>
-					</motion.div>
+					</div>
 
-					<motion.div
+					<div
 						className="mt-12 text-sm text-zinc-400 max-w-2xl"
-						initial={{ opacity: 0 }}
-						whileInView={{ opacity: 1 }}
-						transition={{ duration: 0.5, delay: 0.6 }}
 					>
 						<p className="mb-2">
 							<strong>Responsable du traitement :</strong> Oui-Connect
@@ -458,7 +454,7 @@ export default function PrivacyPage() {
 								www.cnil.fr
 							</a>
 						</p>
-					</motion.div>
+					</div>
 				</div>
 			</div>
 		</div>

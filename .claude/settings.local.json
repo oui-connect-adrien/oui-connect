@@ -13,7 +13,9 @@
       "Bash(timeout 15 pnpm dev:*)",
       "Bash(pnpm build:*)",
       "Bash(pnpm add:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(wc:*)",
+      "Read(//tmp/**)"
     ],
     "deny": [],
     "ask": []

@@ -14,32 +14,38 @@ export function StructuredData({ siteLinks }: StructuredDataProps) {
 	const organizationData = {
 		"@context": "https://schema.org",
 		"@type": "Organization",
-		name: "Oui Connect",
+		name: "Oui-Connect",
+		legalName: "Oui-Connect SARL",
 		url: process.env.NEXT_PUBLIC_WEBSITE_URL || "https://www.oui-connect.fr",
 		logo: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/logo-oui-connect-700x700.jpg`,
 		description:
 			"Solutions de monitoring industriel et IoT pour la digitalisation de l'industrie",
-		foundingDate: "2018",
+		foundingDate: "2018-07-05",
+		vatID: "FR92841255839",
+		taxID: "841255839",
+		leiCode: "841 255 839 00018",
 		founder: {
 			"@type": "Person",
-			name: "Équipe Oui Connect",
+			name: "Adrien RICHARD",
+			jobTitle: "Gérant",
 		},
 		contactPoint: {
 			"@type": "ContactPoint",
-			telephone: "+33-XXX-XXX-XXX",
+			telephone: "+33240381185",
 			contactType: "customer service",
-			email: "contact@oui-connect.fr",
-			availableLanguage: "French",
+			email: "info@oui-connect.fr",
+			availableLanguage: ["French"],
 		},
 		address: {
 			"@type": "PostalAddress",
-			addressCountry: "FR",
+			streetAddress: "45 Quai Emile Cormerais",
+			postalCode: "44800",
 			addressLocality: "Saint-Herblain",
 			addressRegion: "Loire-Atlantique",
+			addressCountry: "FR",
 		},
 		sameAs: [
 			"https://www.linkedin.com/company/ouiconnect",
-			// Ajoutez d'autres profils sociaux si disponibles
 		],
 		// Sitelinks pour Google
 		...(siteLinks && {

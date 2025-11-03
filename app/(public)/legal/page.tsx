@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Building2, Mail, MapPin, Phone, Scale, Shield } from "lucide-react";
 import Link from "next/link";
 
@@ -22,20 +19,42 @@ export default function LegalPage() {
 							Forme juridique
 						</h4>
 						<p className="text-zinc-600">
-							Société par Actions Simplifiée (SAS)
+							Société à responsabilité limitée (SARL)
 						</p>
 					</div>
 					<div>
 						<h4 className="font-semibold text-zinc-700 mb-2">Capital social</h4>
-						<p className="text-zinc-600">À définir</p>
+						<p className="text-zinc-600">5 000,00 €</p>
+					</div>
+					<div>
+						<h4 className="font-semibold text-zinc-700 mb-2">Numéro SIREN</h4>
+						<p className="text-zinc-600">841 255 839</p>
 					</div>
 					<div>
 						<h4 className="font-semibold text-zinc-700 mb-2">Numéro SIRET</h4>
-						<p className="text-zinc-600">À définir</p>
+						<p className="text-zinc-600">841 255 839 00018</p>
 					</div>
 					<div>
-						<h4 className="font-semibold text-zinc-700 mb-2">Code APE</h4>
-						<p className="text-zinc-600">À définir</p>
+						<h4 className="font-semibold text-zinc-700 mb-2">Code APE/NAF</h4>
+						<p className="text-zinc-600">46.51Z</p>
+					</div>
+					<div>
+						<h4 className="font-semibold text-zinc-700 mb-2">N° TVA Intracommunautaire</h4>
+						<p className="text-zinc-600">FR92 841 255 839</p>
+					</div>
+					<div>
+						<h4 className="font-semibold text-zinc-700 mb-2">RNE (ex-RCS)</h4>
+						<p className="text-zinc-600">Immatriculée au Registre National des Entreprises</p>
+						<p className="text-zinc-600 text-xs mt-1">Date d'immatriculation : 23/07/2018</p>
+					</div>
+					<div>
+						<h4 className="font-semibold text-zinc-700 mb-2">Activité principale</h4>
+						<p className="text-zinc-600">Commerce de gros d'ordinateurs, d'équipements informatiques périphériques et de logiciels</p>
+						<p className="text-zinc-600 text-xs mt-1">Code NAF/APE : 46.51Z</p>
+					</div>
+					<div>
+						<h4 className="font-semibold text-zinc-700 mb-2">Date de création</h4>
+						<p className="text-zinc-600">5 juillet 2018</p>
 					</div>
 				</div>
 			),
@@ -63,15 +82,15 @@ export default function LegalPage() {
 					<div className="flex items-center gap-2">
 						<Mail className="w-4 h-4 text-zinc-500" />
 						<a
-							href="mailto:contact@oui-connect.fr"
+							href="mailto:info@oui-connect.fr"
 							className="text-blue-600 hover:text-blue-800"
 						>
-							contact@oui-connect.fr
+							info@oui-connect.fr
 						</a>
 					</div>
 					<div className="flex items-center gap-2">
 						<Phone className="w-4 h-4 text-zinc-500" />
-						<span className="text-zinc-600">Téléphone à définir</span>
+						<span className="text-zinc-600">+33 (0)2 40 38 11 85</span>
 					</div>
 				</div>
 			),
@@ -82,8 +101,7 @@ export default function LegalPage() {
 			content: (
 				<div className="space-y-4">
 					<p className="text-zinc-600">
-						Le directeur de la publication est le représentant légal de la
-						société Oui-Connect.
+						Le directeur de la publication est Monsieur Adrien RICHARD, Gérant de la société Oui-Connect.
 					</p>
 				</div>
 			),
@@ -96,7 +114,15 @@ export default function LegalPage() {
 					<div>
 						<h4 className="font-semibold text-zinc-700 mb-2">Hébergeur</h4>
 						<p className="text-zinc-600">
-							À définir selon l'hébergement choisi
+							Vercel Inc.
+						</p>
+						<p className="text-zinc-600 text-sm mt-2">
+							340 S Lemon Ave #4133<br />
+							Walnut, CA 91789<br />
+							États-Unis
+						</p>
+						<p className="text-zinc-600 text-sm mt-2">
+							Site web : <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">vercel.com</a>
 						</p>
 					</div>
 				</div>
@@ -138,10 +164,10 @@ export default function LegalPage() {
 						dysfonctionnement, merci de bien vouloir le signaler par email, à
 						l'adresse{" "}
 						<a
-							href="mailto:contact@oui-connect.fr"
+							href="mailto:info@oui-connect.fr"
 							className="text-blue-600 hover:text-blue-800"
 						>
-							contact@oui-connect.fr
+							info@oui-connect.fr
 						</a>
 						, en décrivant le problème de la manière la plus précise possible.
 					</p>
@@ -202,40 +228,27 @@ export default function LegalPage() {
 		<div className="relative py-4 antialiased overflow-hidden">
 			{/* Hero Section */}
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 flex flex-col items-center">
-				<motion.div
-					className="text-center max-w-4xl mx-auto"
-					initial={{ opacity: 0, y: -50 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6 }}
-				>
+				<div className="text-center max-w-4xl mx-auto">
 					<h1 className="text-4xl md:text-6xl font-bold mb-8 mt-20 text-zinc-700">
 						Mentions légales
 					</h1>
 					<p className="text-base md:text-xl text-zinc-500 tracking-wide mb-8">
 						Informations légales relatives au site oui-connect.fr
 					</p>
-				</motion.div>
+				</div>
 			</div>
 
 			{/* Company Information Section */}
 			<div className="bg-zinc-100 mt-24 py-14">
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-					<motion.h2
-						className="text-3xl font-bold mb-12 text-center text-neutral-700"
-						initial={{ opacity: 0, y: -30 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5 }}
-					>
+					<h2 className="text-3xl font-bold mb-12 text-center text-neutral-700">
 						Informations sur la société
-					</motion.h2>
+					</h2>
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{sections.map((section, index) => (
-							<motion.div
+							<div
 								key={index}
 								className="bg-white p-6 rounded-lg shadow-md"
-								initial={{ opacity: 0, y: 30 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.5, delay: index * 0.1 }}
 							>
 								<div className="flex items-center gap-3 mb-4">
 									<div className="text-blue-600">{section.icon}</div>
@@ -244,7 +257,7 @@ export default function LegalPage() {
 									</h3>
 								</div>
 								{section.content}
-							</motion.div>
+							</div>
 						))}
 					</div>
 				</div>
@@ -252,28 +265,20 @@ export default function LegalPage() {
 
 			{/* Legal Content Section */}
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 lg:mt-24">
-				<motion.h2
-					className="text-3xl font-bold mb-12 text-center text-neutral-700"
-					initial={{ opacity: 0, y: -30 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5 }}
-				>
+				<h2 className="text-3xl font-bold mb-12 text-center text-neutral-700">
 					Dispositions légales
-				</motion.h2>
+				</h2>
 				<div className="max-w-4xl mx-auto space-y-12">
 					{legalSections.map((section, index) => (
-						<motion.div
+						<div
 							key={index}
 							className="border-l-4 border-blue-600 pl-6"
-							initial={{ opacity: 0, x: -30 }}
-							whileInView={{ opacity: 1, x: 0 }}
-							transition={{ duration: 0.5, delay: index * 0.1 }}
 						>
 							<h3 className="text-2xl font-semibold mb-4 text-zinc-700">
 								{section.title}
 							</h3>
 							{section.content}
-						</motion.div>
+						</div>
 					))}
 				</div>
 			</div>
@@ -281,29 +286,14 @@ export default function LegalPage() {
 			{/* Contact CTA Section */}
 			<div className="bg-zinc-100 mt-24 py-24">
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-					<motion.h3
-						className="text-3xl font-bold mb-8 text-neutral-700"
-						initial={{ opacity: 0, y: -30 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5 }}
-					>
+					<h3 className="text-3xl font-bold mb-8 text-neutral-700">
 						Des questions ?
-					</motion.h3>
-					<motion.p
-						className="text-base text-zinc-500 max-w-2xl mb-12"
-						initial={{ opacity: 0, y: -20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5, delay: 0.2 }}
-					>
+					</h3>
+					<p className="text-base text-zinc-500 max-w-2xl mb-12">
 						Si vous avez des questions concernant ces mentions légales ou notre
 						site web, n'hésitez pas à nous contacter.
-					</motion.p>
-					<motion.div
-						className="flex flex-col sm:flex-row gap-4"
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5, delay: 0.4 }}
-					>
+					</p>
+					<div className="flex flex-col sm:flex-row gap-4">
 						<Link
 							href="/#contact"
 							className="inline-flex items-center justify-center px-8 py-4 bg-zinc-700 text-white rounded-lg hover:bg-zinc-800 transition-colors duration-200"
@@ -316,7 +306,7 @@ export default function LegalPage() {
 						>
 							Politique de confidentialité
 						</Link>
-					</motion.div>
+					</div>
 				</div>
 			</div>
 		</div>

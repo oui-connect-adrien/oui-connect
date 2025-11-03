@@ -80,7 +80,7 @@ export function Contact() {
 										<Tooltip>
 											<TooltipTrigger asChild>
 												<Link
-													href="mailto:contact@oui-connect.fr"
+													href="mailto:info@oui-connect.fr"
 													itemProp="email"
 													className="text-sm text-muted-foreground hover:text-primary transition-colors block truncate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
 													aria-label="Envoyer un email à Oui-Connect"
@@ -177,7 +177,7 @@ export function Contact() {
 						</p>
 						<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
 							<Button asChild size="lg" className="w-full sm:w-auto">
-								<Link href="mailto:contact@oui-connect.fr">
+								<Link href="mailto:info@oui-connect.fr">
 									Nous écrire directement
 								</Link>
 							</Button>

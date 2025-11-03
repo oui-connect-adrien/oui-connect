@@ -230,16 +230,16 @@ export function Footer() {
 									<Tooltip>
 										<TooltipTrigger asChild>
 											<a
-												href="mailto:contact@oui-connect.fr"
+												href="mailto:info@oui-connect.fr"
 												itemProp="email"
 												className="text-sm text-muted-foreground hover:text-foreground transition-colors block truncate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
 												aria-label="Envoyer un email à Oui-Connect"
 											>
-												contact@oui-connect.fr
+												info@oui-connect.fr
 											</a>
 										</TooltipTrigger>
 										<TooltipContent role="tooltip">
-											<p>contact@oui-connect.fr</p>
+											<p>info@oui-connect.fr</p>
 										</TooltipContent>
 									</Tooltip>
 								</div>
