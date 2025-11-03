@@ -224,7 +224,7 @@ export function Projects({
 
 				{/* Informations supplémentaires cachées pour le SEO */}
 				<div className="sr-only">
-					<span itemProp="numberOfItems">{projects.length}</span>
+					<span itemProp="numberOfItems">{displayProjects.length}</span>
 					<span itemProp="itemListOrder">
 						https://schema.org/ItemListOrderAscending
 					</span>
