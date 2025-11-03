@@ -15,7 +15,8 @@
       "Bash(pnpm add:*)",
       "Bash(cat:*)",
       "Bash(wc:*)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(head:*)"
     ],
     "deny": [],
     "ask": []
