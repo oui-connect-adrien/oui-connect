@@ -160,9 +160,6 @@ export function Projects({
 											className="object-cover"
 											sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 											priority={index < 3}
-										onError={(e) => {
-											e.currentTarget.src = '/placeholder-project.jpg';
-										}}
 										/>
 									</div>
 									<CardContent className="p-6">
