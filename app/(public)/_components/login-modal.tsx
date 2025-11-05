@@ -1,4 +1,4 @@
-import { Button } from "@/shared/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
 	Dialog,
 	DialogContent,
@@ -7,7 +7,7 @@ import {
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
-} from "@/shared/components/ui/dialog";
+} from "@/components/ui/dialog";
 import Image from "next/image";
 import Link from "next/link";
 

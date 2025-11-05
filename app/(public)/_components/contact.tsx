@@ -1,10 +1,10 @@
-import { Reveal } from "@/shared/components/animations";
-import { Button } from "@/shared/components/ui/button";
+import { Reveal } from "@/components/animations";
+import { Button } from "@/components/ui/button";
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
-} from "@/shared/components/ui/tooltip";
+} from "@/components/ui/tooltip";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import { ContactFormWrapper } from "./contact-form-wrapper";
@@ -33,7 +33,7 @@ export function Contact() {
 				<div className="text-left mb-12 md:mb-16">
 					<div className="flex flex-col sm:flex-row sm:items-start sm:gap-6 mb-8">
 						<div className="flex-1">
-							<Reveal threshold={0.2} delay={0} duration={0.4}>
+							<Reveal amount={0.2} delay={0} duration={0.4}>
 								<h2
 									id="contact-title"
 									className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6"
@@ -41,7 +41,7 @@ export function Contact() {
 									Contactez-nous
 								</h2>
 							</Reveal>
-							<Reveal threshold={0.2} delay={0.1} duration={0.4}>
+							<Reveal amount={0.2} delay={0.1} duration={0.4}>
 								<p
 									id="contact-description"
 									className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-4"
@@ -57,7 +57,7 @@ export function Contact() {
 
 				{/* Informations de contact */}
 				<div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-16 md:mb-20">
-					<Reveal threshold={0.2} delay={0} duration={0.5}>
+					<Reveal amount={0.2} delay={0} duration={0.5}>
 						<div className="bg-background/80 p-8 rounded-xl border border-border/50">
 							<h3 className="text-2xl font-semibold text-foreground mb-6">
 								Nos coordonnées
@@ -154,7 +154,7 @@ export function Contact() {
 					</Reveal>
 
 					{/* Formulaire de contact */}
-					<Reveal threshold={0.2} delay={0.1} duration={0.5}>
+					<Reveal amount={0.2} delay={0.1} duration={0.5}>
 						<div className="bg-background/80 p-8 rounded-xl border border-border/50">
 							<h3 className="text-2xl font-semibold text-foreground mb-6">
 								Envoyez-nous un message
@@ -165,7 +165,7 @@ export function Contact() {
 				</div>
 
 				{/* Appel à l'action */}
-				<Reveal threshold={0.3} delay={0} duration={0.5}>
+				<Reveal amount={0.3} delay={0} duration={0.5}>
 					<div className="text-center bg-linear-to-r from-primary/10 to-primary/5 p-8 md:p-12 rounded-2xl border border-primary/20">
 						<h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
 							Prêt à démarrer votre projet ?

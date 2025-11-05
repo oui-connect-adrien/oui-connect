@@ -16,7 +16,12 @@
       "Bash(cat:*)",
       "Bash(wc:*)",
       "Read(//tmp/**)",
-      "Bash(head:*)"
+      "Bash(head:*)",
+      "Bash(tree:*)",
+      "Bash(mkdir:*)",
+      "Bash(find:*)",
+      "Bash(awk:*)",
+      "Bash(grep:*)"
     ],
     "deny": [],
     "ask": []

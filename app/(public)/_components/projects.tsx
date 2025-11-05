@@ -1,5 +1,5 @@
-import { Reveal, SlideIn } from "@/shared/components/animations";
-import { Card, CardContent } from "@/shared/components/ui/card";
+import { Reveal, Slide } from "@/components/animations";
+import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -109,7 +109,7 @@ export function Projects({
 				<div className="text-left mb-12 md:mb-16">
 					<div className="flex flex-col sm:flex-row sm:items-start sm:gap-6 mb-8">
 						<div className="flex-1">
-							<Reveal threshold={0.2} delay={0} duration={0.4}>
+							<Reveal amount={0.2} delay={0} duration={0.4}>
 								<h2
 									id="solutions-title"
 									className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6"
@@ -117,7 +117,7 @@ export function Projects({
 									{title}
 								</h2>
 							</Reveal>
-							<SlideIn direction="up" delay={0.1} duration={0.4}>
+							<Slide direction="up" delay={0.1} duration={0.4}>
 								<p
 									id="solutions-description"
 									className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-4"
@@ -132,7 +132,7 @@ export function Projects({
 									</Link>
 									, nous vous accompagnons de A à Z.
 								</p>
-							</SlideIn>
+							</Slide>
 						</div>
 					</div>
 				</div>
@@ -142,7 +142,7 @@ export function Projects({
 					{displayProjects.map((project, index) => (
 						<Reveal
 							key={project.id}
-							threshold={0.2}
+							amount={0.2}
 							delay={index * 0.1}
 							duration={0.5}
 						>
@@ -181,7 +181,7 @@ export function Projects({
 
 				{/* Section complémentaire */}
 				<div className="mt-16 md:mt-20">
-					<Reveal threshold={0.3} delay={0} duration={0.5}>
+					<Reveal amount={0.3} delay={0} duration={0.5}>
 						<div className="text-center bg-linear-to-r from-primary/10 to-primary/5 p-8 md:p-12 rounded-2xl border border-primary/20">
 							<h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
 								Besoin d'une solution personnalisée ?

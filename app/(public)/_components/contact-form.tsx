@@ -1,11 +1,11 @@
 "use client";
 
-import { Button } from "@/shared/components/ui/button";
-import { Input } from "@/shared/components/ui/input";
-import { Label } from "@/shared/components/ui/label";
-import { Textarea } from "@/shared/components/ui/textarea";
-import { useContactForm } from "@/shared/hooks/use-contact-form";
-import { cn } from "@/shared/utils";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { useContactForm } from "@/hooks/use-contact-form";
+import { cn } from "@/utils";
 import { mergeForm, useForm, useTransform } from "@tanstack/react-form";
 import { toast } from "sonner";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
@@ -552,7 +552,7 @@ export function ContactForm() {
 					<p className="mt-1 text-xs">
 						Ce site est protégé par reCAPTCHA et les{" "}
 						<a
-							href="https://policies.google.com/privacy"
+							href="https://policies.google.com/legal/privacy"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="text-primary hover:underline"

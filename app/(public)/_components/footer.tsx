@@ -2,8 +2,8 @@ import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
-} from "@/shared/components/ui/tooltip";
-import { cn } from "@/shared/utils";
+} from "@/components/ui/tooltip";
+import { cn } from "@/utils";
 import { ArrowUp, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 
@@ -11,8 +11,8 @@ import { Heart, Lightbulb, Users, Zap } from "lucide-react";
 import projects from "./projects";
 
 export const legalLinks = [
-	{ label: "Mentions légales", href: "/legal" },
-	{ label: "Confidentialité", href: "/privacy" },
+	{ label: "Mentions légales", href: "/legal/terms" },
+	{ label: "Confidentialité", href: "/legal/privacy" },
 ];
 
 export const collaborationLinks = [
@@ -33,8 +33,8 @@ export const platformLinks = [
 ];
 
 export const companyLinks = [
-	{ label: "Qui sommes-nous ?", href: "/qui-sommes-nous" },
-	{ label: "Notre équipe", href: "/notre-equipe" },
+	{ label: "Qui sommes-nous ?", href: "/about" },
+	{ label: "Notre équipe", href: "/team" },
 	{ label: "Contact", href: "/#contact" },
 ];
 
@@ -276,7 +276,7 @@ export function Footer() {
 								aria-label="Liens légaux et navigation"
 							>
 								<Link
-									href="/plan-du-site"
+									href="/site-map"
 									className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
 								>
 									Plan du site

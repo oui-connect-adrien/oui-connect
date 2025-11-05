@@ -13,10 +13,10 @@ Allow: /projects/oui-energy
 Allow: /projects/oui-scan
 Allow: /projects/oui-diag
 Allow: /installation-instrumentation
-Allow: /notre-equipe
-Allow: /qui-sommes-nous
+Allow: /team
+Allow: /about
 Allow: /contact
-Allow: /plan-du-site
+Allow: /site-map
 
 # Plateformes externes liées (pour sitelinks)
 # Oui-Access : monitoring industriel - https://access.oui-connect.fr

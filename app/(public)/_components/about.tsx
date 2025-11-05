@@ -1,5 +1,5 @@
-import { Reveal, SlideIn } from "@/shared/components/animations";
-import { Button } from "@/shared/components/ui/button";
+import { Reveal, Slide } from "@/components/animations";
+import { Button } from "@/components/ui/button";
 import { Heart, Lightbulb, Users, Zap } from "lucide-react";
 import Link from "next/link";
 export const VALUES = [
@@ -36,7 +36,7 @@ export const VALUES = [
 export function About() {
 	return (
 		<section
-			id="qui-sommes-nous"
+			id="about"
 			className="py-12 md:py-16 lg:py-24 bg-linear-to-br from-background to-background/50"
 			aria-label="À propos de Oui-Connect, solutions web pour équipements industriels"
 			role="region"
@@ -57,7 +57,7 @@ export function About() {
 				<div className="text-left mb-12 md:mb-16">
 					<div className="flex flex-col sm:flex-row sm:items-start sm:gap-6 mb-8">
 						<div className="flex-1">
-							<Reveal threshold={0.2} delay={0} duration={0.4}>
+							<Reveal amount={0.2} delay={0} duration={0.4}>
 								<h2
 									id="about-title"
 									className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6"
@@ -65,7 +65,7 @@ export function About() {
 									Découvrez notre entreprise
 								</h2>
 							</Reveal>
-							<SlideIn direction="up" delay={0.1} duration={0.4}>
+							<Slide direction="up" delay={0.1} duration={0.4}>
 								<p
 									id="about-description"
 									className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-4"
@@ -73,14 +73,14 @@ export function About() {
 									Les dernières technologies du Web au service de vos
 									équipements et installations.
 								</p>
-							</SlideIn>
+							</Slide>
 						</div>
 					</div>
 				</div>
 
 				{/* Présentation en deux colonnes */}
 				<div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-16 md:mb-20">
-					<Reveal threshold={0.2} delay={0} duration={0.5}>
+					<Reveal amount={0.2} delay={0} duration={0.5}>
 						<div className="space-y-6">
 							<h3 className="text-2xl md:text-3xl font-semibold text-foreground">
 								Présentation de Oui-Connect
@@ -112,7 +112,7 @@ export function About() {
 						</div>
 					</Reveal>
 
-					<Reveal threshold={0.2} delay={0.1} duration={0.5}>
+					<Reveal amount={0.2} delay={0.1} duration={0.5}>
 						<div className="space-y-6">
 							<h3 className="text-2xl md:text-3xl font-semibold text-foreground">
 								Notre vision et notre mission
@@ -146,7 +146,7 @@ export function About() {
 
 				{/* Section Valeurs */}
 				<div className="mb-16 md:mb-20">
-					<SlideIn direction="up" delay={0} duration={0.4}>
+					<Slide direction="up" delay={0} duration={0.4}>
 						<div className="text-center mb-12">
 							<h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
 								Nos valeurs
@@ -155,13 +155,13 @@ export function About() {
 								Les principes qui guident notre action quotidienne
 							</p>
 						</div>
-					</SlideIn>
+					</Slide>
 
 					<div className="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 md:gap-8">
 						{VALUES.map((value, index) => (
 							<Reveal
 								key={value.id}
-								threshold={0.2}
+								amount={0.2}
 								delay={index * 0.1}
 								duration={0.5}
 							>
@@ -186,7 +186,7 @@ export function About() {
 				</div>
 
 				{/* Appel à l'action */}
-				<Reveal threshold={0.3} delay={0} duration={0.5}>
+				<Reveal amount={0.3} delay={0} duration={0.5}>
 					<div className="text-center bg-linear-to-r from-primary/10 to-primary/5 p-8 md:p-12 rounded-2xl border border-primary/20">
 						<h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
 							Prêt à découvrir nos solutions ?

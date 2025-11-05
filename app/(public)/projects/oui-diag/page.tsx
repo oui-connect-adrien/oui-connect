@@ -1,6 +1,6 @@
-import { Reveal, SlideIn } from "@/shared/components/animations";
-import { Button } from "@/shared/components/ui/button";
-import { Card, CardContent } from "@/shared/components/ui/card";
+import { Reveal, Slide } from "@/components/animations";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -94,34 +94,34 @@ export default function OuiDiagPage() {
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="grid lg:grid-cols-2 gap-12 items-center">
 						<div className="space-y-8">
-							<SlideIn direction="up" delay={0} duration={0.4}>
+							<Slide direction="up" delay={0} duration={0.4}>
 								<h1
 									id="oui-diag-title"
 									className="text-4xl md:text-6xl font-bold text-foreground"
 								>
 									Oui-Diag
 								</h1>
-							</SlideIn>
-							<SlideIn direction="up" delay={0.1} duration={0.4}>
+							</Slide>
+							<Slide direction="up" delay={0.1} duration={0.4}>
 								<h2 className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
 									Réalisez une évaluation énergétique complète de vos
 									installations industrielles
 								</h2>
-							</SlideIn>
-							<SlideIn direction="up" delay={0.2} duration={0.4}>
+							</Slide>
+							<Slide direction="up" delay={0.2} duration={0.4}>
 								<p className="text-lg text-muted-foreground leading-relaxed">
 									Détectez les sources de gaspillage énergétique et identifiez
 									les actions correctives à mettre en place pour optimiser vos
 									performances.
 								</p>
-							</SlideIn>
-							<SlideIn direction="up" delay={0.3} duration={0.4}>
+							</Slide>
+							<Slide direction="up" delay={0.3} duration={0.4}>
 								<Button asChild size="lg">
 									<Link href="/#contact">Demander un devis</Link>
 								</Button>
-							</SlideIn>
+							</Slide>
 						</div>
-						<Reveal threshold={0.2} delay={0.2} duration={0.5}>
+						<Reveal amount={0.2} delay={0.2} duration={0.5}>
 							<div className="relative aspect-4/3 rounded-2xl overflow-hidden">
 								<Image
 									src="/evaluation-energetique.png"
@@ -140,24 +140,24 @@ export default function OuiDiagPage() {
 			<section className="py-16 md:py-24 bg-muted/30">
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
-						<SlideIn direction="up" delay={0} duration={0.4}>
+						<Slide direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
 								Notre processus d'évaluation
 							</h2>
-						</SlideIn>
-						<SlideIn direction="up" delay={0.1} duration={0.4}>
+						</Slide>
+						<Slide direction="up" delay={0.1} duration={0.4}>
 							<p className="text-lg text-muted-foreground max-w-3xl mx-auto">
 								Une approche méthodique en 4 étapes pour une évaluation
 								énergétique complète et des résultats concrets.
 							</p>
-						</SlideIn>
+						</Slide>
 					</div>
 
 					<div className="grid gap-8">
 						{processSteps.map((step, index) => (
 							<Reveal
 								key={index}
-								threshold={0.2}
+								amount={0.2}
 								delay={index * 0.1}
 								duration={0.5}
 							>
@@ -204,24 +204,24 @@ export default function OuiDiagPage() {
 			<section className="py-16 md:py-24">
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
-						<SlideIn direction="up" delay={0} duration={0.4}>
+						<Slide direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
 								Pourquoi choisir Oui-Diag ?
 							</h2>
-						</SlideIn>
-						<SlideIn direction="up" delay={0.1} duration={0.4}>
+						</Slide>
+						<Slide direction="up" delay={0.1} duration={0.4}>
 							<p className="text-lg text-muted-foreground max-w-3xl mx-auto">
 								À la suite de notre évaluation énergétique, vous serez en mesure
 								de :
 							</p>
-						</SlideIn>
+						</Slide>
 					</div>
 
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{benefits.map((benefit, index) => (
 							<Reveal
 								key={index}
-								threshold={0.2}
+								amount={0.2}
 								delay={index * 0.1}
 								duration={0.5}
 							>
@@ -238,7 +238,7 @@ export default function OuiDiagPage() {
 					</div>
 
 					<div className="text-center mt-12">
-						<Reveal threshold={0.3} delay={0} duration={0.5}>
+						<Reveal amount={0.3} delay={0} duration={0.5}>
 							<Button asChild size="lg">
 								<Link href="/#contact">Demander un devis</Link>
 							</Button>
@@ -250,7 +250,7 @@ export default function OuiDiagPage() {
 			{/* Section Garantie */}
 			<aside className="py-16 md:py-24 bg-primary/5">
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-					<Reveal threshold={0.2} delay={0} duration={0.5}>
+					<Reveal amount={0.2} delay={0} duration={0.5}>
 						<div className="text-center">
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
 								Notre garantie

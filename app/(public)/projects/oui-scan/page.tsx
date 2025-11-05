@@ -1,6 +1,6 @@
-import { Reveal, SlideIn } from "@/shared/components/animations";
-import { Button } from "@/shared/components/ui/button";
-import { Card, CardContent } from "@/shared/components/ui/card";
+import { Reveal, Slide } from "@/components/animations";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import {
 	Database,
 	QrCode,
@@ -113,34 +113,34 @@ function OuiScanPage() {
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="grid lg:grid-cols-2 gap-12 items-center">
 						<div className="space-y-8">
-							<SlideIn direction="up" delay={0} duration={0.4}>
+							<Slide direction="up" delay={0} duration={0.4}>
 								<h1
 									id="oui-scan-title"
 									className="text-4xl md:text-6xl font-bold text-foreground"
 								>
 									Oui-Scan
 								</h1>
-							</SlideIn>
-							<SlideIn direction="up" delay={0.1} duration={0.4}>
+							</Slide>
+							<Slide direction="up" delay={0.1} duration={0.4}>
 								<h2 className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
 									Suivez et gérez vos produits directement depuis votre
 									smartphone
 								</h2>
-							</SlideIn>
-							<SlideIn direction="up" delay={0.2} duration={0.4}>
+							</Slide>
+							<Slide direction="up" delay={0.2} duration={0.4}>
 								<p className="text-lg text-muted-foreground leading-relaxed">
 									Maîtrisez la gestion de vos produits en quelques clics.
 									Scannez le QR code de vos produits pour les ajouter à votre
 									inventaire.
 								</p>
-							</SlideIn>
-							<SlideIn direction="up" delay={0.3} duration={0.4}>
+							</Slide>
+							<Slide direction="up" delay={0.3} duration={0.4}>
 								<Button asChild size="lg">
 									<Link href="/#contact">Demander une démo</Link>
 								</Button>
-							</SlideIn>
+							</Slide>
 						</div>
-						<Reveal threshold={0.2} delay={0.2} duration={0.5}>
+						<Reveal amount={0.2} delay={0.2} duration={0.5}>
 							<div className="relative aspect-[9/16] max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl">
 								<video
 									autoPlay
@@ -167,24 +167,24 @@ function OuiScanPage() {
 			<section className="py-16 md:py-24 bg-muted/30">
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
-						<SlideIn direction="up" delay={0} duration={0.4}>
+						<Slide direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
 								Fonctionnalités principales
 							</h2>
-						</SlideIn>
-						<SlideIn direction="up" delay={0.1} duration={0.4}>
+						</Slide>
+						<Slide direction="up" delay={0.1} duration={0.4}>
 							<p className="text-lg text-muted-foreground max-w-3xl mx-auto">
 								Une solution complète pour optimiser la gestion de vos produits
 								et équipements industriels.
 							</p>
-						</SlideIn>
+						</Slide>
 					</div>
 
 					<div className="grid gap-8">
 						{features.map((feature, index) => (
 							<Reveal
 								key={index}
-								threshold={0.2}
+								amount={0.2}
 								delay={index * 0.1}
 								duration={0.5}
 							>
@@ -226,24 +226,24 @@ function OuiScanPage() {
 			<section className="py-16 md:py-24">
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
-						<SlideIn direction="up" delay={0} duration={0.4}>
+						<Slide direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
 								Les points forts d'Oui-Scan
 							</h2>
-						</SlideIn>
-						<SlideIn direction="up" delay={0.1} duration={0.4}>
+						</Slide>
+						<Slide direction="up" delay={0.1} duration={0.4}>
 							<p className="text-lg text-muted-foreground max-w-3xl mx-auto">
 								Parce qu'Oui-Scan est la solution la plus simple et la plus
 								efficace pour gérer vos produits.
 							</p>
-						</SlideIn>
+						</Slide>
 					</div>
 
 					<div className="grid md:grid-cols-3 gap-8">
 						{benefits.map((benefit, index) => (
 							<Reveal
 								key={index}
-								threshold={0.2}
+								amount={0.2}
 								delay={index * 0.1}
 								duration={0.5}
 							>
@@ -263,7 +263,7 @@ function OuiScanPage() {
 					</div>
 
 					<div className="text-center mt-12">
-						<Reveal threshold={0.3} delay={0} duration={0.5}>
+						<Reveal amount={0.3} delay={0} duration={0.5}>
 							<Button asChild size="lg">
 								<Link href="/#contact">Demander une démo</Link>
 							</Button>
@@ -275,7 +275,7 @@ function OuiScanPage() {
 			{/* Section Technologies */}
 			<section className="py-16 md:py-24 bg-primary/5">
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-					<Reveal threshold={0.2} delay={0} duration={0.5}>
+					<Reveal amount={0.2} delay={0} duration={0.5}>
 						<div className="text-center">
 							<div className="flex justify-center items-center gap-8 mb-8">
 								<QrCode className="w-16 h-16 text-primary" />

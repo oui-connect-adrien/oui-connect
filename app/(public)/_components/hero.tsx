@@ -1,5 +1,5 @@
-import { Reveal, SlideIn, Stagger } from "@/shared/components/animations";
-import { Button } from "@/shared/components/ui/button";
+import { Reveal, Slide, Stagger } from "@/components/animations";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export function Hero() {
@@ -22,14 +22,14 @@ export function Hero() {
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-20">
 				<div className="text-center space-y-8">
 					{/* Titre principal optimisé SEO - Animation immédiate */}
-					<SlideIn direction="up" delay={0} duration={0.4}>
+					<Slide direction="up" delay={0} duration={0.4}>
 						<h1
 							id="hero-title"
 							className="text-center text-4xl md:text-6xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight mb-8 mt-8 md:mt-12"
 						>
 							Digitalisez vos équipements industriels avec Oui-Connect
 						</h1>
-					</SlideIn>
+					</Slide>
 
 					{/* Description optimisée - Sans animation */}
 					<h2 className="max-w-3xl mx-auto text-lg md:text-xl text-zinc-500 text-center relative z-20 tracking-wide antialiased">
@@ -56,10 +56,10 @@ export function Hero() {
 					</div>
 
 					{/* Boutons CTA optimisés - Animation au scroll avec Stagger */}
-					<Reveal threshold={0.3} delay={0} duration={0.3}>
+					<Reveal amount={0.3} delay={0} duration={0.3}>
 						<Stagger
 							delay={0.1}
-							staggerDelay={0.1}
+							stagger={0.1}
 							className="flex flex-col gap-4 sm:flex-row sm:gap-6 justify-center relative z-20"
 						>
 							<Button

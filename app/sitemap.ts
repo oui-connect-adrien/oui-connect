@@ -43,13 +43,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			priority: 0.85,
 		},
 		{
-			url: `${baseUrl}/notre-equipe`,
+			url: `${baseUrl}/team`,
 			lastModified: new Date(),
 			changeFrequency: "monthly",
 			priority: 0.8,
 		},
 		{
-			url: `${baseUrl}/qui-sommes-nous`,
+			url: `${baseUrl}/about`,
 			lastModified: new Date(),
 			changeFrequency: "monthly",
 			priority: 0.8,
@@ -62,20 +62,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		},
 		// Plan du site pour faciliter l'indexation
 		{
-			url: `${baseUrl}/plan-du-site`,
+			url: `${baseUrl}/site-map`,
 			lastModified: new Date(),
 			changeFrequency: "monthly",
 			priority: 0.7,
 		},
 		// Pages légales
 		{
-			url: `${baseUrl}/legal`,
+			url: `${baseUrl}/legal/terms`,
 			lastModified: new Date(),
 			changeFrequency: "yearly",
 			priority: 0.3,
 		},
 		{
-			url: `${baseUrl}/privacy`,
+			url: `${baseUrl}/legal/privacy`,
 			lastModified: new Date(),
 			changeFrequency: "yearly",
 			priority: 0.3,

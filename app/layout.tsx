@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
 import { Footer } from "./(public)/_components/footer";
-import { Navbar } from "./(public)/_components/navbar";
+import { Navbar } from "./(public)/_components/navbar/navbar";
 import { RecaptchaProvider } from "./(public)/_components/recaptcha-provider";
 import "./globals.css";
 

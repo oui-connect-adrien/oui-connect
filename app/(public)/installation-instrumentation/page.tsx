@@ -1,6 +1,6 @@
-import { Reveal, SlideIn } from "@/shared/components/animations";
-import { Button } from "@/shared/components/ui/button";
-import { Card, CardContent } from "@/shared/components/ui/card";
+import { Reveal, Slide } from "@/components/animations";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import {
 	CheckCircle,
 	Gauge,
@@ -121,28 +121,28 @@ function InstallationInstrumentationPage() {
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="grid lg:grid-cols-2 gap-12 items-center">
 						<div className="space-y-8">
-							<SlideIn direction="up" delay={0} duration={0.4}>
+							<Slide direction="up" delay={0} duration={0.4}>
 								<h1
 									id="installation-title"
 									className="text-4xl md:text-6xl font-bold text-foreground"
 								>
 									Installation d'instrumentation
 								</h1>
-							</SlideIn>
-							<SlideIn direction="up" delay={0.1} duration={0.4}>
+							</Slide>
+							<Slide direction="up" delay={0.1} duration={0.4}>
 								<h2 className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
 									Un levier clé pour la performance énergétique et la
 									compétitivité
 								</h2>
-							</SlideIn>
-							<SlideIn direction="up" delay={0.2} duration={0.4}>
+							</Slide>
+							<Slide direction="up" delay={0.2} duration={0.4}>
 								<p className="text-lg text-muted-foreground leading-relaxed">
 									Dans un contexte où la transition énergétique et
 									l'optimisation des performances industrielles sont devenues
 									des priorités, l'instrumentation joue un rôle fondamental.
 								</p>
-							</SlideIn>
-							<SlideIn direction="up" delay={0.3} duration={0.4}>
+							</Slide>
+							<Slide direction="up" delay={0.3} duration={0.4}>
 								<Button asChild size="lg">
 									<Link
 										href="https://enva-consulting.fr/installation-d-instrumentation/"
@@ -151,9 +151,9 @@ function InstallationInstrumentationPage() {
 										Découvrir Enva Consulting
 									</Link>
 								</Button>
-							</SlideIn>
+							</Slide>
 						</div>
-						<Reveal threshold={0.2} delay={0.2} duration={0.5}>
+						<Reveal amount={0.2} delay={0.2} duration={0.5}>
 							<div className="relative aspect-4/3 rounded-2xl overflow-hidden">
 								<Image
 									src="/electric-wiring.jpg"
@@ -172,24 +172,24 @@ function InstallationInstrumentationPage() {
 			<section className="py-16 md:py-24 bg-muted/30">
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
-						<SlideIn direction="up" delay={0} duration={0.4}>
+						<Slide direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
 								Pourquoi investir dans l'instrumentation ?
 							</h2>
-						</SlideIn>
-						<SlideIn direction="up" delay={0.1} duration={0.4}>
+						</Slide>
+						<Slide direction="up" delay={0.1} duration={0.4}>
 							<p className="text-lg text-muted-foreground max-w-3xl mx-auto">
 								Ces avantages contribuent directement à la rentabilité et à la
 								compétitivité des sites industriels.
 							</p>
-						</SlideIn>
+						</Slide>
 					</div>
 
 					<div className="grid md:grid-cols-2 gap-8">
 						{advantages.map((advantage, index) => (
 							<Reveal
 								key={index}
-								threshold={0.2}
+								amount={0.2}
 								delay={index * 0.1}
 								duration={0.5}
 							>
@@ -214,26 +214,26 @@ function InstallationInstrumentationPage() {
 			<section className="py-16 md:py-24">
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
-						<SlideIn direction="up" delay={0} duration={0.4}>
+						<Slide direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
 								Une expertise complète au service des industriels
 							</h2>
-						</SlideIn>
-						<SlideIn direction="up" delay={0.1} duration={0.4}>
+						</Slide>
+						<Slide direction="up" delay={0.1} duration={0.4}>
 							<p className="text-lg text-muted-foreground max-w-3xl mx-auto">
 								ENVA Consulting ne se limite pas à la fourniture et à
 								l'installation d'instruments. Notre approche globale garantit un
 								accompagnement de bout en bout, assurant des résultats concrets
 								et mesurables.
 							</p>
-						</SlideIn>
+						</Slide>
 					</div>
 
 					<div className="grid md:grid-cols-2 gap-8">
 						{services.map((service, index) => (
 							<Reveal
 								key={index}
-								threshold={0.2}
+								amount={0.2}
 								delay={index * 0.1}
 								duration={0.5}
 							>
@@ -253,23 +253,23 @@ function InstallationInstrumentationPage() {
 					</div>
 
 					<div className="text-center mt-16">
-						<SlideIn direction="up" delay={0} duration={0.4}>
+						<Slide direction="up" delay={0} duration={0.4}>
 							<h3 className="text-2xl font-semibold text-foreground mb-4">
 								En savoir plus sur les solutions d'instrumentation
 							</h3>
-						</SlideIn>
-						<SlideIn direction="up" delay={0.1} duration={0.4}>
+						</Slide>
+						<Slide direction="up" delay={0.1} duration={0.4}>
 							<p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
 								Pour découvrir comment nous pouvons vous accompagner dans la
 								maîtrise de vos procédés et l'amélioration de votre efficacité
 								énergétique, contactez nos experts.
 							</p>
-						</SlideIn>
-						<SlideIn direction="up" delay={0.2} duration={0.4}>
+						</Slide>
+						<Slide direction="up" delay={0.2} duration={0.4}>
 							<Button asChild size="lg">
 								<Link href="/#contact">Demander un audit</Link>
 							</Button>
-						</SlideIn>
+						</Slide>
 					</div>
 				</div>
 			</section>
@@ -278,18 +278,18 @@ function InstallationInstrumentationPage() {
 			<section className="py-16 md:py-24 bg-muted/30">
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
-						<SlideIn direction="up" delay={0} duration={0.4}>
+						<Slide direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
 								Technologies et expertise instrumentale
 							</h2>
-						</SlideIn>
-						<SlideIn direction="up" delay={0.1} duration={0.4}>
+						</Slide>
+						<Slide direction="up" delay={0.1} duration={0.4}>
 							<p className="text-lg text-muted-foreground max-w-3xl mx-auto">
 								Notre partenaire ENVA Consulting met à votre disposition une
 								expertise approfondie dans l'installation d'instrumentation
 								industrielle moderne et performante.
 							</p>
-						</SlideIn>
+						</Slide>
 					</div>
 
 					<div className="grid md:grid-cols-2 gap-12 items-center">
@@ -379,18 +379,18 @@ function InstallationInstrumentationPage() {
 			<section className="py-16 md:py-24">
 				<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-16">
-						<SlideIn direction="up" delay={0} duration={0.4}>
+						<Slide direction="up" delay={0} duration={0.4}>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
 								Retour sur investissement d'une instrumentation performante
 							</h2>
-						</SlideIn>
-						<SlideIn direction="up" delay={0.1} duration={0.4}>
+						</Slide>
+						<Slide direction="up" delay={0.1} duration={0.4}>
 							<p className="text-lg text-muted-foreground max-w-3xl mx-auto">
 								L'installation d'une instrumentation moderne génère des
 								bénéfices mesurables et un retour sur investissement rapide pour
 								votre industrie.
 							</p>
-						</SlideIn>
+						</Slide>
 					</div>
 
 					<div className="grid md:grid-cols-3 gap-8">
