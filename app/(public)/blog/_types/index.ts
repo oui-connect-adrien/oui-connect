@@ -8,6 +8,8 @@ export interface BlogPostMetadata {
 	author: string;
 	description: string;
 	slug: string;
+	coverImage?: string;
+	tags?: string[];
 }
 
 export interface BlogMetadata {
@@ -15,6 +17,8 @@ export interface BlogMetadata {
 	date: string;
 	author: string;
 	description: string;
+	coverImage?: string;
+	tags?: string[];
 }
 
 export interface BlogPostProps {

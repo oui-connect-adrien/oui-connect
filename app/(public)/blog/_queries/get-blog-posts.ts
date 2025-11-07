@@ -49,6 +49,8 @@ export async function getBlogPosts(): Promise<BlogPostMetadata[]> {
 					author: metadata.author,
 					description: metadata.description || "",
 					slug,
+					coverImage: metadata.coverImage,
+					tags: metadata.tags || [],
 				};
 			} catch (error) {
 				console.error(`Error loading metadata for ${slug}:`, error);
@@ -58,9 +60,7 @@ export async function getBlogPosts(): Promise<BlogPostMetadata[]> {
 	);
 
 	// Filtrer les articles null et trier par date décroissante
-	const validPosts = posts.filter(
-		(post): post is BlogPostMetadata => post !== null
-	);
+	const validPosts = posts.filter((post) => post !== null) as BlogPostMetadata[];
 
 	return validPosts.sort((a, b) => {
 		const dateA = new Date(a.date);
