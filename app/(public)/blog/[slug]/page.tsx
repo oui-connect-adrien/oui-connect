@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import fs from 'fs';
 import path from 'path';
 import type { Metadata } from 'next';
+import { isValidSlug, formatDate } from '@/lib/blog';
 
 interface BlogPostProps {
 	params: Promise<{
@@ -22,13 +23,50 @@ export async function generateMetadata({
 }: BlogPostProps): Promise<Metadata> {
 	const { slug } = await params;
 
-	try {
-		const { metadata } = await import(`@/app/(public)/blog/_content/${slug}.mdx`);
+	// Validation du slug
+	if (!isValidSlug(slug)) {
 		return {
-			title: `${metadata.title} - OuiConnect Blog`,
-			description: metadata.description,
+			title: 'Article non trouvé',
 		};
-	} catch {
+	}
+
+	try {
+		const { metadata } = (await import(
+			`@/app/(public)/blog/_content/${slug}.mdx`
+		)) as { metadata: BlogMetadata };
+
+		// Validation de la structure des métadonnées
+		if (
+			!metadata ||
+			!metadata.title ||
+			!metadata.date ||
+			!metadata.description
+		) {
+			console.error(`Invalid metadata structure for slug: ${slug}`);
+			return {
+				title: 'Article non trouvé',
+			};
+		}
+
+		return {
+			title: `${metadata.title} | OuiConnect Blog`,
+			description: metadata.description,
+			openGraph: {
+				title: metadata.title,
+				description: metadata.description,
+				type: 'article',
+				publishedTime: metadata.date,
+				authors: [metadata.author],
+				url: `${process.env.WEBSITE_URL}/blog/${slug}`,
+			},
+			twitter: {
+				card: 'summary_large_image',
+				title: metadata.title,
+				description: metadata.description,
+			},
+		};
+	} catch (error) {
+		console.error(`Error generating metadata for slug "${slug}":`, error);
 		return {
 			title: 'Article non trouvé',
 		};
@@ -38,42 +76,135 @@ export async function generateMetadata({
 export default async function BlogPost({ params }: BlogPostProps) {
 	const { slug } = await params;
 
+	// Validation du slug - sécurité contre path traversal
+	if (!isValidSlug(slug)) {
+		console.warn(`Invalid slug attempted: ${slug}`);
+		notFound();
+	}
+
 	try {
-		const Post = (await import(`@/app/(public)/blog/_content/${slug}.mdx`)).default;
-		const { metadata } = (await import(`@/app/(public)/blog/_content/${slug}.mdx`)) as {
-			metadata: BlogMetadata;
+		// Import unique du module MDX
+		const mdxModule = await import(
+			`@/app/(public)/blog/_content/${slug}.mdx`
+		);
+		const Post = mdxModule.default;
+		const { metadata } = mdxModule as { metadata: BlogMetadata };
+
+		// Validation de la structure des métadonnées
+		if (
+			!metadata ||
+			!metadata.title ||
+			!metadata.date ||
+			!metadata.author ||
+			!metadata.description
+		) {
+			console.error(
+				`Invalid metadata structure for slug "${slug}":`,
+				metadata
+			);
+			throw new Error('Invalid metadata structure');
+		}
+
+		// Création du JSON-LD pour Schema.org (SEO)
+		const jsonLd = {
+			'@context': 'https://schema.org',
+			'@type': 'BlogPosting',
+			headline: metadata.title,
+			description: metadata.description,
+			datePublished: metadata.date,
+			dateModified: metadata.date,
+			author: {
+				'@type': 'Person',
+				name: metadata.author,
+			},
+			publisher: {
+				'@type': 'Organization',
+				name: 'OuiConnect',
+				logo: {
+					'@type': 'ImageObject',
+					url: `${process.env.WEBSITE_URL}/logo-oui-connect-700x700.jpg`,
+				},
+			},
+			mainEntityOfPage: {
+				'@type': 'WebPage',
+				'@id': `${process.env.WEBSITE_URL}/blog/${slug}`,
+			},
+			inLanguage: 'fr-FR',
 		};
 
 		return (
-			<article className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl py-16 pt-24 md:pt-32">
-				<div className="mb-8">
-					<h1 className="text-4xl font-bold mb-4">{metadata.title}</h1>
-					<div className="flex gap-4 text-muted-foreground">
-						<time dateTime={metadata.date}>{metadata.date}</time>
-						<span>•</span>
-						<span>{metadata.author}</span>
-					</div>
-				</div>
+			<>
+				{/* Schema.org JSON-LD pour le SEO */}
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+				/>
 
-				<div className="prose prose-lg dark:prose-invert max-w-none">
-					<Post />
-				</div>
-			</article>
+				<article className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl py-16 pt-24 md:pt-32">
+					<div className="mb-8">
+						<h1 className="text-4xl md:text-5xl font-bold mb-4">
+							{metadata.title}
+						</h1>
+						<div className="flex gap-4 text-muted-foreground">
+							<time dateTime={metadata.date}>{formatDate(metadata.date)}</time>
+							<span>•</span>
+							<span>{metadata.author}</span>
+						</div>
+					</div>
+
+					<div className="prose prose-lg dark:prose-invert max-w-none">
+						<Post />
+					</div>
+				</article>
+			</>
 		);
 	} catch (error) {
-		console.error('Error loading blog post:', error);
-		notFound();
+		// Distinguer les types d'erreurs
+		if (error instanceof Error) {
+			// Module non trouvé = 404
+			if (
+				error.message.includes('Cannot find module') ||
+				error.message.includes('Failed to load')
+			) {
+				console.warn(`Blog post not found: ${slug}`);
+				notFound();
+			}
+
+			// Autres erreurs = erreur serveur (log pour debugging)
+			console.error(`Error loading blog post "${slug}":`, {
+				message: error.message,
+				stack: error.stack,
+			});
+		}
+
+		// Relancer l'erreur pour que Next.js la gère avec error.tsx
+		throw error;
 	}
 }
 
-// Générer les pages statiques
+// Générer les pages statiques pour tous les articles
 export async function generateStaticParams() {
-	const postsDirectory = path.join(process.cwd(), 'app/(public)/blog/_content');
-	const filenames = fs.readdirSync(postsDirectory);
+	try {
+		const postsDirectory = path.join(
+			process.cwd(),
+			'app/(public)/blog/_content'
+		);
 
-	return filenames
-		.filter((filename) => filename.endsWith('.mdx'))
-		.map((filename) => ({
-			slug: filename.replace(/\.mdx$/, ''),
-		}));
+		// Vérifier que le dossier existe
+		if (!fs.existsSync(postsDirectory)) {
+			console.warn('Blog content directory does not exist');
+			return [];
+		}
+
+		const filenames = fs.readdirSync(postsDirectory);
+
+		return filenames
+			.filter((filename) => filename.endsWith('.mdx'))
+			.map((filename) => ({
+				slug: filename.replace(/\.mdx$/, ''),
+			}));
+	} catch (error) {
+		console.error('Error generating static params:', error);
+		return [];
+	}
 }

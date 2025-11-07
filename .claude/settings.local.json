@@ -24,7 +24,10 @@
       "Bash(grep:*)",
       "Bash(pnpm remove:*)",
       "Bash(rm:*)",
-      "mcp__ide__getDiagnostics"
+      "mcp__ide__getDiagnostics",
+      "Bash(npx tsc:*)",
+      "Bash(npx tsx:*)",
+      "Bash(node -e:*)"
     ],
     "deny": [],
     "ask": []
