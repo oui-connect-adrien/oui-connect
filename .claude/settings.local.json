@@ -30,7 +30,9 @@
       "Bash(node -e:*)",
       "Bash(ls:*)",
       "Bash(pnpm tsx:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(pkill:*)",
+      "Bash(pnpm dev)"
     ],
     "deny": [],
     "ask": []

@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 import { withBotId } from 'botid/next/config';
 import createMDX from '@next/mdx';
+import remarkGfm from 'remark-gfm';
 
 const nextConfig: NextConfig = {
 	// Cache Components is disabled for now due to compatibility issues with dynamic routes
@@ -44,6 +45,7 @@ const nextConfig: NextConfig = {
 
 const withMDX = createMDX({
 	// Ajoutez des plugins markdown ici si besoin
+	// Note: avec Turbopack, les plugins peuvent nécessiter une configuration spécifique
 });
 
 export default withBotId(withMDX(nextConfig));
