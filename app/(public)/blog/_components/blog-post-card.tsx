@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-import { Calendar, Tag } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Calendar, Tag } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { formatDate } from "../_lib";
 import type { BlogPostMetadata } from "../_types";
 
@@ -29,7 +29,7 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
 		<Link href={`/blog/${post.slug}`} className="group block">
 			<article className="relative overflow-hidden rounded-lg border bg-card transition-all duration-300 hover:shadow-xl hover:border-primary">
 				{/* Image de couverture avec overlay gradient */}
-				<div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5">
+				<div className="relative h-56 w-full overflow-hidden bg-linear-to-br from-primary/10 to-primary/5">
 					{post.coverImage ? (
 						<Image
 							src={post.coverImage}
@@ -55,7 +55,7 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
 					)}
 
 					{/* Gradient overlay */}
-					<div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
+					<div className="absolute inset-0 bg-linear-to-t from-card/80 via-transparent to-transparent" />
 				</div>
 
 				{/* Contenu */}

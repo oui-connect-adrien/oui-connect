@@ -17,7 +17,7 @@ export default function BlogPage() {
 		<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl py-16 pt-24 md:pt-32">
 			<h1 className="text-4xl font-bold mb-2">Blog</h1>
 			<p className="text-muted-foreground mb-12">
-				Découvrez nos derniers articles et guides sur OuiConnect
+				Découvrez nos derniers articles
 			</p>
 			<Suspense fallback={<BlogPostListSkeleton />}>
 				<BlogPostList postsPromise={postsPromise} />
