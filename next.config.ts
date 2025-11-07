@@ -1,9 +1,13 @@
 import type { NextConfig } from 'next';
 import { withBotId } from 'botid/next/config';
+import createMDX from '@next/mdx';
 
 const nextConfig: NextConfig = {
 	// Cache Components is disabled for now due to compatibility issues with dynamic routes
 	// cacheComponents: true,
+
+	// Support MDX
+	pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 
 	// Amélioration SEO - génération automatique du robots.txt
 	async rewrites() {
@@ -38,4 +42,8 @@ const nextConfig: NextConfig = {
 	},
 };
 
-export default withBotId(nextConfig);
+const withMDX = createMDX({
+	// Ajoutez des plugins markdown ici si besoin
+});
+
+export default withBotId(withMDX(nextConfig));
