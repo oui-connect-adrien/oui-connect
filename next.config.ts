@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import { withBotId } from 'botid/next/config';
 
 const nextConfig: NextConfig = {
 	// Cache Components is disabled for now due to compatibility issues with dynamic routes
@@ -37,4 +38,4 @@ const nextConfig: NextConfig = {
 	},
 };
 
-export default nextConfig;
+export default withBotId(nextConfig);
