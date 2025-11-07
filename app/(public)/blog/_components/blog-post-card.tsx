@@ -37,10 +37,12 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
 							fill
 							className="object-cover transition-transform duration-500 group-hover:scale-105"
 							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+							quality={75}
+							loading="lazy"
 						/>
 					) : (
 						// Placeholder avec icône si pas d'image
-						<div className="flex h-full w-full items-center justify-center">
+						<div className="flex h-full w-full items-center justify-center" aria-label="Aucune image disponible">
 							<Tag className="h-16 w-16 text-primary/20" />
 						</div>
 					)}

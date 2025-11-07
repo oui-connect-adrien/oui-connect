@@ -88,6 +88,14 @@ export const metadata: Metadata = {
 		languages: {
 			"fr-FR": process.env.WEBSITE_URL,
 		},
+		types: {
+			"application/rss+xml": [
+				{
+					url: `${process.env.WEBSITE_URL}/rss.xml`,
+					title: "OuiConnect Blog RSS Feed",
+				},
+			],
+		},
 	},
 	other: {
 		"geo.region": "FR-44",

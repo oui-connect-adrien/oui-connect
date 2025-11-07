@@ -72,6 +72,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
 							priority
 							className="object-cover"
 							sizes="100vw"
+							quality={90}
 						/>
 						{/* Gradient overlay pour améliorer la lisibilité */}
 						<div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />

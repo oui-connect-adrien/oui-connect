@@ -10,6 +10,32 @@ const nextConfig: NextConfig = {
 	// Support MDX
 	pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 
+	// Optimisation des images
+	images: {
+		// Formats d'image supportés (WebP par défaut, AVIF en option)
+		formats: ['image/webp'],
+
+		// Qualités autorisées (25, 50, 75, 90, 100)
+		qualities: [50, 75, 90, 100],
+
+		// Tailles d'écran pour générer les srcset
+		deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+
+		// Tailles pour les images avec sizes prop
+		imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+
+		// Cache TTL : 31 jours (pour réduire les coûts)
+		minimumCacheTTL: 2678400,
+
+		// Autoriser les images locales du dossier public
+		localPatterns: [
+			{
+				pathname: '/**',
+				search: '',
+			},
+		],
+	},
+
 	// Amélioration SEO - génération automatique du robots.txt
 	async rewrites() {
 		return [
