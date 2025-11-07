@@ -3,7 +3,8 @@
  * Vérifie que tous les composants sont correctement implémentés
  */
 
-import { getBlogPosts, isValidSlug, formatDate, calculateReadingTime } from '../lib/blog';
+import { getBlogPosts } from '../app/(public)/blog/_queries';
+import { isValidSlug, formatDate, calculateReadingTime } from '../app/(public)/blog/_lib';
 
 async function verifyPhase1() {
 	console.log('🔍 VÉRIFICATION PHASE 1 - BLOG NEXT.JS 16\n');

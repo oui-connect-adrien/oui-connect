@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getBlogPosts } from '@/lib/blog';
+import { getBlogPosts } from '@/app/(public)/blog/_queries';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const baseUrl = `${process.env.WEBSITE_URL}`;

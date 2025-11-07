@@ -1,76 +1,16 @@
 import { notFound } from 'next/navigation';
 import fs from 'fs';
 import path from 'path';
-import type { Metadata } from 'next';
-import { isValidSlug, formatDate } from '@/lib/blog';
-
-interface BlogPostProps {
-	params: Promise<{
-		slug: string;
-	}>;
-}
-
-interface BlogMetadata {
-	title: string;
-	date: string;
-	author: string;
-	description: string;
-}
+import { isValidSlug, formatDate } from '../_lib';
+import { getRelatedPosts } from '../_queries';
+import { BlogBreadcrumbs, RelatedPosts } from '../_components';
+import { generateBlogPostMetadata, generateBlogPostJsonLd } from '../_utils';
+import type { BlogPostProps, BlogMetadata } from '../_types';
 
 // Générer les métadonnées pour le SEO
-export async function generateMetadata({
-	params,
-}: BlogPostProps): Promise<Metadata> {
+export async function generateMetadata({ params }: BlogPostProps) {
 	const { slug } = await params;
-
-	// Validation du slug
-	if (!isValidSlug(slug)) {
-		return {
-			title: 'Article non trouvé',
-		};
-	}
-
-	try {
-		const { metadata } = (await import(
-			`@/app/(public)/blog/_content/${slug}.mdx`
-		)) as { metadata: BlogMetadata };
-
-		// Validation de la structure des métadonnées
-		if (
-			!metadata ||
-			!metadata.title ||
-			!metadata.date ||
-			!metadata.description
-		) {
-			console.error(`Invalid metadata structure for slug: ${slug}`);
-			return {
-				title: 'Article non trouvé',
-			};
-		}
-
-		return {
-			title: `${metadata.title} | OuiConnect Blog`,
-			description: metadata.description,
-			openGraph: {
-				title: metadata.title,
-				description: metadata.description,
-				type: 'article',
-				publishedTime: metadata.date,
-				authors: [metadata.author],
-				url: `${process.env.WEBSITE_URL}/blog/${slug}`,
-			},
-			twitter: {
-				card: 'summary_large_image',
-				title: metadata.title,
-				description: metadata.description,
-			},
-		};
-	} catch (error) {
-		console.error(`Error generating metadata for slug "${slug}":`, error);
-		return {
-			title: 'Article non trouvé',
-		};
-	}
+	return generateBlogPostMetadata(slug);
 }
 
 export default async function BlogPost({ params }: BlogPostProps) {
@@ -106,31 +46,10 @@ export default async function BlogPost({ params }: BlogPostProps) {
 		}
 
 		// Création du JSON-LD pour Schema.org (SEO)
-		const jsonLd = {
-			'@context': 'https://schema.org',
-			'@type': 'BlogPosting',
-			headline: metadata.title,
-			description: metadata.description,
-			datePublished: metadata.date,
-			dateModified: metadata.date,
-			author: {
-				'@type': 'Person',
-				name: metadata.author,
-			},
-			publisher: {
-				'@type': 'Organization',
-				name: 'OuiConnect',
-				logo: {
-					'@type': 'ImageObject',
-					url: `${process.env.WEBSITE_URL}/logo-oui-connect-700x700.jpg`,
-				},
-			},
-			mainEntityOfPage: {
-				'@type': 'WebPage',
-				'@id': `${process.env.WEBSITE_URL}/blog/${slug}`,
-			},
-			inLanguage: 'fr-FR',
-		};
+		const jsonLd = generateBlogPostJsonLd(metadata, slug);
+
+		// Récupérer les articles relatés
+		const relatedPosts = await getRelatedPosts(slug, 3);
 
 		return (
 			<>
@@ -140,22 +59,31 @@ export default async function BlogPost({ params }: BlogPostProps) {
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 				/>
 
-				<article className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl py-16 pt-24 md:pt-32">
-					<div className="mb-8">
-						<h1 className="text-4xl md:text-5xl font-bold mb-4">
-							{metadata.title}
-						</h1>
-						<div className="flex gap-4 text-muted-foreground">
-							<time dateTime={metadata.date}>{formatDate(metadata.date)}</time>
-							<span>•</span>
-							<span>{metadata.author}</span>
-						</div>
-					</div>
+				<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl py-16 pt-24 md:pt-32">
+					{/* Breadcrumbs */}
+					<BlogBreadcrumbs title={metadata.title} />
 
-					<div className="prose prose-lg dark:prose-invert max-w-none">
-						<Post />
-					</div>
-				</article>
+					{/* Article */}
+					<article>
+						<header className="mb-8">
+							<h1 className="text-4xl md:text-5xl font-bold mb-4">
+								{metadata.title}
+							</h1>
+							<div className="flex gap-4 text-muted-foreground">
+								<time dateTime={metadata.date}>{formatDate(metadata.date)}</time>
+								<span>•</span>
+								<span>{metadata.author}</span>
+							</div>
+						</header>
+
+						<div className="prose prose-lg dark:prose-invert max-w-none">
+							<Post />
+						</div>
+					</article>
+
+					{/* Articles relatés */}
+					<RelatedPosts posts={relatedPosts} />
+				</div>
 			</>
 		);
 	} catch (error) {

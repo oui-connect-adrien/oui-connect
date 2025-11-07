@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getBlogPosts, formatDate } from '@/lib/blog';
+import { getBlogPosts } from './_queries';
+import { formatDate } from './_lib';
 
 export const metadata: Metadata = {
 	title: 'Blog - OuiConnect',
