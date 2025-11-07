@@ -493,27 +493,6 @@ export function ContactForm() {
 						</span>
 						<span className="ml-1">Champs obligatoires</span>
 					</p>
-					<p className="mt-1 text-xs">
-						Ce site est protégé par reCAPTCHA et les{" "}
-						<a
-							href="https://policies.google.com/legal/privacy"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="text-primary hover:underline"
-						>
-							Règles de confidentialité
-						</a>{" "}
-						et{" "}
-						<a
-							href="https://policies.google.com/terms"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="text-primary hover:underline"
-						>
-							Conditions d'utilisation
-						</a>{" "}
-						de Google s'appliquent.
-					</p>
 				</div>
 
 				{/* Erreurs globales */}

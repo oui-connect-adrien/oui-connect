@@ -41,5 +41,4 @@ export const contactSchema = z.object({
 		.string()
 		.min(10, "Le message doit contenir au moins 10 caractères")
 		.max(1000, "Le message ne peut pas dépasser 1000 caractères"),
-	recaptchaToken: z.string().min(1, "La vérification CAPTCHA est requise"),
 });
