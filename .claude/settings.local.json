@@ -23,7 +23,8 @@
       "Bash(awk:*)",
       "Bash(grep:*)",
       "Bash(pnpm remove:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "mcp__ide__getDiagnostics"
     ],
     "deny": [],
     "ask": []

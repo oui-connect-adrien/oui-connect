@@ -1,4 +1,4 @@
-import { ContactFormWrapper } from "@/app/(public)/_components/contact-form-wrapper";
+import { ContactForm } from "@/app/(public)/_components/contact-form";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -51,7 +51,7 @@ export default function ContactPage() {
 					N'hésitez pas à nous contacter via le formulaire ci-dessous.
 				</h2>
 				<div className="w-full lg:max-w-3xl mt-10">
-					<ContactFormWrapper />
+					<ContactForm />
 				</div>
 			</div>
 		</div>
