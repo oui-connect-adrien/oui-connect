@@ -6,9 +6,9 @@ import Link from "next/link";
 
 export default function BlogPage() {
 	return (
-		<div className="relative border py-4 antialiased overflow-hidden">
+		<div className="relative py-4 antialiased overflow-hidden">
 			{/* Hero Section */}
-			<div className="z-10 relative lg:container pt-24 px-4 flex flex-col items-center min-h-[60vh] justify-center">
+			<div className="z-10 relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl pt-24 flex flex-col items-center min-h-[60vh] justify-center">
 				<Reveal amount={0.2} delay={0}>
 					<div className="flex items-center justify-center mb-8">
 						<div className="p-4 bg-primary/10 rounded-full">
@@ -60,7 +60,7 @@ export default function BlogPage() {
 
 			{/* CTA Section */}
 			<div className="bg-zinc-100 mt-24 py-24">
-				<div className="z-10 relative lg:container px-4 flex flex-col items-center">
+				<div className="z-10 relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl flex flex-col items-center">
 					<Reveal amount={0.2} delay={0}>
 						<h3 className="text-3xl font-bold mb-8 text-center text-neutral-700 max-w-6xl mx-auto">
 							Découvrez nos solutions dès maintenant
