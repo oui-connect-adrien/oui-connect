@@ -8,13 +8,8 @@ import { useContactForm } from "@/hooks/use-contact-form";
 import { cn } from "@/utils";
 import { mergeForm, useForm, useTransform } from "@tanstack/react-form";
 import { toast } from "sonner";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { useCallback, useTransition } from "react";
 
 export function ContactForm() {
-	const { executeRecaptcha } = useGoogleReCaptcha();
-	const [isPendingTransition, startTransition] = useTransition();
-
 	const { state, dispatch, isPending } = useContactForm({
 		onSuccess: (message) => {
 			toast.success(message);
@@ -31,7 +26,6 @@ export function ContactForm() {
 			companyName: "",
 			subject: "",
 			message: "",
-			recaptchaToken: "",
 		},
 		transform: useTransform(
 			(baseForm) => mergeForm(baseForm, (state as unknown) ?? {}),
@@ -39,53 +33,10 @@ export function ContactForm() {
 		),
 	});
 
-	const handleSubmit = useCallback(
-		async (e: React.FormEvent) => {
-			e.preventDefault();
-
-			if (!executeRecaptcha) {
-				toast.error("reCAPTCHA n'est pas encore chargé. Veuillez patienter.");
-				return;
-			}
-
-			try {
-				// Execute reCAPTCHA
-				console.log("Executing reCAPTCHA...");
-				const token = await executeRecaptcha("contact_form");
-				console.log("reCAPTCHA token received:", token ? "✓" : "✗");
-
-				// Update form with token
-				console.log("Setting reCAPTCHA token in form...");
-				form.setFieldValue("recaptchaToken", token);
-
-				// Submit form after a short delay to ensure token is set
-				console.log("Submitting form in 100ms...");
-				setTimeout(() => {
-					console.log("Triggering form submission...");
-					// Create a new form submission event
-					const formElement = e.target as HTMLFormElement;
-					const formData = new FormData(formElement);
-					formData.set("recaptchaToken", token);
-
-					// Use startTransition to properly handle the async action
-					startTransition(() => {
-						dispatch(formData);
-					});
-				}, 100);
-			} catch (error) {
-				console.error("reCAPTCHA error details:", error);
-				toast.error(
-					"Erreur lors de la vérification CAPTCHA. Veuillez réessayer."
-				);
-			}
-		},
-		[executeRecaptcha, form]
-	);
-
 	return (
 		<form
 			action={dispatch}
-			onSubmit={handleSubmit}
+			onSubmit={() => form.handleSubmit}
 			className="text-left space-y-6 w-full shadow-md p-6 rounded-lg bg-white"
 			aria-labelledby="contact-form-title"
 			noValidate
@@ -533,13 +484,6 @@ export function ContactForm() {
 				)}
 			</form.Field>
 
-			{/* Hidden field for reCAPTCHA token */}
-			<form.Field name="recaptchaToken">
-				{(field) => (
-					<input type="hidden" name={field.name} value={field.state.value} />
-				)}
-			</form.Field>
-
 			{/* Section des erreurs et bouton */}
 			<div className="space-y-4 border-t pt-6">
 				<div className="text-sm text-muted-foreground">
@@ -594,7 +538,7 @@ export function ContactForm() {
 					selector={(state) => [state.canSubmit, state.isSubmitting]}
 				>
 					{([canSubmit]) => {
-						const isFormPending = isPending || isPendingTransition;
+						const isFormPending = isPending;
 						return (
 							<Button
 								type="submit"

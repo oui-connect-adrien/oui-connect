@@ -4,7 +4,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
 import { Footer } from "./(public)/_components/footer";
 import { Navbar } from "./(public)/_components/navbar/navbar";
-import { RecaptchaProvider } from "./(public)/_components/recaptcha-provider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -111,12 +110,10 @@ export default function RootLayout({
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 				suppressHydrationWarning={true}
 			>
-				<RecaptchaProvider>
-					<Navbar />
-					<Toaster position="top-right" richColors />
-					{children}
-					<Footer />
-				</RecaptchaProvider>
+				<Navbar />
+				<Toaster position="top-right" richColors />
+				{children}
+				<Footer />
 				<Analytics />
 			</body>
 		</html>

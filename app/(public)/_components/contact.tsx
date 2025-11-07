@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
-import { ContactFormWrapper } from "./contact-form-wrapper";
+import { ContactForm } from "./contact-form";
 
 export function Contact() {
 	return (
@@ -159,7 +159,7 @@ export function Contact() {
 							<h3 className="text-2xl font-semibold text-foreground mb-6">
 								Envoyez-nous un message
 							</h3>
-							<ContactFormWrapper />
+							<ContactForm />
 						</div>
 					</Reveal>
 				</div>
