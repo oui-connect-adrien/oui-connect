@@ -74,8 +74,8 @@ export default async function BlogPost({ params }: BlogPostProps) {
 							sizes="100vw"
 							quality={90}
 						/>
-						{/* Gradient overlay pour améliorer la lisibilité */}
-						<div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+						{/* Gradient overlay renforcé pour meilleur contraste */}
+						<div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/20" />
 
 						{/* Contenu du hero */}
 						<div className="absolute bottom-0 left-0 right-0">

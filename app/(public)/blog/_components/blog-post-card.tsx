@@ -42,7 +42,10 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
 						/>
 					) : (
 						// Placeholder avec icône si pas d'image
-						<div className="flex h-full w-full items-center justify-center" aria-label="Aucune image disponible">
+						<div
+							className="flex h-full w-full items-center justify-center"
+							aria-label="Aucune image disponible"
+						>
 							<Tag className="h-16 w-16 text-primary/20" />
 						</div>
 					)}
@@ -56,8 +59,8 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
 						</div>
 					)}
 
-					{/* Gradient overlay */}
-					<div className="absolute inset-0 bg-linear-to-t from-card/80 via-transparent to-transparent" />
+					{/* Gradient overlay pour meilleur contraste */}
+					<div className="absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent" />
 				</div>
 
 				{/* Contenu */}
