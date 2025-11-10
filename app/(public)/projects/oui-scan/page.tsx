@@ -149,7 +149,7 @@ function OuiScanPage() {
 									className="w-full h-full object-cover"
 									poster="/oui-scan-video.png"
 								>
-									<source src="/oui-scan.mov" type="video/mp4" />
+									<source src="/oui-scanV2.mp4" type="video/mp4" />
 									<Image
 										src="/oui-scan-video.png"
 										alt="Oui-Scan mobile app"
