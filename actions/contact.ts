@@ -1,6 +1,5 @@
 "use server";
 
-import { checkBotId } from "botid/server";
 import { contactSchema } from "../schemas/contact-schema";
 import { ActionState, ActionStatus } from "../types/server-action";
 
@@ -9,15 +8,6 @@ export const contact = async (
 	formData: FormData
 ): Promise<ActionState> => {
 	try {
-		// Vérification BotID pour bloquer les bots automatisés
-		const verification = await checkBotId();
-
-		if (verification.isBot) {
-			return {
-				status: ActionStatus.ERROR,
-				message: "Accès refusé. Veuillez réessayer.",
-			};
-		}
 		const rawData = {
 			firstname: formData.get("firstname") as string,
 			lastname: formData.get("lastname") as string,

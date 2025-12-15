@@ -1,5 +1,4 @@
 import type { NextConfig } from 'next';
-import { withBotId } from 'botid/next/config';
 import createMDX from '@next/mdx';
 import remarkGfm from 'remark-gfm';
 
@@ -74,4 +73,4 @@ const withMDX = createMDX({
 	// Note: avec Turbopack, les plugins peuvent nécessiter une configuration spécifique
 });
 
-export default withBotId(withMDX(nextConfig));
+export default withMDX(nextConfig);
