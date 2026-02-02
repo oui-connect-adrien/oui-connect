@@ -26,12 +26,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			priority: 0.95,
 		},
 		{
-			url: `${baseUrl}/projects/oui-scan`,
-			lastModified: new Date(),
-			changeFrequency: 'weekly',
-			priority: 0.95,
-		},
-		{
 			url: `${baseUrl}/projects/oui-diag`,
 			lastModified: new Date(),
 			changeFrequency: 'weekly',

@@ -60,7 +60,7 @@ export default function PlanDuSitePage() {
 				},
 				{
 					title: "Oui-Scan",
-					href: "/projects/oui-scan",
+					href: "https://oui-scan.com",
 					description: "Gestion par QR codes et traçabilité",
 				},
 				{

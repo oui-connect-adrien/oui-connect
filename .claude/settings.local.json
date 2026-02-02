@@ -32,7 +32,8 @@
       "Bash(pnpm tsx:*)",
       "Bash(curl:*)",
       "Bash(pkill:*)",
-      "Bash(pnpm dev)"
+      "Bash(pnpm dev)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []

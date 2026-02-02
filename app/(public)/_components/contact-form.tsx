@@ -6,11 +6,11 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useContactForm } from "@/hooks/use-contact-form";
 import { cn } from "@/utils";
-import { mergeForm, useForm, useTransform } from "@tanstack/react-form";
+import { useForm } from "@tanstack/react-form";
 import { toast } from "sonner";
 
 export function ContactForm() {
-	const { state, dispatch, isPending } = useContactForm({
+	const { dispatch, isPending } = useContactForm({
 		onSuccess: (message) => {
 			toast.success(message);
 			form.reset();
@@ -27,10 +27,6 @@ export function ContactForm() {
 			subject: "",
 			message: "",
 		},
-		transform: useTransform(
-			(baseForm) => mergeForm(baseForm, (state as unknown) ?? {}),
-			[state]
-		),
 	});
 
 	return (

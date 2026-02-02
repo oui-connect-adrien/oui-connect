@@ -23,7 +23,7 @@ export const projects = [
 		name: "Oui-Scan",
 		imageUrl: "/oui-scan.jpg",
 		description: "Identifiez, localisez et gérez vos équipements en un scan",
-		link: "/projects/oui-scan",
+		link: "https://oui-scan.com",
 	},
 	{
 		id: "oui-energy",
@@ -150,6 +150,10 @@ export function Projects({
 								href={project.link}
 								className="block group cursor-pointer tap-highlight-transparent active:scale-[0.98] transition-transform"
 								aria-label={`Découvrir ${project.name} - ${project.description}`}
+								{...(project.link.startsWith("http") && {
+									target: "_blank",
+									rel: "noopener noreferrer",
+								})}
 							>
 								<Card className="h-full hover:shadow-lg hover:-translate-y-1 focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 transition-all duration-300 pt-0">
 									<div className="relative w-full aspect-4/3 overflow-hidden rounded-t-xl">
