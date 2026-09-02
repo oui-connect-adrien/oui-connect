@@ -62,7 +62,7 @@ INFORMATIONS TECHNIQUES
 		`.trim();
 
 		// Liste des destinataires
-		const recipients = ["b.warion@oui-connect.fr", "g.capitaine@cometi.fr"];
+		const recipients = ["b.warion@oui-connect.fr"];
 
 		try {
 			// Envoi des emails à tous les destinataires via l'API externe
